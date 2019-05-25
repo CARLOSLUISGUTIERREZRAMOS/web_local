@@ -1,0 +1,648 @@
+[2019-05-09 15:14:40.000000 191.98.147.210 - 1781173 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T15:14:40
+    [CurrencyCode] => USD
+    [Amount] => 95.13
+    [MerchantSalesID] => SVWVNC - 1781173
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 50C385A567B1AAF13E8C059E6635D5DB4DCE81A6EC36BB511B5B51E9D71C0E89
+)
+
+[2019-05-09 15:14:40.000000 191.98.147.210 - 1781173 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781173
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T20:14:21</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=5b22dd6d-e366-4241-94b5-c932a860aab9</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">562F787E909BCEB53B4B4B626D558C80C6F116A3DA0C0C1353DF3ACFBBF4A7DA</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 15:16:09.000000 191.98.147.210 - 1781174 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T15:16:09
+    [CurrencyCode] => USD
+    [Amount] => 99.85
+    [MerchantSalesID] => PYPILP - 1781174
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 43C8AA25BEA3AC54AD0639362D449C1861BA14713FADBB27E4E840D329CBC760
+)
+
+[2019-05-09 15:16:09.000000 191.98.147.210 - 1781174 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781174
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T20:15:49</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=1f1f5db3-247d-42f2-abc3-fbb744729e45</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">BB59215AB5E7F9DA77CF2FD75F08024A73CA79449DBE72C5CD4B00D6B55118E0</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 15:20:12.000000 191.98.147.210 - 1781175 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T15:20:12
+    [CurrencyCode] => USD
+    [Amount] => 99.85
+    [MerchantSalesID] => YOVRIS - 1781175
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 6A025950765E570F4514F7C42BA2C75AA4DC29E838908C497635BAE51F8E2510
+)
+
+[2019-05-09 15:20:12.000000 191.98.147.210 - 1781175 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781175
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T20:19:52</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=924b330c-b3f4-4a8e-868b-ef780dc5ba19</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">5D61088C081767922FA43A8CBBEB3FF4045B98F306D7A15CC1567BAD3289E253</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 15:25:26.000000 191.98.147.210 - 1781177 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T15:25:25
+    [CurrencyCode] => USD
+    [Amount] => 161.21
+    [MerchantSalesID] => GOHVAL - 1781177
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 4C34AFB54BF6F3B2B7F6D49AB53FE2904FCA5A73CB04AA3B9DD68BB81FBEB24E
+)
+
+[2019-05-09 15:25:26.000000 191.98.147.210 - 1781177 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781177
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T20:25:06</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=00212564-8122-4ac1-8d80-54ade1f7e84f</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">99B5B3C6BB0A2C33869B3980CF2ECBA38A3F7FA1FF02C2170AE6382C0B08453F</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 15:59:11.000000 191.98.147.210 - 1781180 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T15:59:10
+    [CurrencyCode] => USD
+    [Amount] => 129.35
+    [MerchantSalesID] => SMMIND - 1781180
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 5DDEF6A2676814C7F766A7C20BE1F6E93925702C76F45AC5C24A32CF794C0693
+)
+
+[2019-05-09 15:59:11.000000 191.98.147.210 - 1781180 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781180
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T20:58:51</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=bf3b6dfb-e1df-4015-ad8a-6ffc2d09ff52</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">59D4C0059F47B2A8B641E7489A0110BC3BDEA7F3B3E3DCF8B1CD5E8BA89A197D</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 16:05:52.000000 191.98.147.210 - 1781181 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T16:05:52
+    [CurrencyCode] => USD
+    [Amount] => 536.45
+    [MerchantSalesID] => PYRHTK - 1781181
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 15DACBDC91CE21AD41C74CED36ABE728702A20048A1FBFB43C46DDDFC0B59CB1
+)
+
+[2019-05-09 16:05:52.000000 191.98.147.210 - 1781181 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781181
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T21:05:32</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=6ae11031-92d3-48d4-8678-967f62e70b09</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">7C42331684C3399EBB731FF6C9C93E830E3A7F1DE5B9B584F454EA94FA7383C5</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 16:10:33.000000 191.98.147.210 - 1781182 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T16:10:32
+    [CurrencyCode] => USD
+    [Amount] => 124.63
+    [MerchantSalesID] => HBTUGV - 1781182
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => CARLOS
+    [ShopperInformation_last_name] => GUTIERREZ
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 4F1853159D518082959C20C890D3FEF9041BC22F56F7AB5C4245BFCF2ECA47FE
+)
+
+[2019-05-09 16:10:33.000000 191.98.147.210 - 1781182 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781182
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T21:10:13</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=0d498582-586d-4b4f-96d4-5996d717342d</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">47B55D16AF1BE5004DABBC5ECC30B4388EDCF467A2482944522EB6929BA76138</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 16:14:56.000000 191.98.147.210 - 1781183 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T16:14:56
+    [CurrencyCode] => USD
+    [Amount] => 129.35
+    [MerchantSalesID] => JGDIHF - 1781183
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => CARLOS
+    [ShopperInformation_last_name] => GUTIERREZ
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 5B78C48602CCAC875EE93C4607D514B9B4F57A4D1B34E7B2B3AD8C5F706C94DD
+)
+
+[2019-05-09 16:14:56.000000 191.98.147.210 - 1781183 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781183
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T21:14:36</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=fa976879-5914-4c86-bc18-fed319ca5f17</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">E5E7F20DF89CC8A6CC597BAF50A0F5FF602F63039F69A205B97444F48797174F</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 16:21:03.000000 191.98.147.210 - 1781184 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T16:21:03
+    [CurrencyCode] => USD
+    [Amount] => 124.63
+    [MerchantSalesID] => KSKXZB - 1781184
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => CARLOS
+    [ShopperInformation_last_name] => GUTIERREZ
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => ADF7915C9A0AB97696C8C4AFE67D0BE1CE35D02B3F2FF627366083082EB355EA
+)
+
+[2019-05-09 16:21:03.000000 191.98.147.210 - 1781184 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781184
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T21:20:43</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=25730f3f-00cb-4300-8a2d-aae96d94038d</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">6D42D4A1F0B32E5DC04B8D2ED0A848CC0EEA8258986FDC47D8D22FC22F20242C</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 16:25:55.000000 190.12.85.82 - 1781185 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T16:25:54
+    [CurrencyCode] => USD
+    [Amount] => 70.46
+    [MerchantSalesID] => GZTZHA - 1781185
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => dcaceres@safetypay.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => test
+    [ShopperInformation_last_name] => test
+    [ShopperInformation_email] => dcaceres@safetypay.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 12312435
+    [ResponseFormat] => XML
+    [Signature] => 033138F79CAF63AC4EE0DD4F16AC378CB563CABF8EB5A4C1EE837495DA9BDD40
+)
+
+[2019-05-09 16:25:55.000000 190.12.85.82 - 1781185 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781185
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T21:25:35</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=8931e9cc-b288-4509-b09d-535e0e387c3a</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">F20CC0501012510AE1C79A5457B61D93D1E6B521CB1D79263B4258684435D790</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 16:33:23.000000 190.12.85.82 - 1781186 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T16:33:23
+    [CurrencyCode] => USD
+    [Amount] => 38.67
+    [MerchantSalesID] => TEIGZN - 1781186
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => dcaceres@safetypay.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => test
+    [ShopperInformation_last_name] => test
+    [ShopperInformation_email] => dcaceres@safetypay.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 12312435
+    [ResponseFormat] => XML
+    [Signature] => 3D988015EBA810FF3E0500FE725BA6E1867D098B5060A3E03D06057E845212D7
+)
+
+[2019-05-09 16:33:23.000000 190.12.85.82 - 1781186 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781186
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T21:33:03</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=f0184243-5a75-4e60-8012-a42c8bb322f4</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">C266D81DCD76374570B59C8A6F9E945AA6C6983E5CA3AE99FA689AED51352076</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 17:12:17.000000 191.98.147.210 - 1781187 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T17:12:17
+    [CurrencyCode] => USD
+    [Amount] => 123.45
+    [MerchantSalesID] => SGDFMN - 1781187
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 71F3A2CD1DC53D58453D737870098F9C73CB39ED21920998BE8846909CB968D8
+)
+
+[2019-05-09 17:12:17.000000 191.98.147.210 - 1781187 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781187
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T22:11:57</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=381f980e-7794-496a-87f1-99c17647ff73</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">AC7D6BAA3F1C161CC219AE917B67F7E29EF7135BF2B5F0CBC828637E992A5910</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 17:35:00.000000 191.98.147.210 - 1781188 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T17:34:59
+    [CurrencyCode] => USD
+    [Amount] => 99.85
+    [MerchantSalesID] => CBFJTS - 1781188
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 36F36F032CE3A29B1F9D341E8A0B1FA34868DA3376571B8F5F25F6995B288845
+)
+
+[2019-05-09 17:35:00.000000 191.98.147.210 - 1781188 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781188
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T22:34:40</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=e755fe67-ec85-4d35-98a9-4eb51dfebbd9</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">8477596E2B2E19AD22E21005D86D8FD7BD33DA94460C3A78F412472E9823F953</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 17:43:25.000000 191.98.147.210 - 1781189 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T17:43:25
+    [CurrencyCode] => USD
+    [Amount] => 110.47
+    [MerchantSalesID] => MBGXZK - 1781189
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => CARLOS
+    [ShopperInformation_last_name] => GUTIERREZ
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => D1EA2CCFD7A86A8C67E36740BADBC2EAFD1767E69F08999EA5BED86C9BF0B111
+)
+
+[2019-05-09 17:43:25.000000 191.98.147.210 - 1781189 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781189
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T22:43:05</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=d15f6175-27c9-4760-89dd-c8b7f1deeda3</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">DA257E283F529EA9E27720578E3578C1A49A7A9FE223768D7DF2A2F2B27B2A42</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 17:55:28.000000 191.98.147.210 - 1781190 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T17:55:28
+    [CurrencyCode] => USD
+    [Amount] => 104.57
+    [MerchantSalesID] => GFZVWQ - 1781190
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => CARLOS
+    [ShopperInformation_last_name] => GUTIERRREZ
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 84B3CF3E55467F9008E6F8093171A92B02A337680A9F4CB0BFB41C56C8EB1F5C
+)
+
+[2019-05-09 17:55:28.000000 191.98.147.210 - 1781190 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781190
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T22:55:08</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=f3776826-86c7-4a8f-b25b-b6f5af272d3b</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">8A6095378D47F876150CA22A672E6BF6FDC6678AF9A5179F2C10F65405D96682</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 18:30:10.000000 190.12.85.82 - 1781191 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T18:30:10
+    [CurrencyCode] => USD
+    [Amount] => 55.19
+    [MerchantSalesID] => LSVGIF - 1781191
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => dcaceres@safetypay.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => test
+    [ShopperInformation_last_name] => test
+    [ShopperInformation_email] => dcaceres@safetypay.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 12312435
+    [ResponseFormat] => XML
+    [Signature] => 0B659FF0B94979D2647C3A3282DA7469A716C58FC9F48F357DB6C46F0417069F
+)
+
+[2019-05-09 18:30:10.000000 190.12.85.82 - 1781191 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781191
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-09T23:29:50</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=1a10e4db-b1fb-4e56-8dfc-d3eb36dcccb8</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">BBCBA4150D3766F02D0B6954D635D3FE427334BDC598E7655C6CEF8A561BBBB8</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 19:13:12.000000 191.98.147.210 - 1781193 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T19:13:12
+    [CurrencyCode] => USD
+    [Amount] => 104.57
+    [MerchantSalesID] => UFBRRG - 1781193
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => carlos
+    [ShopperInformation_last_name] => gutierrez
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => AB0820CA4A8779790F3CB9197B2525164FE842017D6870ECEBD16DF730B4E2F9
+)
+
+[2019-05-09 19:13:12.000000 191.98.147.210 - 1781193 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781193
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-10T00:12:52</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=cfe535b3-c1b2-4b55-92cb-456a343704b0</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">CF5E9999E43D9442A53F28D3C6CAA22D01CC7F378AED33E59E840C24E7B51041</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+
+[2019-05-09 19:21:37.000000 191.98.147.210 - 1781194 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-05-09T19:21:37
+    [CurrencyCode] => USD
+    [Amount] => 104.57
+    [MerchantSalesID] => EBODFP - 1781194
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => carlos5t@hotmail.com
+    [ProductID] => 1
+    [ShopperInformation_first_name] => CARLOS
+    [ShopperInformation_last_name] => GUTIERREZ
+    [ShopperInformation_email] => carlos5t@hotmail.com
+    [ShopperInformation_country_code] => +51
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => F1A5F7FED74B67F9990FB841DDBBB05704C90F140448CF91A0CF808534F29B4A
+)
+
+[2019-05-09 19:21:37.000000 191.98.147.210 - 1781194 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1781194
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-05-10T00:21:17</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=561ae3b2-c03b-4bbd-a3ba-3a0bc2b2ee47</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">C62AD254673D70C6AEE20EC73DF8491F078F61622115F80BC28B3AE9AC112F3F</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+

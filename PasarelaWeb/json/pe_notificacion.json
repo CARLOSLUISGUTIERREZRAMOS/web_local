@@ -1,0 +1,9 @@
+{
+    "eventType": "cip.paid",
+    "operationNumber": "690903",
+    "data": {
+        "cip": "2519717",
+        "currency": "USD",
+        "amount": 130.53
+    }
+}

@@ -1,0 +1,17 @@
+<?php
+/**
+ * Description of LanguageSwitcher
+ *
+ * @author cgutierrez
+ */
+class LanguageSwitcher extends CI_Controller{
+    public function __construct() {
+        parent::__construct();
+    }
+
+    function switchLang() {
+        $language = (isset($_REQUEST['lang'])) ? $_REQUEST['lang'] : 'spanish';
+        $this->session->set_userdata('site_lang', $language);
+        redirect($_SERVER['HTTP_REFERER']);
+    }
+}

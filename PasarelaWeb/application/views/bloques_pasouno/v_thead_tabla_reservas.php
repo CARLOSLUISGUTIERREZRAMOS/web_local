@@ -1,0 +1,10 @@
+    <thead>
+        <tr>
+            <th><?=$FechaLetras?></th>
+            <th></th>
+            <th>Promo</th>
+            <th>Básica</th>
+            <th>Regular</th>
+            <th>Premium</th>
+        </tr>                                                            
+    </thead>

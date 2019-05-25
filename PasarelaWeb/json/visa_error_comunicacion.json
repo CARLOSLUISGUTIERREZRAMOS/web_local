@@ -1,0 +1,21 @@
+{
+    "errorCode": 400,
+    "errorMessage": "Operacion Denegada. Problemas de comunicacion. Intente mas tarde.",
+    "header": {
+        "ecoreTransactionUUID": "ff949c6c-6498-419e-bb6d-fa313bbd0b23",
+        "ecoreTransactionDate": 1556028557503,
+        "millis": 583
+    },
+    "data": {
+        "CURRENCY": "0840",
+        "TRANSACTION_DATE": "190423090917",
+        "ACTION_CODE": "666",
+        "STATUS": "Not Authorized",
+        "ACTION_DESCRIPTION": "Operacion Denegada. Problemas de comunicacion",
+        "TRACE_NUMBER": "305379",
+        "AMOUNT": "155.31",
+        "SIGNATURE": "07feaa34-278f-42e6-9130-384624958720",
+        "BRAND": "visa",
+        "MERCHANT": "115015006"
+    }
+}

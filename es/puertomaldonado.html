@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Documento</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/dhtmlxcalendar.css"/>
+</head>
+<body class="reservas-on destinos" onload="doOnLoad();">
+<div class="interfaz">
+    <header class="cabecera">
+        <div class="container-fluid">
+            <div class="row no-gutters fondo">
+                <div class="col">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-12">
+                                <div class="row no-gutters">
+                                    <div class="col-sm-12 col-md-4 logotipo">
+                                        <h1><img src="img/Logotipo.png" alt=""></h1>
+                                    </div>
+                                    <div class="col-sm-12 col-md-8">
+                                        <nav class="navbar navbar-expand sec-nav">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                            <div class="collapse navbar-collapse" id="navbarsExample02">
+                                                <ul class="navbar-nav ml-auto">
+                                                    <li class="nav-item telefono">
+                                                        <strong>CALL CENTER (511) 705-9000</strong>
+                                                    </li>
+                                                    <li class="nav-item idiomas">
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                ES
+                                                            </button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                <a class="dropdown-item" href="#">ES</a>
+                                                                <!--<a class="dropdown-item" href="#">ENG</a>-->
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="nav-item facebook">
+                                                        <a href="">facebook</a>
+                                                    </li>
+                                                    <li class="nav-item blog">
+                                                        <a href="http://blog.starperu.com/es/" class="nav-link">
+                                                            <img src="img/icon-blog.png" class="off" alt="">
+                                                            <img src="img/icon-blog-on.png" class="on" alt="">
+                                                            <span>Blog</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </nav>
+                                        <nav class="navbar navbar-expand-md navbar-dark bg-dark main-nav">
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+                                                <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                            <div class="collapse navbar-collapse" id="navbarsExample03">
+                                                <ul class="navbar-nav ml-auto">
+                                                    <li class="nav-item active">
+                                                        <a class="nav-link" href="index.html">Inicio</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="destinos.html">Destinos</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="promociones.html">Promociones</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="servicios-especiales.html">Servicios Especiales</a>
+                                                    </li>
+                                                    <li class="nav-item dropdown">
+                                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            Volar en StarPerú
+                                                        </a>
+                                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                            <a class="dropdown-item" href="servicio-al-cliente.html">Servicios al cliente</a>
+                                                            <a class="dropdown-item" href="servicios-especiales.html">Servicios especiales</a>
+                                                            <a class="dropdown-item" href="viajes-grupales.html">Viajes grupales</a>
+                                                            <a class="dropdown-item" href="oficinas.html">Oficinas</a>
+                                                            <a class="dropdown-item" href="sobre-mi-equipaje.html">Sobre mi equipaje</a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="images/img-destinoint-puertomaldonado01.jpg" alt="First slide">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container reserva">
+            <div class="form-reserva">
+                <div class="container-fluid">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-reserva" role="tabpanel" aria-labelledby="nav-reserva-tab">
+                                    <div class="row no-gutters">
+                                        <div class="col-12 form-cuerpo">
+                                            <div class="row no-gutters form-header">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <h2>Quiero viajar...</h2>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="row">
+                                                        <div class="col-12 text-right">
+                                                            <div class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" onclick="show1();" checked="checked">
+                                                                <label class="custom-control-label" for="customRadioInline1">Solo ida</label>
+                                                            </div>
+                                                            <div class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input" onclick="show2();">
+                                                                <label class="custom-control-label" for="customRadioInline2">ida y vuelta</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-body">
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label for="">Desde:</label>
+                                                    <div class="select">
+                                                        <select>
+                                                            <option>Puerto maldonado</option>
+                                                            <option>Cusco</option>
+                                                            <option>Arequipa</option>
+                                                        </select>
+                                                        <div class="select__arrow"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <label for="">Hacia:</label>
+                                                    <div class="select">
+                                                        <select>
+                                                            <option>Cusco</option>
+                                                            <option>Arequipa</option>
+                                                            <option>Lima</option>
+                                                        </select>
+                                                        <div class="select__arrow"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="date_from">Salida:</label>
+                                                        <input type="text" class="form-control" aria-describedby="fecha" placeholder="selecciona" id="date_from" onclick="setSens('date_to', 'max');" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 twoway" id="twoway" style="display: none;">
+                                                    <div class="form-group">
+                                                        <label for="date_to">Retorno:</label>
+                                                        <input type="text" class="form-control" aria-describedby="fecha" placeholder="selecciona" id="date_to" onclick="setSens('date_from', 'min');" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-6 oneway" id="oneway">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="adultos">Adultos (+12 años)</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend" id="button-addon3">
+                                                                <button class="btn btn-outline-secondary mod" type="button">-</button>
+                                                            </div>
+                                                            <input type="text" id="adultos" class="form-control" placeholder="" aria-label="adultos" aria-describedby="button-addon3" value="1">
+                                                            <div class="input-group-append" id="button-addon4">
+                                                                <button class="btn btn-outline-secondary mod" type="button">+</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="ninos">Niños (-12 años)</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend" id="button-addon3">
+                                                                <button class="btn btn-outline-secondary mod" type="button">-</button>
+                                                            </div>
+                                                            <input type="text" id="ninos" class="form-control" placeholder="" aria-label="niños" aria-describedby="button-addon3" value="2">
+                                                            <div class="input-group-append" id="button-addon4">
+                                                                <button class="btn btn-outline-secondary mod" type="button">+</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="bebes">Bebés (-2 años)</label>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend" id="button-addon3">
+                                                                <button class="btn btn-outline-secondary mod" type="button">-</button>
+                                                            </div>
+                                                            <input type="text" id="bebes" class="form-control" placeholder="" aria-label="bebes" aria-describedby="button-addon3" value="3">
+                                                            <div class="input-group-append" id="button-addon4">
+                                                                <button class="btn btn-outline-secondary mod" type="button">+</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 col-md-3">
+                                                    
+                                                </div>
+                                                <div class="col-12 text-right">
+                                                    <button class="btn btn-primary btn-lg" type="submit">Buscar vuelos</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </header>
+    <main class="contenidos">
+        <div class="container">   
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <img class="d-block w-100" src="images/img-destinoint-puertomaldonado02.jpg" alt="First slide">
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=puerto%20maldonado&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                            </iframe>
+                        </div>
+                        <style>.mapouter{text-align:right;height:420px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:420px;width:100%;}#gmap_canvas{width: 100%;height: 420px;}</style>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h1>Paraíso de las reservas naturales</h1>
+                    <p>Bautizada como Capital de la biodiversidad del Perú, Puerto Maldonado es una bella y calurosa ciudad selvática ubicada en el sureste del país, cerca de los límites con Brasil y Bolivia. Fue fundada en julio de 1902, en el cruce los ríos Madre de Dios y Tambopata.</p>
+
+                    <p>Es la capital del departamento de Madre de Dios y uno de los núcleos comerciales de la Amazonía. Dentro de la ciudad podemos visitar la Plaza de Armas, la isla de los monos, el obelisco o el zoológico.</p>
+
+                    <p>Puerto Maldonado es punto de partida para vivir aventuras inolvidables explorando los exóticos parajes de las reservas naturales de Manu y Tambopata. Una oportunidad única para descubrir la variada flora y fauna peruana.</p>
+                </div>
+                <div class="col-12">
+                   <!-- <p><small>LIMA – PUERTO MALDONADO (ida) Desde: USD USD 133.47 ó S/ 460.47, incluye TUUAS.</small></p>
+                    <p><small>Condiciones: Tarifa de ida y vuelta. Aplica en la ruta Lima–Puerto Maldonado-Lima. Aplica para compra a través de www.starperu.com, oficinas de StarPerú y Agencias de viajes. Válida para la venta desde el 09 de noviembre del 2016 al 31 de marzo del 2017. Válida para viajar desde el 09 de noviembre del 2016 al 31 de marzo del 2017. Tarifa incluye TUUA (Tarifa Unificada de Uso Aeroportuario). Reservas en clase “M”. Aplica cambio de nombre con 24 horas de anticipación al vuelo asumiendo un cargo por reemisión de USD 11.80 Inc. IGV o S/40.65. Aplica cambio de fecha sin asumir cargo. De no encontrarse disponible la tarifa, deberá pagar la diferencia de la tarifa que se encuentre disponible al momento de hacer el cambio y un cargo de reemisión por USD 11.80 Inc. IGV o S/40.36. En caso de no efectuarse el cambio de nombre y fecha con 24 horas de anticipación al vuelo, el pasajero deberá pagar la diferencia de la tarifa que se encuentre disponible al momento de hacer el cambio (se considerará como parte de pago el monto abonado en el pasaje anterior), un cargo por penalidad de USD 17.70 o S/ 61.07 y un cargo por reemisión de USD 11.80 Inc. IGV o S/40.65. No Aplica cambio de ruta. Tarifa aplica para Niños (hasta 11 años, 11 meses, 29 días).Tarifa aplica para Bebés (hasta 1 año, 11 meses, 29 días). Tarifa no aplica reembolso. No Aplica Grupos (se considera grupo a partir de 10 pasajeros a más). Equipaje permitido para ser facturado es de 2 piezas que en total sumen 25 Kgs. por pasajero adulto. El equipaje de mano es de 1 pieza hasta 4 kgs. El Cargo por No Show (no presentarse al vuelo) asciende a US$ 11.80 inc. IGV o S/40.65. Plazo de compra: 3 horas después de haber hecho la reserva. Estadía máxima : 60 días en el lugar de destino Stock : 80 espacios sujetos a disponibilidad y variables por fechas y/o vuelos. Para mayor información acerca de esta tarifa y sus condiciones, llame a nuestra central (01) 705-9000, acérquese a nuestras oficinas comerciales o consulte con su agencia de viajes. Los precios están expresados en dólares americanos con su equivalente en nuevos soles según Ley Nro. 29571 – Código de Protección al Consumidor. Tipo de cambio S/. 3.45 por dólar, vigente al 05/01/2017. Con posterioridad a esta fecha, el precio final en nuevos soles se determinará de acuerdo al art. 1237 del Código Civil.</small></p>-->
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="pie">
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col-sm-12 col-md-5 menu-inf">
+                    <div class="row no-gutters justify-content-end">
+                        <div class="col-sm-12 col-md-11">
+                            <img src="img/Logotipo.png" alt="">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="http://starpanel.starperu.com/cp/libro_reclamacion.php">Libro de reclamaciones</a></li>
+                                <li class="list-inline-item"><a href="la-empresa.html">La Empresa</a></li>
+                                <li class="list-inline-item"><a href="contacto.html">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-7 redes">
+                    <div class="row no-gutters align-items-end">
+                        <div class="col-sm-12 col-md-9">
+                            <p>CALL CENTER (511) 705-9000 <br>
+                            Atención diaria – 08:00 a 20:00Hrs.</p>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <ul class="list-inline">
+                                <li class="list-inline-item facebook">
+                                    <a href="https://www.facebook.com/aerolineas.starperu?fref=ts" class="nav-link">
+                                        facebook
+                                    </a>
+                                </li>
+                                <li class="list-inline-item twitter">
+                                    <a href="https://twitter.com/starperu_" class="nav-link">
+                                        twitter
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-12 text-center disclaimer">
+                    <p><small>2018 Star up S.A - <a href="contrato-de-transporte.html">Contrato de transporte</a> - <a href="condiciones-de-venta.html">Condiciones de venta</a> - <a href="condiciones-clases-tarifarias.html">Condiciones de clases tarifarias</a> - <a href="endosos-y-postergaciones.html">Endosos y postergaciones</a> - <a href="preguntas-frecuentes.html">FAQ</a> - <a href="privacidad.html">Privacidad</a> - <!--<a href="prensa-e-imagen.html">Prensa e imagen</a>--> - <a href="flota.html">Flota</a> - <!--<a href="mapa-del-sitio.html">Mapa del sitio</a>--></small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="js/jquery.min.js" charset="utf-8"></script>
+<script src="js/popper.min.js" charset="utf-8"></script>
+<script src="js/bootstrap.min.js" charset="utf-8"></script>
+<script src="js/dhtmlxcalendar.js"></script>
+<!-- Analytics -->
+<script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-32584975-1', 'auto'); ga('require', 'displayfeatures'); ga('send', 'pageview'); </script> 
+
+<!-- Global site tag (gtag.js) - Google Ads: 757467471 -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-757467471"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'AW-757467471');
+
+</script>
+
+<script>
+    var myCalendar;
+    function doOnLoad() {
+        myCalendar = new dhtmlXCalendarObject(["date_from","date_to"]);
+        myCalendar.setDate("2018-10-12");
+        myCalendar.hideTime();
+        // init values
+        var t = new Date();
+        byId("date_from").value = "2018-10-18";
+        byId("date_to").value = "2018-10-31";
+    }
+    
+    function setSens(id, k) {
+        // update range
+        if (k == "min") {
+            myCalendar.setSensitiveRange(byId(id).value, null);
+        } else {
+            myCalendar.setSensitiveRange(null, byId(id).value);
+        }
+    }
+    function byId(id) {
+        return document.getElementById(id);
+    }
+</script>
+<script>
+    var x, i, j, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("star-select");
+for (i = 0; i < x.length; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < selElmnt.length; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < s.length; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            for (k = 0; k < y.length; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+  });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  for (i = 0; i < y.length; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < x.length; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>
+<script>
+    $(".mod").on("click", function() {
+        var $button = $(this);
+        var oldValue = $button.parent().parent().find("input").val();
+        if ($button.text() == "+") {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $button.parent().parent().find("input").val(newVal);
+    });
+</script>
+<script>
+    function show1(){
+        document.getElementById('twoway').style.display ='none';
+        document.getElementById('oneway').style.display = 'block';
+    }
+    function show2(){
+        document.getElementById('oneway').style.display = 'none';
+        document.getElementById('twoway').style.display = 'block';
+    }
+</script>
+</body>
+</html>

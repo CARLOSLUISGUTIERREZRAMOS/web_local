@@ -1,0 +1,27 @@
+{
+    "errorCode": 400,
+    "errorMessage": "Not Authorized",
+    "header": {
+        "ecoreTransactionUUID": "04cbeb71-6f15-423e-bd25-77d810279dcc",
+        "ecoreTransactionDate": 1553033968050,
+        "millis": 597
+    },
+    "data": {
+        "CURRENCY": "0840",
+        "TRANSACTION_DATE": "190319171927",
+        "TERMINAL": "00000001",
+        "ACTION_CODE": "180",
+        "TRACE_NUMBER": "130268",
+        "ECI_DESCRIPTION": "Transaccion no autenticada pero enviada en canal seguro",
+        "ECI": "07",
+        "SIGNATURE": "e66c51ce-ae04-4560-8044-9d364bb7bcaf",
+        "CARD": "444433******1111",
+        "BRAND": "visa",
+        "MERCHANT": "115015006",
+        "STATUS": "Not Authorized",
+        "ADQUIRENTE": "570002",
+        "ACTION_DESCRIPTION": "Tarjeta no valida",
+        "AMOUNT": "96.02",
+        "PROCESS_CODE": "000000"
+    }
+}

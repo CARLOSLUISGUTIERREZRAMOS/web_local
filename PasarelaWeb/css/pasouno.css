@@ -1,0 +1,4 @@
+.enlace_desactivado {
+    pointer-events: none;
+    cursor: default;
+}

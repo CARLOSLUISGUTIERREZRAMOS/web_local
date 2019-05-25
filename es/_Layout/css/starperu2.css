@@ -1,0 +1,298 @@
+.ui-tabs-vertical { width: 55em; }
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; background: #000;}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { padding: 0 10px; float: right; width: 40em;}
+
+
+#tabs{
+	width: 950px;
+	height: 330px;
+	float: left;
+	font-size: 1.3em;
+	line-height: 1.1em;
+}
+#tabs h1{
+	color: #565F66;
+}
+#tabs ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 250px;
+	height: 330px;
+	background: #c6c5c3 url(../imgs/bkgmenulateral-OFF.png) repeat-y top right;
+}
+#tabs ul li a{
+	background: #e4dcda url(../imgs/bkgmenulateral-OFF.png) repeat-y top right;
+	display: block;
+	width: 240px;
+	height: 43px;
+	line-height: 43px;
+	margin-bottom: 7px;
+	padding-left: 10px;
+	color: #565f66;
+	text-decoration: none;
+}
+#tabs ul li a:hover, #tabs ul li.ui-tabs-active a{
+	background: #e6bb20 url(../imgs/bkgmenulateral2-ON.png) repeat-y top right;
+}
+#tabs div{
+	width: 670px;
+	height: 330px;
+	float: left;
+	background: #c6c5c3;
+	padding-left: 20px;
+	background:#f0f0f0 url(../imgs/titmachu.png) no-repeat right top;
+}
+p.de, p.hacia, p.fechaida, p.fecharetorno{
+	float: left;
+	width: 250px;
+	height: 35px;
+	border: 1px solid #ccc;
+	background: #fff;
+	margin: 0 20px 20px 0;
+	margin-left: 40px;
+	padding: 0;
+	line-height: 35px;
+}
+p.de input, p.hacia input, p.fechaida input, p.fecharetorno input{
+	height: 26px;
+	border: none;
+	width: 180px;
+	cursor: pointer;
+}
+	p.de a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/de.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+	p.hacia a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/hacia.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+	p.fechaida a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/calendario.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+	p.fecharetorno a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/calendario.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+	p.nece a.ico{
+		display: inline-block;
+		width: 19px;
+		height: 18px;
+		background: url(../imgs/ico/silla.png) center center no-repeat;
+		margin-right: 6px;
+		margin-top: 5px;
+		text-indent: -8000px;
+	}
+p.pasizquierda{
+	float: left;
+	width: 250px;
+	padding: 25px;
+	
+	}
+p.pasderecha{
+	float: right;
+	width: 250px;
+	padding: 25px;
+	
+}
+p.pasizquierda, p.pasderecha{
+	text-align: left;
+}
+p.standardinput{
+	padding-left: 25px;
+}
+p.standardinput label{
+	margin-top: 5px;
+	padding-left: 25px;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	display: inline-block;
+}
+p.standardinput2{
+	padding-left: 25px;
+}
+p.standardinput2 label{
+	margin-top: 5px;
+	padding-left: 25px;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	display: inline-block;
+}
+/**/
+
+p.cod, p.codi, p.apellido, p.dni{
+	float: left;
+	width: 313px;
+	height: 35px;
+	border: 1px solid #ccc;
+	background: #fff;
+	margin: 0 20px 20px 0;
+	padding: 0;
+	line-height: 35px;
+}
+p.cod input, p.codi input, p.apellido input, p.dni input{
+	height: 26px;
+	border: none;
+}
+
+/**/
+
+p.radiogrupo{
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+a:focus {
+    outline: none;
+}
+
+#tabs ul li a.tabuno{
+	background: #dededf url(../imgs/ico/bkgmenulateralA-OFF.png) repeat-y top right;
+}
+#tabs ul li a.tabdos{
+	background: #dededf url(../imgs/ico/bkgmenulateralB-OFF.png) repeat-y top right;
+}
+#tabs ul li a.tabtres{
+	background: #dededf url(../imgs/ico/bkgmenulateralC-OFF.png) repeat-y top right;
+}
+#tabs ul li a.tabcuatro{
+	background: #dededf url(../imgs/ico/bkgmenulateralD-OFF.png) repeat-y top right;
+}
+#tabs ul li a.tabcinco{
+	background: #dededf url(../imgs/ico/bkgmenulateralE-OFF.png) repeat-y top right;
+}
+#tabs ul li a.tabseis{
+	background: #dededf url(../imgs/ico/bkgmenulateralF-OFF.png) repeat-y top right;
+}
+#tabs ul li a.tabuno:hover, #tabs ul li.ui-tabs-active a.tabuno{
+	background: #ffed00 url(../imgs/ico/bkgmenulateralA-ON.png) repeat-y top right;
+}
+#tabs ul li a.tabdos:hover, #tabs ul li.ui-tabs-active a.tabdos{
+	background: #ffed00 url(../imgs/ico/bkgmenulateralB-ON.png) repeat-y top right;
+}
+#tabs ul li a.tabtres:hover, #tabs ul li.ui-tabs-active a.tabtres{
+	background: #ffed00 url(../imgs/ico/bkgmenulateralC-ON.png) repeat-y top right;
+}
+#tabs ul li a.tabcuatro:hover, #tabs ul li.ui-tabs-active a.tabcuatro{
+	background: #ffed00 url(../imgs/ico/bkgmenulateralD-ON.png) repeat-y top right;
+}
+#tabs ul li a.tabcinco:hover, #tabs ul li.ui-tabs-active a.tabcinco{
+	background: #ffed00 url(../imgs/ico/bkgmenulateralE-ON.png) repeat-y top right;
+}
+#tabs ul li a.tabseis:hover, #tabs ul li.ui-tabs-active a.tabseis{
+	background: #ffed00 url(../imgs/ico/bkgmenulateralF-ON.png) repeat-y top right;
+}
+/**/
+.botoncillo{
+	text-align: right;
+	margin-left: 166px;
+	background: url(../imgs/botonbus.png) no-repeat center;
+	padding: 12px 30px 12px 30px;
+	cursor: pointer;
+	border: none;
+}
+.botoncillo2{
+	text-align: right;
+	margin-left: 145px;
+	background: url(../imgs/botonbus.png) no-repeat center;
+	padding: 12px 30px 12px 30px;
+	cursor: pointer;
+	border: none;
+}
+
+.smalltext{
+	font-size: 0.8em;
+	margin-top: 70px;
+}
+/**/
+#tabs-4 p{
+	margin-top: 25px;
+	margin-left: 85px;
+	margin-right: 100px;
+}
+#tabs-2 p{
+	witdth: 500px;
+	padding:  0px;
+	margin-top: 10px;
+}
+#tabs-2 p.pasderecha{
+	margin-right: 30px;
+}
+#tabs-2 p.pasizquierda{
+	margin-left: 50px;
+}
+#tabs-2 .smalltext{
+	padding-top: 223px;
+	margin-left: 25px;
+}
+#tabs-2 .botoncillo3{
+	margin-top: 10px;
+	margin-left: 50px;
+	text-align: right;
+	background: url(../imgs/botonbus.png) no-repeat center;
+	padding: 12px 30px 12px 30px;
+	cursor: pointer;
+	border: none;
+}
+#tabs-3 p{
+	margin-top: 25px;
+	margin-left: 85px;
+	margin-right: 100px;
+}
+#tabs-4 p.radiogrupodos{
+	margin-left: 260px;
+}
+p.pasizquierda input{
+	margin: 10px 0;
+}
+p.pasderecha input{
+	margin: 10px 0;
+}
+
+select.juan{
+	border: none;
+	background: url(../imgs/botonop.png) no-repeat center;
+	padding: 12px 15px 12px 15px;
+	width: 115px;
+	height: 43px;
+	font-size:20px;
+	cursor: pointer;
+	-webkit-appearance: none;
+	overflow: hidden;
+	}
+select.lucho{
+	border: none;
+	width: 200px;
+	font-size:15px;
+	cursor: pointer;
+	-webkit-appearance: none;
+	overflow: hidden;
+	}
+	
+.necesi1{
+	padding: 0px 28px 0px 28px;
+	font-size:11px;
+	margin-top: -50px;
+	}

@@ -1,0 +1,153 @@
+/* =============================================================================
+   redefiniendo HTML5
+   ========================================================================== */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; } /*unifica entre navegadores con o sin el html5 parser*/
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; } /*unifica entre navegadores con o sin el html5 parser*/
+audio:not([controls]) { display: none; } /*esconde los controles de audio "que no poseen controles" para los navegadores que los colocan*/
+[hidden] { display: none; } /*crea el atributo para navegadores que no lo tienen*/
+/* =============================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Unifica los tamaños de fuentes que funcionan mal en IE6/7 cuando se utiliza EM como tamaño de fuente
+ * 2. Previene que el tamaño del texto en iOS se reajuste al cambiar de orientacion, sin desactivar el zoom
+ */
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html, button, input, select, textarea { font-family: sans-serif; color: #565F66; }
+body { margin: 0; font-size: 80%; line-height: 1.4; font-family: "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif}
+div
+{
+text-align:justify;
+text-justify:inter-word;
+}
+/*
+ * Remueve el text-shadow en una seleccion con highlight
+ */
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+
+
+/*********************************** L A Y O U T *********************************************************/
+
+
+#Portal {
+	width: 958px;
+	margin:0 auto;
+	padding: 25px;
+	font-size: 80%;
+	line-height: 80%;
+}
+	#Cabecera {
+		/*border:1px solid #ccc;*/
+		height: 97px;
+		padding: 0 5px;
+		background: url(../imgs/LogoPeru.png) 866px 20px no-repeat;
+	}
+		#Cabecera h1{
+			text-indent: -8000px;
+			width: 220px;
+			height: 90px;
+			line-height: 1em;
+			margin: 0;
+			padding: 0;
+			background: url(../imgs/LogoStar.png) bottom left no-repeat;
+		}
+		
+#ElPasoUno{
+	border: 1px solid #333;
+	width: 850px;
+	margin: 0 auto;
+}
+	#Izquierda{
+		border: 1px solid #333;
+		width: 530px;
+		float: left;
+		font-size: 12px;
+	}
+		#Ida{
+			border: 1px solid #333;
+		}
+			#Ida h2{
+				border: 1px solid #333;
+			}
+			#Ida ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				border: 1px solid red;
+				padding: 2px;
+			}
+			#Ida ul li{
+				float: left;
+				border: 1px solid #333;
+				width: 6%;
+				height: 35px;
+			}
+			#Ida ul .datos01 li{
+				width: 12%;
+				height: 35px;
+			}
+		#Vuelta{
+			border: 1px solid #333;
+		}
+			#Vuelta h2{
+				border: 1px solid #333;
+			}
+			#Vuelta ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				border: 1px solid red;
+				padding: 2px;
+			}
+			#Vuelta ul li{
+				float: left;
+				border: 1px solid #333;
+				width: 36px;
+				height: 35px;
+			}
+			#Vuelta ul .datos01 li{
+				width: 60px;
+				height: 35px;
+			}
+	#Derecha{
+		border: 1px solid #333;
+		width: 235px;
+		height: 500px;
+		position: fixed;
+		margin-left: 585px;
+		padding: 15px;
+		font-size: 11px;
+		background: url(../imgs/derechafondo.png) center no-repeat;
+	}
+		#Detalles{
+			border: 1px solid #333;
+			margin: 15px;
+		}
+			#Detalles ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				border: 1px solid red;
+				padding: 1%;
+				text-align: center;
+			}
+			#Detalles ul li{
+				float: left;
+				border: 1px solid #333;
+				width: 32%;
+			}
+	#Derecha button{
+	
+	}
+
+
+
+/**************************************************************/
+/* Nada va despues de esta seccion */
+/**************************************************************/
+/* Clearfix!! */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }

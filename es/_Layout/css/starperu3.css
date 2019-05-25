@@ -1,0 +1,157 @@
+#Reservas .ui-tabs-vertical { width: 55em; }
+#Reservas .ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+#Reservas .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+#Reservas .ui-tabs-vertical .ui-tabs-nav li a { display:block; background: #000;}
+#Reservas .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
+#Reservas .ui-tabs-vertical .ui-tabs-panel { padding: 0 10px; float: right; width: 40em;}
+
+
+#Reservas #tabs{
+	width: 950px;
+	height: 330px;
+	float: left;
+	font-size: 1.4em;
+	line-height: 1.5em;
+}
+#Reservas #tabs h1{
+	color: #fff;
+}
+#Reservas #tabs ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 250px;
+	height: 330px;
+	background: #c6c5c3 url(../imgs/bkgmenulateral-OFF.png) repeat-y top right;
+}
+#Reservas #tabs ul li a{
+	background: #e4dcda url(../imgs/bkgmenulateral-OFF.png) repeat-y top right;
+	display: block;
+	width: 240px;
+	height: 43px;
+	line-height: 43px;
+	margin-bottom: 7px;
+	padding-left: 10px;
+	color: #565f66;
+	text-decoration: none;
+}
+#Reservas #tabs ul li a:hover, #Reservas #tabs ul li.ui-tabs-active a{
+	background: #e6bb20 url(../imgs/bkgmenulateral2-ON.png) repeat-y top right;
+}
+#Reservas #tabs div{
+	width: 670px;
+	height: 330px;
+	float: left;
+	background: #c6c5c3;
+	padding-left: 20px;
+}
+p.de, p.hacia, p.fechaida, p.fecharetorno{
+	float: left;
+	width: 313px;
+	height: 35px;
+	border: 1px solid #ccc;
+	background: #fff;
+	margin: 0 20px 20px 0;
+	padding: 0;
+	line-height: 35px;
+}
+p.de input, p.hacia input, p.fechaida input, p.fecharetorno input{
+	height: 26px;
+	border: none;
+}
+	p.de a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/de.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+	p.hacia a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/hacia.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+	p.fechaida a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/calendario.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+	p.fecharetorno a.ico{
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		background: url(../imgs/ico/calendario.png) center center no-repeat;
+		margin-right: 6px;
+		text-indent: -8000px;
+	}
+p.standardinput{
+	padding-left: 25px;
+}
+p.standardinput label{
+	padding-left: 25px;
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	display: inline-block;
+}
+
+/**/
+
+p.radiogrupo{
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+a:focus {
+    outline: none;
+}
+
+#Reservas #tabs ul li a.tabuno{
+	background: #dededf url(../imgs/ico/bkgmenulateralA-OFF.png) repeat-y top right;
+}
+#Reservas #tabs ul li a.tabdos{
+	background: #dededf url(../imgs/ico/bkgmenulateralB-OFF.png) repeat-y top right;
+}
+#Reservas #tabs ul li a.tabtres{
+	background: #dededf url(../imgs/ico/bkgmenulateralC-OFF.png) repeat-y top right;
+}
+#Reservas #tabs ul li a.tabcuatro{
+	background: #dededf url(../imgs/ico/bkgmenulateralD-OFF.png) repeat-y top right;
+}
+#Reservas #tabs ul li a.tabuno:hover, #Reservas #tabs ul li.ui-tabs-active a.tabuno{
+	background: #e6bb20 url(../imgs/ico/bkgmenulateralA-ON.png) repeat-y top right;
+}
+#Reservas #tabs ul li a.tabdos:hover, #Reservas #tabs ul li.ui-tabs-active a.tabdos{
+	background: #e6bb20 url(../imgs/ico/bkgmenulateralB-ON.png) repeat-y top right;
+}
+#Reservas #tabs ul li a.tabtres:hover, #Reservas #tabs ul li.ui-tabs-active a.tabtres{
+	background: #e6bb20 url(../imgs/ico/bkgmenulateralC-ON.png) repeat-y top right;
+}
+#Reservas #tabs ul li a.tabcuatro:hover, #Reservas #tabs ul li.ui-tabs-active a.tabcuatro{
+	background: #e6bb20 url(../imgs/ico/bkgmenulateralD-ON.png) repeat-y top right;
+}
+/**/
+.botoncillo{
+	text-align: right;
+	margin-left: 175px;
+}
+.smalltext{
+	font-size: 0.8em;
+}
+/**/
+#Reservas #tabs-2 p, #Reservas #tabs-3 p, #Reservas #tabs-4 p{
+	margin-left: 85px;
+	margin-right: 100px;
+}
+#Reservas #tabs-4 p.radiogrupodos{
+	margin-left: 260px;
+}
+
+
+

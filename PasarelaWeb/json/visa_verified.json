@@ -1,0 +1,54 @@
+{
+    "header": {
+        "ecoreTransactionUUID": "842daf3c-81af-4a40-9acf-a91dce7a236e",
+        "ecoreTransactionDate": 1553037859076,
+        "millis": 461
+    },
+    "fulfillment": {
+        "channel": "web",
+        "merchantId": "115015006",
+        "terminalId": "",
+        "captureType": "manual",
+        "countable": true,
+        "fastPayment": false,
+        "signature": "e5c4075c-f44e-46fc-8455-130b12727f6c"
+    },
+    "order": {
+        "tokenId": "55E230FC877140FDA230FC8771B0FD67",
+        "purchaseNumber": "1765967",
+        "productId": " ",
+        "amount": 96.02,
+        "currency": "USD",
+        "authorizedAmount": 96.02,
+        "authorizationCode": "181147",
+        "actionCode": "000",
+        "traceNumber": "130295",
+        "transactionDate": "190319182418",
+        "transactionId": "981190780919036"
+    },
+    "dataMap": {
+        "CURRENCY": "0840",
+        "TERMINAL": "00000001",
+        "TRANSACTION_DATE": "190319182418",
+        "ACTION_CODE": "000",
+        "TRACE_NUMBER": "130295",
+        "ECI_DESCRIPTION": "Transaccion no autenticada pero enviada en canal seguro",
+        "ECI": "07",
+        "SIGNATURE": "e5c4075c-f44e-46fc-8455-130b12727f6c",
+        "CARD": "450034******0016",
+        "MERCHANT": "115015006",
+        "BRAND": "visa",
+        "STATUS": "Authorized",
+        "INSTALLMENTS_INFO": "06000000000",
+        "ACTION_DESCRIPTION": "Aprobado y completado con exito",
+        "ADQUIRENTE": "570002",
+        "QUOTA_AMOUNT": "0.00",
+        "ID_UNICO": "981190780919036",
+        "AMOUNT": "96.02",
+        "PROCESS_CODE": "000000",
+        "QUOTA_NUMBER": "06",
+        "TRANSACTION_ID": "981190780919036",
+        "AUTHORIZATION_CODE": "181147",
+        "QUOTA_DEFERRED": "0"
+    }
+}

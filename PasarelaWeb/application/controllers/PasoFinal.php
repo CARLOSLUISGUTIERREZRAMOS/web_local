@@ -81,7 +81,7 @@ class PasoFinal extends CI_Controller {
                 $TramaItinerary = $this->GenerarTramaKiu_MetodoItineraryKiu($pnr);
                 $ResWsKiuItinerary = $this->EnviarTramakiuAirItinerary($TramaItinerary);
 
-                $ObjResObjectItinerary = new SimpleXMLElement($ResWsKiuItinerary);
+                $ObjResObjectItinerary = $ResWsKiuItinerary[3];
                 $res_tarifa_tax = $this->ObtenerTarifasTax($ObjResObjectItinerary, $xss_post['cod_origen'], $xss_post['cod_destino']);
                 $DatetTimeLimitReserva = new DateTime();
                 $DatetTimeLimitReserva->modify('+3 hours');

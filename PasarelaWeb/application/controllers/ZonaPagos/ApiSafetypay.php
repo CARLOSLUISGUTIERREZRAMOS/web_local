@@ -30,12 +30,11 @@ class ApiSafetypay extends CI_Controller {
         $this->load->helper('safetypay');
     }
 
+    
+
     public function Index() {
-        
-//        echo "JHOAL";die;
+
         $safetypay_conection = new Connection_safetypay();
-
-
         if (strip_tags($_POST['ApiKey']) != '') {
 
             date_default_timezone_set('America/Lima');
@@ -91,6 +90,8 @@ class ApiSafetypay extends CI_Controller {
                     $kiu->TravelItineraryReadRQ($trama, $err);
                     $nombres_pax = $row->PassengerName->GivenName;
                     $this->Reserva_model->RegistrarTicket($id_reserva, $nombres_pax, $ticket_number);
+                    $data['data_reserva'] = $data_reserva;
+                    $this->load->view('vistas_exito/v_viajala',$data);
                 }
             } else {
                 $this->reserva_model->ActualizarEstadoReserva_Safetypay("0", $id_reserva);

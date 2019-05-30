@@ -81,7 +81,7 @@ class PasoFinal extends CI_Controller {
                 $TramaItinerary = $this->GenerarTramaKiu_MetodoItineraryKiu($pnr);
                 $ResWsKiuItinerary = $this->EnviarTramakiuAirItinerary($TramaItinerary);
 
-                $ObjResObjectItinerary = new SimpleXMLElement($ResWsKiuItinerary);
+                $ObjResObjectItinerary = $ResWsKiuItinerary[3];
                 $res_tarifa_tax = $this->ObtenerTarifasTax($ObjResObjectItinerary, $xss_post['cod_origen'], $xss_post['cod_destino']);
                 $DatetTimeLimitReserva = new DateTime();
                 $DatetTimeLimitReserva->modify('+3 hours');
@@ -590,11 +590,7 @@ class PasoFinal extends CI_Controller {
         $data_reprocesa['ddi_pais_cel'] = $codigo_pais;
         $data_reprocesa['tipo_documento_adl_1'] = $res_datareserva->tipo_documento;
         $data_reprocesa['numdoc_adl_1'] = $res_datareserva->num_documento;
-        
-//        var_dump($res_datareserva);die;
         $this->Reserva_model->ActualizarMetodoPagoTransaccion($cc_code, $reserva_id);
-
         $this->PosicionarMetodoDePago($data_reprocesa, $res_datareserva->total_pagar, $res_datareserva->pnr, $reserva_id);
     }
-
 }

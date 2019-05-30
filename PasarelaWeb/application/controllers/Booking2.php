@@ -147,7 +147,6 @@ class Booking2 extends CI_Controller {
                 break;
             default : echo "MOSTRAR MENSAJE DE ADVERTENCIA";
         }
-
         return $itinerario;
     }
 

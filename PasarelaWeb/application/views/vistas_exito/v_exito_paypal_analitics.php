@@ -12,6 +12,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-757467471"></script>
+        <script src="https://cdn.viajala.com/tracking/conversion.js"></script>
 
         <script>
 
@@ -130,201 +131,210 @@
             </div>
         </header>
         <main class="contenidos">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-8">
-                            <div class="alert alert-success" role="alert">
-                                <strong>Transacción exitosa!</strong><br>
-                            </div>
-                            <div class="accordion destinos--2" id="accordionStar">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#collapseOne" href="#collapseOne" aria-controls="collapseOne">
-                                            <h3>Datos del Establecimiento:</h3>
-                                        </a>
-                                    </div>
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionStar">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-11">
-                                                    <table class="table resumen">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th>Nombre del Establecimiento:</th>
-                                                                <td>Star Perú</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Teléfono</th>
-                                                                <td>(511) 705-9000</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Dirección Comercial</th>
-                                                                <td>Av. Comandante Espinar 331, Miraflores. Lima 18 - Perú</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Dominio</th>
-                                                                <td>www.starperu.com</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-8">
+                        <div class="alert alert-success" role="alert">
+                            <strong>Transacción exitosa!</strong><br>
+                        </div>
+                        <div class="accordion destinos--2" id="accordionStar">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#collapseOne" href="#collapseOne" aria-controls="collapseOne">
+                                        <h3>Datos del Establecimiento:</h3>
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionStar">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <table class="table resumen">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Nombre del Establecimiento:</th>
+                                                            <td>Star Perú</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Teléfono</th>
+                                                            <td>(511) 705-9000</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Dirección Comercial</th>
+                                                            <td>Av. Comandante Espinar 331, Miraflores. Lima 18 - Perú</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Dominio</th>
+                                                            <td>www.starperu.com</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card" id="accordionStar">
-                                    <div class="card-header" id="headingTwo">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#collapseTwo" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <h3>Datos de Pasajeros:</h3>
-                                        </a>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionStar">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-11">
-                                                    <table class="table resumen">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>&nbsp;</th>
-                                                                <th>Apellidos / Nombres</th>
-                                                                <th>Boleto</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
+                            </div>
+                            <div class="card" id="accordionStar">
+                                <div class="card-header" id="headingTwo">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#collapseTwo" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <h3>Datos de Pasajeros:</h3>
+                                    </a>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionStar">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <table class="table resumen">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>&nbsp;</th>
+                                                            <th>Apellidos / Nombres</th>
+                                                            <th>Boleto</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
 
-                                                            <?php
-                                                            $pax = 1;
-                                                            foreach ($data->TicketItemInfo as $row) {
-                                                                ?>
-                                                                <tr>
-                                                                    <td>Pasajero <?= $pax ?></td>
-                                                                    <td><?= $row->PassengerName->Surname . '  ' . $row->PassengerName->GivenName ?></td>
-                                                                    <td><?= $row->attributes()->TicketNumber ?></td>
-                                                                    <td><button type="button" class="btn btn-outline-danger btn_ver_ticket" id="<?= $row->attributes()->TicketNumber ?>">Ver Ticket</button></td>
-                                                                </tr>
-                                                                <?php
-                                                                $pax++;
-                                                            }
+                                                        <?php
+                                                        $pax = 1;
+                                                        foreach ($data->TicketItemInfo as $row) {
                                                             ?>
+                                                            <tr>
+                                                                <td>Pasajero <?= $pax ?></td>
+                                                                <td><?= $row->PassengerName->Surname . '  ' . $row->PassengerName->GivenName ?></td>
+                                                                <td><?= $row->attributes()->TicketNumber ?></td>
+                                                                <td><button type="button" class="btn btn-outline-danger btn_ver_ticket" id="<?= $row->attributes()->TicketNumber ?>">Ver Ticket</button></td>
+                                                            </tr>
+                                                            <?php
+                                                            $pax++;
+                                                        }
+                                                        ?>
 
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" id="accordionStar">
-                                    <div class="card-header" id="headingThree">
-                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#collapseThree" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                            <h3>Datos de la Compra:</h3>
-                                        </a>
-                                    </div>
-                                    <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionStar" style="">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-11">
-                                                    <table class="table resumen">
-                                                        <tbody>
-                                                            <tr>
-                                                                <th>Código de reserva:</th>
-                                                                <td><?= $data_reserva->pnr ?></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Número de pedido:</th>
-                                                                <td><?= $data_reserva->id ?></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Moneda:</th>
-                                                                <td>USD</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Monto de la Transacción:</th>
-                                                                <td><?= $data_reserva->total_pagar ?></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>Fecha y Hora del pedido:</th>
-                                                                <td><?= (new DateTime($data_reserva->fecha_registro))->format('d/m/Y H:i') ?></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-11">
-                                                    <table class="table resumen">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td><button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#TerminosCondiciones">Ver condiciones</button></td>
-                                                                <!--<td><button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#PoliticasDevolucion">Politicas de devolución</button></td>-->
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="card" id="accordionStar">
+                                <div class="card-header" id="headingThree">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#collapseThree" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <h3>Datos de la Compra:</h3>
+                                    </a>
+                                </div>
+                                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionStar" style="">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <table class="table resumen">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th>Código de reserva:</th>
+                                                            <td><?= $data_reserva->pnr ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Número de pedido:</th>
+                                                            <td><?= $data_reserva->id ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Moneda:</th>
+                                                            <td>USD</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Monto de la Transacción:</th>
+                                                            <td><?= $data_reserva->total_pagar ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>Fecha y Hora del pedido:</th>
+                                                            <td><?= (new DateTime($data_reserva->fecha_registro))->format('d/m/Y H:i') ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
 
-                        </div>  
-                    </div>
-                </div>
-
-
-                </div>
-
-
-            </main>    
-            <footer class="pie">
-                <div class="container-fluid">
-                    <div class="row no-gutters">
-                        <div class="col-sm-12 col-md-5 menu-inf">
-                            <div class="row no-gutters justify-content-end">
-                                <div class="col-sm-12 col-md-11">
-                                    <img src="<?= base_url() ?>img/Logotipo.png" alt="">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="libro-de-reclamaciones.html">Libro de reclamaciones</a></li>
-                                        <li class="list-inline-item"><a href="<?= base_url() ?>Main/la_empresa">La Empresa</a></li>
-                                        <li class="list-inline-item"><a href="<?= base_url() ?>Main/contacto">Contacto</a></li>
-                                    </ul>
+                                        <div class="row">
+                                            <div class="col-11">
+                                                <table class="table resumen">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#TerminosCondiciones">Ver condiciones</button></td>
+                                                            <!--<td><button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#PoliticasDevolucion">Politicas de devolución</button></td>-->
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-7 redes">
-                            <div class="row no-gutters align-items-end">
-                                <div class="col-sm-12 col-md-9">
-                                    <p>CALL CENTER (511) 705-9000 <br>
-                                        Atención diaria – 08:00 a 20:00Hrs.</p>
-                                </div>
-                                <div class="col-sm-12 col-md-3">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item facebook">
-                                            <a href="https://www.facebook.com/aerolineas.starperu?fref=ts" class="nav-link">
-                                                facebook
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item twitter">
-                                            <a href="https://twitter.com/starperu_" class="nav-link">
-                                                twitter
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row no-gutters">
-                        <div class="col-12 text-center disclaimer">
-                            <p><small>2018 Star up S.A - <a href="<?= base_url() ?>Main/contrato_de_transporte">Contrato de transporte</a> - <a href="<?= base_url() ?>Main/condiciones_de_venta">Condiciones de venta</a> - <a href="<?= base_url() ?>Main/condiciones_clases_tarifarias">Condiciones de clases tarifarias</a> - <a href="<?= base_url() ?>Main/endosos_y_postergaciones">Endosos y postergaciones</a> - <a href="<?= base_url() ?>Main/preguntas_frecuentes">FAQ</a> - <a href="<?= base_url() ?>Main/privacidad">Privacidad</a><!-- - <a href="prensa-e-imagen.html">Prensa e imagen</a>--> - <a href="<?= base_url() ?>Main/flota">Flota</a> - <a href="<?= base_url() ?>Main/mapa_del_sitio">Mapa del sitio</a></small></p>
-                        </div>
+
+                    </div>  
+                </div>
+            </div>
+
+
+    </div>
+
+
+</main>    
+<footer class="pie">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-sm-12 col-md-5 menu-inf">
+                <div class="row no-gutters justify-content-end">
+                    <div class="col-sm-12 col-md-11">
+                        <img src="<?= base_url() ?>img/Logotipo.png" alt="">
+                        <ul class="list-inline">
+                            <li class="list-inline-item"><a href="libro-de-reclamaciones.html">Libro de reclamaciones</a></li>
+                            <li class="list-inline-item"><a href="<?= base_url() ?>Main/la_empresa">La Empresa</a></li>
+                            <li class="list-inline-item"><a href="<?= base_url() ?>Main/contacto">Contacto</a></li>
+                        </ul>
                     </div>
                 </div>
-            </footer>
+            </div>
+            <div class="col-sm-12 col-md-7 redes">
+                <div class="row no-gutters align-items-end">
+                    <div class="col-sm-12 col-md-9">
+                        <p>CALL CENTER (511) 705-9000 <br>
+                            Atención diaria – 08:00 a 20:00Hrs.</p>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <ul class="list-inline">
+                            <li class="list-inline-item facebook">
+                                <a href="https://www.facebook.com/aerolineas.starperu?fref=ts" class="nav-link">
+                                    facebook
+                                </a>
+                            </li>
+                            <li class="list-inline-item twitter">
+                                <a href="https://twitter.com/starperu_" class="nav-link">
+                                    twitter
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-12 text-center disclaimer">
+                <p><small>2018 Star up S.A - <a href="<?= base_url() ?>Main/contrato_de_transporte">Contrato de transporte</a> - <a href="<?= base_url() ?>Main/condiciones_de_venta">Condiciones de venta</a> - <a href="<?= base_url() ?>Main/condiciones_clases_tarifarias">Condiciones de clases tarifarias</a> - <a href="<?= base_url() ?>Main/endosos_y_postergaciones">Endosos y postergaciones</a> - <a href="<?= base_url() ?>Main/preguntas_frecuentes">FAQ</a> - <a href="<?= base_url() ?>Main/privacidad">Privacidad</a><!-- - <a href="prensa-e-imagen.html">Prensa e imagen</a>--> - <a href="<?= base_url() ?>Main/flota">Flota</a> - <a href="<?= base_url() ?>Main/mapa_del_sitio">Mapa del sitio</a></small></p>
+            </div>
+        </div>
+    </div>
+</footer>
 
-            <!-- End Facebook Pixel Code -->
-            <!-- Analytics -->
+<!-- End Facebook Pixel Code -->
+<!-- Analytics -->
+<script>
+    var viajala_conversion_params = {
+        supplier: 'starperu',
+        origin: '<?= $data_reserva->origen ?>',
+        destination: '<?= $data_reserva->destino ?>',
+        grossBooking: '<?= round($data_reserva->total_pagar, 0) ?>',
+        currency: 'USD'
+    };
+</script>
+</html>
 
-            </html>
-            <?php $this->load->view('templates/v_error') ?>
+<?php $this->load->view('templates/v_error') ?>

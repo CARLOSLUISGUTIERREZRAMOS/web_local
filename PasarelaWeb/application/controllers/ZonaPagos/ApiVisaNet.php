@@ -33,12 +33,12 @@ class ApiVisaNet extends CI_Controller {
             $sess_token_seguridad_visa = $this->session->token_seguridad_visa;
             $sess_id_reserva = $this->session->id_reserva;
 
-            $campos = 'id,num_documento,tipo_documento,total_pagar,id,pnr,ruc,fecha_registro,nombres,apellidos,email';
+            $campos = 'id,num_documento,tipo_documento,total_pagar,id,pnr,ruc,fecha_registro,nombres,apellidos,email,origen,destino';
             $data_reserva = $this->Reserva_model->BuscarReservaPorId($sess_id_reserva, $campos);
             $body = $this->visa->GenerarBody_AutorizacionTransaccion($data_reserva->num_documento, $data_reserva->tipo_documento, $data_reserva->total_pagar, $data_reserva->id, $tokenFormulario);
             $res_ws_visa = $this->visa->SolicitarAutorizacionTransaccion($sess_token_seguridad_visa, $body);
-            
-            dispara_log($this->session->id_reserva,'VI','AUTORIZAR_TRANSACCION', print_r($res_ws_visa,true),'RS');
+
+            dispara_log($this->session->id_reserva, 'VI', 'AUTORIZAR_TRANSACCION', print_r($res_ws_visa, true), 'RS');
             if (isset($res_ws_visa)) {
                 $res_array_data = ArmarDataParaInsertar($res_ws_visa, $sess_id_reserva);
                 $res = $this->Visa_model->GuardarTransaccion($res_array_data);
@@ -95,25 +95,25 @@ class ApiVisaNet extends CI_Controller {
                         }
 
 //                        $this->template->add_js_analitics('js/web/exito.js');
-                               $this->load->view('vistas_exito/v_exito_visa_analitics', $ResDemandTicket);
+                        $this->load->view('vistas_exito/v_exito_visa_analitics', $ResDemandTicket);
 //                        $this->template->load('vistas_exito/v_exito_visa', $ResDemandTicket);
                         $this->load->view('politicas_negocio/terminos_condiciones');
                         $this->load->view('politicas_negocio/politicas_devolucion');
                         $this->load->view('templates/v_modal_show_ticket');
                         $this->session->unset_userdata('id_reserva');
                     } else {
-                        dispara_log($this->session->id_reserva,'VI','Autorizacion VISA','Se supera el tiempo limite ','RS DB STARPERU');
-                        header("Location: " . base_url());
+                        dispara_log($this->session->id_reserva, 'VI', 'Autorizacion VISA', 'Se supera el tiempo limite ', 'RS DB STARPERU');
+//                        header("Location: " . base_url());
                     }
                 }
-            }else{
-                dispara_log($this->session->id_reserva,'VI','Autorizacion VISA','Error al ejecutar el metodo **SolicitarAutorizacionTransaccion**','RS');
-                header("Location: " . base_url());
+            } else {
+                dispara_log($this->session->id_reserva, 'VI', 'Autorizacion VISA', 'Error al ejecutar el metodo **SolicitarAutorizacionTransaccion**', 'RS');
+//                header("Location: " . base_url());
             }
         } else {
             $id_reserva = (isset($this->session->id_reserva)) ? $this->session->id_reserva : 'NO SESSION ID RESERVA';
-            dispara_log($id_reserva,'VI','transactionToken','No se recibe el post','RS');
-            header("Location: " . base_url());
+            dispara_log($id_reserva, 'VI', 'transactionToken', 'No se recibe el post', 'RS');
+//            header("Location: " . base_url());
         }
     }
 

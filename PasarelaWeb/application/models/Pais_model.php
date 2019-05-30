@@ -29,4 +29,13 @@ class Pais_model extends CI_Model {
         return $this->db_web->get()->row()->codigo_pais;
     }
 
+    public function GetIdPais($criterio_busqueda){
+        $this->db_web->select('id');
+        $this->db_web->from('pais');
+        $this->db_web->where('ddi','+'.$criterio_busqueda);
+        $this->db_web->limit(1);
+        $res_sql = $this->db_web->get();
+        return $res_sql->row()->id;
+    }
+
 }

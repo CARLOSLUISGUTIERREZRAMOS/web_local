@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 
-$config['base_url'] = 'http://127.0.0.1/LOCAL_WEB/PasarelaWeb';
+$config['base_url'] = 'http://127.0.0.1/web_local/PasarelaWeb';
 
 
 /*

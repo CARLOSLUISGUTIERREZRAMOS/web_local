@@ -23,16 +23,7 @@ class ApiPagoEfectivo extends CI_Controller {
     function index() {
 
 
-        $boletos = $this->Reserva_model->ObtenerBoletosReserva(1781248);
-
-        foreach ($boletos->Result() as $boleto) {
-            echo $boleto;
-        }
-
-        die;
         if (isset($_POST)) {
-
-
 
             $archivo = $this->getRutaArchivo();
             $contenido_archivo = $this->ObtenerContenidoDeArchivo($archivo);
@@ -46,9 +37,7 @@ class ApiPagoEfectivo extends CI_Controller {
             $id_reserva = $this->pagoefectivo_model->consulta_reservaid($cip);
             dispara_log($id_reserva, "PE", "NOTIFICACION_POST_PAGOEFECTIVO", print_r($_POST, true), "POST");
             switch ($estado_cip) {
-
                 case "cip.paid":
-
                     $campos = 'id,fecha_registro,num_vuelo_ida,num_vuelo_retorno,fechahora_salida_tramo_ida,'
                             . 'fechahora_llegada_tramo_retorno,clase_ida,clase_retorno,tipo_viaje,pnr,total_pagar,origen,destino,ruc';
                     $data_reserva = $this->Reserva_model->BuscarReservaPorId($id_reserva, $campos);
@@ -65,6 +54,8 @@ class ApiPagoEfectivo extends CI_Controller {
                     }
                     $this->reserva_model->ActualizarEstadoReserva_PagoEfectivo("1", $id_reserva);
                     $this->pagoefectivo_model->actualizar_campos_post($cip, $estado_cip);
+                    $data['data_reserva'] = $data_reserva;
+                    $this->load->view('vistas_exito/v_viajala', $data);
                     break;
                 case "cip.expired":
                     $this->reserva_model->ActualizarEstadoReserva_PagoEfectivo("0", $id_reserva);

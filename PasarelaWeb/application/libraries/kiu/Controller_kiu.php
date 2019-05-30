@@ -83,7 +83,12 @@ class Controller_kiu {
         $json = json_encode($xml);
         $array = json_decode($json, TRUE);
         $err = array('ErrorCode' => $this->ErrorCode, 'ErrorMsg' => $this->ErrorMsg);
-        return $array;
+        $salida = array();
+        $salida[] = $array;
+        $salida[] = $xml[1];
+        $salida[] = $xml[2];
+        $salida[] = $xml[3];
+        return $salida;
     }
 
     public function AirCancelRQ($args, &$err) {
@@ -94,10 +99,10 @@ class Controller_kiu {
         $array = json_decode($json, TRUE);
         $err = array("ErrorCode" => $this->ErrorCode, "ErrorMsg" => $this->ErrorMsg);
         $salida = array();
-        $salida[] = $array;//RQ->
-        $salida[] = $xml[1];//RQ->XML
-        $salida[] = $xml[2];//RS->XML 
-        $salida[] = $xml[3];//RS->[]
+        $salida[] = $array; //RQ->
+        $salida[] = $xml[1]; //RQ->XML
+        $salida[] = $xml[2]; //RS->XML 
+        $salida[] = $xml[3]; //RS->[]
         return $salida;
     }
 

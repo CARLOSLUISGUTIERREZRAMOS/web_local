@@ -195,6 +195,14 @@
     </div>
 </main>
 <script>
+    var viajala_conversion_params = {
+        supplier: 'starperu',
+        origin: '<?= $cod_origen ?>',
+        destination: '<?= $cod_destino ?>',
+        grossBooking: '<?= round($PrecioTotal, 0) ?>',
+        currency: 'USD'
+    };
+
 <?php if ($tipo_viaje === 'R') { ?>
         var viajala_conversion_params = {
             event: 'redirect',

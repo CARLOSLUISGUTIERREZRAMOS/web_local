@@ -322,13 +322,18 @@ class Model_kiu {
         if ($IdTicket != '' && $CodReserva == '' && $Email == '') {
             return simplexml_load_string($response, 'SimpleXMLElement', LIBXML_NOCDATA);
         } else {
-
-            $array = array();
-            $array[] = simplexml_load_string($response);
-            $array[] = htmlspecialchars($request, ENT_QUOTES);
-            $array[] = htmlspecialchars($response, ENT_QUOTES);
-            $array[] = new SimpleXMLElement($response);
-            return $array;
+//            return simplexml_load_string($response);
+            return $response;
+//            $array = array();
+////            $array[] = simplexml_load_string($response);
+////            $array[] = htmlspecialchars($request, ENT_QUOTES);
+////            $array[] = htmlspecialchars($response, ENT_QUOTES);
+////            $array[] = new SimpleXMLElement($response);
+////            return $array;
+//            $array[] = $response;
+//            $array[] = simplexml_load_string($response);
+            return simplexml_load_string($response);
+//            return $array;
         }
     }
 

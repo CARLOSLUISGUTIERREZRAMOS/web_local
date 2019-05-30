@@ -71,15 +71,20 @@ class PagoReservas extends CI_Controller
             $args = array('CodReserva' => $codigo_reserva);
             $Itinerary = $kiu->TravelItineraryReadRQ($args, $err)[3]; //CAPTURADO COMO OBJ
             $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML
-            
+            echo "<pre>";
+            var_dump($Itinerary_xml);
+            echo "</pre>";
+//            
             $estado_tkt = $Itinerary->TravelItinerary->ItineraryInfo->Ticketing->attributes()->TicketingStatus;
-            echo $estado_tkt;
            
             switch ((int)$estado_tkt) {
                 case 1: //Pendiente de emisión
                     //Logica para mostrar el itineario
-                    $Pasajeros = $Itinerary->TravelItinerary->CustomerInfos;
-                    $data['Pasajeros'] = $Pasajeros;
+                    
+                    $data['Pasajeros'] = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo;
+                    $data['Itinerarios'] = $Itinerary->TravelItinerary->ItineraryInfo->ReservationItems->Item;
+                    $data['TravelItinerary'] = $Itinerary->TravelItinerary;
+                    $data['TotalPagar'] = $Itinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountAfterTax;
                     $this->template->load('v_pago_reservas', $data);
 
                     break;

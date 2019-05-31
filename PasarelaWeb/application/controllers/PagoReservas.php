@@ -61,10 +61,48 @@ class PagoReservas extends CI_Controller {
         } else {
             $xss_post = $this->input->post(NULL, TRUE);
             $codigo_reserva = $xss_post['codigo_reserva'];
-            $apellido = $xss_post['apellido'];
-            $data['res_model_vuelo'] = $this->Reserva_model->BuscarReserva($codigo_reserva, trim($apellido), 'pnr');
-            if ((int) $data['res_model_vuelo']->estado === 0) {
-                $TiempoValidoReProcesarReserva = RetornaHorasDiferencias($data['res_model_vuelo']->fecha_limite);
+            $kiu = new Controller_kiu();
+            $args = array('CodReserva' => $codigo_reserva);
+            $Itinerary = $kiu->TravelItineraryReadRQ($args, $err)[3]; //CAPTURADO COMO OBJ
+            $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML
+            
+            echo "<pre>";
+            echo $Itinerary_xml;
+            echo "<pre>";
+            
+            
+            $pnr = $Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
+            $nombres_pax = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->PersonName->GivenName;
+            $apellidos_pax = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->PersonName->Surname;
+            $tlfn_first = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->ContactPerson->Telephone[0];
+            $tlfn_second = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->ContactPerson->Telephone[1];
+            $data_get_tlfn1 = explode('D1',$tlfn_first)[1];
+            $num_tlfn1 = explode('P1',$data_get_tlfn1);
+            $ddi_tlfn1 = $num_tlfn1[0];
+            $num_tlfn1 = $num_tlfn1[1];
+            $data_get_tlfn2 = explode('D2',$tlfn_second)[1];
+            $num_tlfn2 = explode('P2',$data_get_tlfn2);
+            $ddi_tlfn2 = $num_tlfn2[0];
+            $num_tlfn2 = $num_tlfn2[1];
+            $cod_nacionalidad_pax = (empty($num_tlfn1)) ? $this->Pais_model->GetIdPais($ddi_tlfn2): $this->Pais_model->GetIdPais($ddi_tlfn1);
+            
+            
+
+            echo $cod_nacionalidad_pax;die;
+
+            
+            die;
+            $estado_tkt = $Itinerary->TravelItinerary->ItineraryInfo->Ticketing->attributes()->TicketingStatus;
+           
+            switch ((int)$estado_tkt) {
+                case 1: //Pendiente de emisión
+                    //Logica para mostrar el itineario
+                    
+                    $data['Pasajeros'] = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo;
+                    $data['Itinerarios'] = $Itinerary->TravelItinerary->ItineraryInfo->ReservationItems->Item;
+                    $data['TravelItinerary'] = $Itinerary->TravelItinerary;
+                    $data['TotalPagar'] = $Itinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountAfterTax;
+                    $this->template->load('v_pago_reservas', $data);
 
 //                if ($TiempoValidoReProcesarReserva) {
                     if (!is_null($data['res_model_vuelo'])) {

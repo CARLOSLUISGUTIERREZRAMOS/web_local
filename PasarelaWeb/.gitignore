@@ -2,11 +2,12 @@
 
 application/cache/*
 application/config/config.php
+application/config/database.php
 !application/cache/index.html
 
 application/logs/*
 !application/logs/index.html
-
+logs/*
 !application/*/.htaccess
 
 composer.lock

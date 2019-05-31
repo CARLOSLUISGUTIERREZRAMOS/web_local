@@ -2,13 +2,14 @@
 
 application/cache/*
 application/config/config.php
+application/config/database.php
 !application/cache/index.html
 
 application/logs/*
 !application/logs/index.html
-
+logs/*
 !application/*/.htaccess
-
+.htaccess
 composer.lock
 
 user_guide_src/build/*

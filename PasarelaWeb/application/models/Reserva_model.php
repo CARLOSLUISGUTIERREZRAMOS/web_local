@@ -16,13 +16,13 @@ class Reserva_model extends CI_Model {
 
     public function RegistrarReserva($data) {
         $res_insert = $this->db_web->insert('reserva', $data);
-//        return $this->db_web->last_query();
+        //return $this->db_web->last_query();
         return $this->db_web->insert_id();
     }
 
     public function RegistrarReservaDetalle($data) {
         $this->db_web->insert('reserva_detalle', $data);
-//        return $this->db_web->last_query();
+        return $this->db_web->last_query();
     }
 
     public function RegistrarTicket($reserva_id, $nombres_pax, $ticket) {
@@ -126,6 +126,24 @@ class Reserva_model extends CI_Model {
         $this->db_web->set('cc_code', $cc_code);
         $this->db_web->where('id', $reserva_id);
         return $this->db_web->update('reserva');
+    }
+    public function VerificarExisteReserva($condicion){
+        $this->db_web->select('pnr');
+        $this->db_web->from('reserva');
+        $this->db_web->where($condicion);
+        $this->db_web->limit(11);
+        return $this->db_web->get()->num_rows();
+        
+    }
+    
+    public function BuscarIdReservaPorPnr($pnr) {
+
+        $this->db_web->select('id');
+        $this->db_web->from('reserva');
+        $this->db_web->where('pnr', $pnr);
+        $this->db_web->limit(1);
+        $res_query = $this->db_web->get()->row()->id;
+        return $res_query;
     }
 
 }

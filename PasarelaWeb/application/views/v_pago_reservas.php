@@ -228,14 +228,7 @@
                             <div class="form-group">
                                 <label for="montotrans">Monto de la transacción:</label>
                                 <input type="text" class="form-control" aria-describedby="montotrans" id="montotrans" value=" USD <?= $TotalPagar  ?>" disabled>
-                                <input type="hidden" value="<?= $res_model_vuelo->id ?>" name="reserva_id">
-                                <input type="hidden" value="<?= $res_model_vuelo->email ?>" name="email">
-                                <input type="hidden" value="<?= $res_model_vuelo->pnr ?>" name="pnr">
-                                <input type="hidden" value="<?= $TravelItinerary->Remarks->Remark ?>" name="ruc">
-                                <input type="hidden" value="<?= $res_model_vuelo->tipo_documento ?>" name="tipo_documento_adl_1">
-                                <input type="hidden" value="<?= $res_model_vuelo->num_documento ?>" name="numdoc_adl_1">
-                                <input type="hidden" value="<?= $res_model_vuelo->total_pagar ?>" name="total_pagar">
-
+                                <input type="hidden" value="<?= $reserva_id ?>" name="reserva_id">
                             </div>
                         </th>
 

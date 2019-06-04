@@ -1,0 +1,36 @@
+[2019-06-04 11:16:50.000000 127.0.0.1 - 1782837 ] [METODO: ArmarDataCreateExpressToken - SOLICITUD: RQ] Array
+(
+    [ApiKey] => a1c1cbdc9144c58b628896ee3f8bdc74
+    [RequestDateTime] => 2019-06-04T11:16:49
+    [CurrencyCode] => USD
+    [Amount] => 401.03
+    [MerchantSalesID] => PDZTFX - 1782837
+    [Language] => ES
+    [TrackingCode] => 
+    [ExpirationTime] => 180
+    [FilterBy] => 
+    [TransactionOkURL] => http://www.starperu.com/
+    [TransactionErrorURL] => https://sslzone.starperu.com/error_safetypay.php
+    [TransactionExpirationTime] => 180
+    [CustomMerchantName] => STAR PERU
+    [ShopperEmail] => CARLOS5T@HOTMAIL.COM
+    [ProductID] => 1
+    [ShopperInformation_first_name] => CARLOS
+    [ShopperInformation_last_name] => GUTIERREZ
+    [ShopperInformation_email] => CARLOS5T@HOTMAIL.COM
+    [ShopperInformation_country_code] => 
+    [ShopperInformation_mobile] => 989149229
+    [ResponseFormat] => XML
+    [Signature] => 387B0FB0CD5248B53038A4EDD065F77CE2BF0F3616A9A2C1CD133E96A07B370F
+)
+
+[2019-06-04 11:16:50.000000 127.0.0.1 - 1782837 ] [METODO: ArmarDataRespuestaLogSafetypay - SOLICITUD: RS] Array
+(
+    [reserva_id] => 1782837
+    [respuesta] => <?xml version="1.0"?>
+<CreateExpressTokenResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><ExpressTokenResponse><ResponseDateTime xmlns="urn:safetypay:messages:mws:api">2019-06-04T16:18:13</ResponseDateTime><ShopperRedirectURL xmlns="urn:safetypay:messages:mws:api">https://sandbox-gateway.safetypay.com/Express4/Checkout/index?TokenID=06bf34aa-260d-4577-8708-a7e91996dd76</ShopperRedirectURL><Signature xmlns="urn:safetypay:messages:mws:api">5222467C1F88AE8060D02720A6123E11E6660E5E921ABF1DA6729C41A5F7AD97</Signature><ErrorManager xmlns="urn:safetypay:messages:mws:api"><ErrorNumber xmlns="urn:safetypay:schema:mws:api">0</ErrorNumber><Description xmlns="urn:safetypay:schema:mws:api">No Error</Description></ErrorManager></ExpressTokenResponse></CreateExpressTokenResponse>
+
+    [codigo_error] => 0
+    [mensaje_error] => No Error
+)
+

@@ -46,10 +46,10 @@ class PasoFinal extends CI_Controller {
         } else {
 
             $session_pnr = $this->session->has_userdata('pnr');
-            if (isset($session_pnr) && $session_pnr === true) {
+           /*  if (isset($session_pnr) && $session_pnr === true) {
                 header("Location: " . base_url() . 'PagoReservas/Sugerir/');
                 die;
-            }
+            } */
 //            echo  $_POST['tipo_documento_adl_1'];die;
             $detect = new Mobile_Detect();
             $xss_post = $this->input->post(NULL, TRUE);
@@ -218,7 +218,10 @@ class PasoFinal extends CI_Controller {
     }
 
     private function ProcesarConVisa($TotalPagar, $xss_post, $reserva_id, $pnr) {
+        
+        $this->template->add_js('js/queryloader2/jquery.queryloader2.min.js'); 
         $this->template->add_js('js/visa/logica.js');
+        $this->template->add_css('css/app/visa.css');
         $this->load->library('Visa/Connection_visa');
         $this->visa = new Connection_visa();
         //============     VARIABLES POST QUE DEBEN LLEGAR PARA EL PROCESO CORRECTO CON VISANET =========
@@ -234,7 +237,9 @@ class PasoFinal extends CI_Controller {
         $token = $this->visa->Connection();
         $IP = $_SERVER['REMOTE_ADDR'];
         $request_body = $this->visa->GenerarBody($TotalPagar, $IP);
+
         $visa_res = $this->visa->GenerarSesion($token, $request_body);
+        /* var_dump($visa_res); */
         $objSessionVisa = json_decode($visa_res);
 //        var_dump($objSessionVisa);die;
         $libreriaJsVisa = $this->visa->GetLibreriaJSVisa();

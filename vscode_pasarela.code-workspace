@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": ".git"
+		},
+		{
+			"path": ".vscode"
+		},
+		{
+			"path": "es"
+		},
+		{
+			"path": "lib_test_new"
+		},
+		{
+			"path": "nbproject"
+		},
+		{
+			"path": "PasarelaWeb"
+		}
+	]
+}

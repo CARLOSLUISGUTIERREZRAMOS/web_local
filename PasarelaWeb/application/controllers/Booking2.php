@@ -46,10 +46,11 @@ class Booking2 extends CI_Controller {
 
             $trama = $this->ArmaTramaWsKiu($res_itinerario, $xss_post['cant_adl'], $xss_post['cant_chd'], $xss_post['cant_inf']);
             $rs_kiu = $this->EnviarTramakiu($trama);
-
-//            echo "<pre>";
-//            var_dump($rs_kiu);
-//            echo "</pre>";die;
+            
+           /*  echo "<pre>";
+            var_dump($rs_kiu);
+            echo "</pre>";die; */
+            $rs_kiu = $rs_kiu[3];
             if (isset($rs_kiu->Error)) {
                 $data['codigo_error'] = $rs_kiu->Error->ErrorCode;
                 $data['msg_error'] = $rs_kiu->Error->ErrorMsg;
@@ -101,7 +102,7 @@ class Booking2 extends CI_Controller {
     private function EnviarTramakiu($trama) {
         $kiu = new Controller_kiu();
         $array_price = $kiu->AirPriceRQ($trama, $err);
-        $ResKiuXML = $array_price[3];
+        $ResKiuXML = $array_price;
 //        $ResKiuXML = $array_price;
         return $ResKiuXML;
     }

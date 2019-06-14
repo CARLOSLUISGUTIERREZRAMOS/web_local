@@ -1,58 +1,138 @@
 $(function () {
     var documento;
     var email1;
-    $("body").on("change", "#select_cards", function () {
+    var tarjeta_set;
+    var cc_code;
+    var descuento_aplicado = false;
+    $(document).ready(function () {
 
-        var tarjeta_set = $(this).val();
+        MostrarInputCodigoDescuento('VI');
+
+    });
+    $("body").on("change", "#select_cards", function () {
+        OcultarInputCodigoDescuento();
+        tarjeta_set = $(this).val();
         switch (tarjeta_set) {
-            case 'TC_V':
-//                $("#img_cards").removeClass( "w-70 w-100" );
-//                $("#img_cards").addClass("w-100");
+            case 'TC_V': //VISA
+                cc_code = 'VI';
                 $("#pagoefectivo").html('');
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_visa_opc2.png");
                 break;
-            case 'TC_D':
-//                $("#img_cards").removeClass( "w-70 w-100" );
-//                $("#img_cards").addClass("w-100");
+            case 'TC_D': //DINERS
+                cc_code = 'DC';
                 $("#pagoefectivo").html('');
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_diners.png");
                 break;
+            case 'TC_M': // MASTERCARD
+                cc_code = 'MC';
+                $("#pagoefectivo").html('');
+                $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_mastercard.png");
+                break;
+            case 'TC_A': // Anerican Express
+                cc_code = 'AX';
+                $("#pagoefectivo").html('');
+                $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_americanexpress.png");
+                break;
             case 'PP':
-//                $("#img_cards").addClass('w-70');
-//                $("#img_cards").removeClass("w-100 w-70");
+                cc_code = 'PP';
                 $("#pagoefectivo").html('');
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_paypal.png");
                 break;
             case 'SP_C':
-//                 $("#img_cards").removeClass("w-100 w-70");
+                cc_code = 'SP';
                 $("#pagoefectivo").html('');
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_pagos_en_efectivo.png");
                 break;
             case 'SP_I':
-//                 $("#img_cards").removeClass("w-100 w-70");
+                cc_code = 'SP';
                 $("#pagoefectivo").html('');
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_banca_por_internet.png");
                 break;
             case 'SP_E':
-//                 $("#img_cards").removeClass("w-100 w-70");
+                cc_code = 'SP';
                 $("#pagoefectivo").html('');
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_pagos_internacionales.png");
                 break;
             case 'PE':
+                cc_code = 'PE';
                 $("#pagoefectivo").html('');
                 $("#pagoefectivo").append("<b>Depósitos en efectivo</b>-En Cualquier agente o agencia autorizada a nivel nacional a la cuenta de Pago efectivo <a href='https://cip.pagoefectivo.pe/CNT/QueEsPagoEfectivo.aspx' target='blank'>¿Como Funciona?</a>");
-//                 $("#img_cards").removeClass("w-100 w-70");
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_pe_de.png");
                 break;
             case 'PEB':
+                cc_code = 'PE';
                 $("#pagoefectivo").html('');
                 $("#pagoefectivo").append("<b>Paga en BBVA, BCP, Interbank, Scotiabank, BanBif, Caja Arequipa, a través de la banca por internet o banca móvil en la opción de pago de servicios. <a href='https://www.youtube.com/watch?v=oRbpV9mbSuc' target='blank'>¿Como Funciona?</a>");
-//                 $("#img_cards").removeClass("w-100 w-70");
                 $("#img_cards").attr("src", "http://www.starperu.com/PasarelaWeb/img/metodos_pagos/logo_pe_tb.png");
                 break;
         }
+        MostrarInputCodigoDescuento(cc_code);
+    });
+
+    var MostrarInputCodigoDescuento = function (cc_code) {
+        validos = $("#cc_codes_validos_desc").val();
+
+        if (typeof validos != 'undefined') {
+            var array_card_validas = validos.split(',');
+            metodo_bool = $.inArray(cc_code, array_card_validas);
+            if (metodo_bool >= 0) {
+                $("#bloque_desc").css("display", "block");
+            }
+        }
+    }
+
+
+    $("body").on("click", "#btn_aplica_desc", function () {
+        var data_obj_descuento;
+        $('.aviso_cod_desc').remove();
+        var desc_ingresado = $('#input_desc').val();
+        var msg;
+        var tipo_res;
+
+        if (desc_ingresado === '') {
+            msg = 'No ingresó ningún código';
+            tipo_res = 'alert alert-warning';
+        }
+        $.post("Booking2/GetCodigoDescuento", { cod_desc: desc_ingresado }, function (data) {
+
+            data_obj_descuento = data;
+            if (data_obj_descuento === 'FALSE') {
+                msg = 'El código ingresado no es válido.';
+                tipo_res = 'alert alert-danger';
+            } else {
+                var total_pagar_con_desc = $('#TotalAplicaDesc').val();
+                desc_data = data_obj_descuento.split('|');
+                var codigo_descuento = desc_data[0];
+                var monto = desc_data[1];
+                msg = 'Código aplicado!';
+                tipo_res = 'alert alert-success';
+                var precio_total_establecido = $('.precio_total').text();
+                if (!descuento_aplicado) {
+                    $('.precio_total').text('');
+                    $('.precio_total').append("<del>" + precio_total_establecido + "</del>");
+                    $('.precio_total').after("<h1 class=\"text-right\"><b>$" + total_pagar_con_desc + "</b></h1>");
+                    var html_input_desc = "<input type=\"hidden\" name=\"cod_descuento\" id=\"data_descuento\" value=" + codigo_descuento + ">";
+                    var html_input_porcent_desc = "<input type=\"hidden\" name=\"porcentaje_descuento\" id=\"porcentaje_descuento\" value=" + monto + ">";
+                    var html_input_precio_sin_desc = "<input type=\"hidden\" name=\"precio_total_sin_descuento\" id=\"precio_total_sin_descuento\" value=" + precio_total_establecido + ">";
+                    $('#TotalAplicaDesc').after(html_input_desc);
+                    $('#TotalAplicaDesc').after(html_input_porcent_desc);
+                    $('#TotalAplicaDesc').after(html_input_precio_sin_desc);
+                    descuento_aplicado = true;
+                }
+            }
+            var bloque_res_cod_desc = ObtenerDivMensajeResProcesoCodDesc(msg, tipo_res);
+            $('#bloque_desc').after(bloque_res_cod_desc);
+        });
 
     });
+    var ObtenerDivMensajeResProcesoCodDesc = function (msg, tipo_res) {
+        var bloque_msg = "<div class='" + tipo_res + " col-md-12 col-sm-12 aviso_cod_desc text-center' role=\"alert\">" + msg + "</div>";
+        return bloque_msg;
+    }
+
+    var OcultarInputCodigoDescuento = function () {
+        $("#bloque_desc").hide();
+    }
 
     var validateEmail = function (email) {
         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -120,7 +200,7 @@ $(function () {
     $('#region2').on('input', function () {
         this.value = this.value.replace(/[^0-9]/g, '');
     });
-//PROHIBIR COPIAR Y PEGAR
+    //PROHIBIR COPIAR Y PEGAR
     $(".vacios").on('paste', function (e) {
         e.preventDefault();
     });
@@ -168,3 +248,6 @@ $(function () {
 
 
 });
+function mayus(e) {
+    e.value = e.value.toUpperCase();
+}

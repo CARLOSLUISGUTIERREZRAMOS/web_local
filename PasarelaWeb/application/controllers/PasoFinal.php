@@ -67,8 +67,12 @@ class PasoFinal extends CI_Controller
             $data_procesar = $this->EnviarTramakiuAirBook($TramaAirbook);
 
             echo "<pre>";
-            var_dump($data_procesar);
+            var_dump($data_procesar[1]);
             echo "</pre>";
+            echo "<pre>";
+            var_dump($data_procesar[2]);
+            echo "</pre>";
+            
             $ResAirBookKiu = $data_procesar[3];
 
             if (isset($ResAirBookKiu->Error->ErrorCode)) {
@@ -88,7 +92,7 @@ class PasoFinal extends CI_Controller
                 $TramaItinerary = $this->GenerarTramaKiu_MetodoItineraryKiu($pnr);
                 $ResWsKiuItinerary = $this->EnviarTramakiuAirItinerary($TramaItinerary);
                 echo "<pre>";
-                var_dump($ResWsKiuItinerary);
+                var_dump($ResWsKiuItinerary[2]);
                 echo "</pre>";
 
                 $ObjResObjectItinerary = $ResWsKiuItinerary[3];
@@ -392,7 +396,8 @@ class PasoFinal extends CI_Controller
             'destino' => $xss_post['cod_destino'],
             'pnr' => $pnr,
             'total_pagar' => $res_tarifa_tax->TOTAL_PAGAR,
-            'total' => $res_tarifa_tax->TOTAL,
+            'total' => (isset($_POST['precio_total_sin_descuento']) && !empty($_POST['precio_total_sin_descuento']))?$_POST['precio_total_sin_descuento'] :$res_tarifa_tax->TOTAL_PAGAR,
+            'descuento' => (!empty($xss_post['porcentaje_descuento']) && isset($xss_post['porcentaje_descuento'])) ? $xss_post['porcentaje_descuento'] : "NULL",
             'eq' => $res_tarifa_tax->EQ,
             'hw' => $res_tarifa_tax->HW,
             'pe' => $res_tarifa_tax->PE,
@@ -587,7 +592,7 @@ class PasoFinal extends CI_Controller
     {
 
         $trama = array(
-            'City' => 'LIM', 'Country' => 'PE', 'Currency' => 'USD', 'FlightSegment' => $itinerario, 'Passengers' => $matriz_pax, 'Telefono' => $xss_post['num_tlfn'], 'CodigoAreaTel' => 'D1' . ddi_solonumero($xss_post['ddi_pais_tlfn']) . 'P1' . trim($xss_post['region_tlfn']), 'Celular' => $xss_post['num_cel'], 'CodigoAreaCel' => 'D2' . ddi_solonumero($xss_post['ddi_pais_cel']) . 'P2' . trim($xss_post['region_cel']), 'Remark' => $xss_post['ruc'], 'TiempoExpiracionReserva' => $TimeLimitTicket
+            'TicketDesignatorCode'=>$xss_post['cod_descuento'] ,'City' => 'LIM', 'Country' => 'PE', 'Currency' => 'USD', 'FlightSegment' => $itinerario, 'Passengers' => $matriz_pax, 'Telefono' => $xss_post['num_tlfn'], 'CodigoAreaTel' => 'D1' . ddi_solonumero($xss_post['ddi_pais_tlfn']) . 'P1' . trim($xss_post['region_tlfn']), 'Celular' => $xss_post['num_cel'], 'CodigoAreaCel' => 'D2' . ddi_solonumero($xss_post['ddi_pais_cel']) . 'P2' . trim($xss_post['region_cel']), 'Remark' => $xss_post['ruc'], 'TiempoExpiracionReserva' => $TimeLimitTicket
         );
         return $trama;
     }

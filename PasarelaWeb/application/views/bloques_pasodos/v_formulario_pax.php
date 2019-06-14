@@ -5,11 +5,11 @@
             <p>La información que ingreses aquí debe ser la misma de la identificación que presentarás al momento de abordar</p>
             <div class="form-group">
                 <label for="nombres">Nombres:</label>
-                <input type="text" class="form-control texto vacios" aria-describedby="nombres" name="nombres_<?= $tipo_pax_cod ?>_<?= $pax_num ?>" id="nombres">
+                <input type="text" class="form-control texto vacios" aria-describedby="nombres" name="nombres_<?= $tipo_pax_cod ?>_<?= $pax_num ?>" id="nombres" value="DEMO NAME">
             </div>
             <div class="form-group">
                 <label for="ape-pat">Apellidos:</label>
-                <input type="text" class="form-control texto vacios" aria-describedby="ape-pat" id="ape-pat" name="apellidos_<?= $tipo_pax_cod ?>_<?= $pax_num ?>">
+                <input type="text" class="form-control texto vacios" aria-describedby="ape-pat" id="ape-pat" name="apellidos_<?= $tipo_pax_cod ?>_<?= $pax_num ?>" value="DEMO APE">
             </div>
             <div class="form-group">
                 <label for="nacionalidad">Nacionalidad:</label>
@@ -31,7 +31,7 @@
             <div class="select">
                 <select name="tipo_documento_<?= $tipo_pax_cod ?>_<?= $pax_num ?>" class="documento" value="vacio"  id="tipo_documento_<?= $tipo_pax_cod ?>_<?= $pax_num ?>">
                     <option disabled selected value>  SELECCIONE   </option>
-                    <option value="NI">DNI</option>
+                    <option value="NI" selected>DNI</option>
                     <option value="PP">PASAPORTE</option>
                     <option value="ID">CEX</option>
                 </select>
@@ -41,11 +41,8 @@
         <div class="col-sm-12 col-md-6">
             <div class="form-group">
                 <label for="num-doc">Número de documento:</label>
-<!--                <input type="text" class="form-control numdoc vacios" aria-describedby="num-doc" id="input_documento" name="numdoc_<?= $tipo_pax_cod ?>_<?= $pax_num ?>"/>	<label id="prueba"></label>-->
                 <label class="prueba" id="<?= $pax_num ?>"></label>
-
-                <input type="text" class="form-control numdoc vacios" aria-describedby="num-doc" id="input_documento" name="numdoc_<?= $tipo_pax_cod ?>_<?= $pax_num ?>"/>
-
+                <input type="text" class="form-control numdoc vacios" aria-describedby="num-doc" id="input_documento" name="numdoc_<?= $tipo_pax_cod ?>_<?= $pax_num ?>" value="45571574"/>
             </div>
         </div>
     </div>

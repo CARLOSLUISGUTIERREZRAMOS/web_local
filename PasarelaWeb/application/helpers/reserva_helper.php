@@ -6,10 +6,10 @@ if (!function_exists('FormarArregloInsert_ModuloPagoReservas')) {
 
         $data_insert = [];
         $CI = &get_instance();
-        $CI->load->library('Detector/Mobile_Detect');   
+        $CI->load->library('Detector/Mobile_Detect');
         $CI->load->model('Pais_model');
         $detect = new Mobile_Detect();
-        
+
         $data_insert['dispositivo'] = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
         $data_insert['pnr'] = (string)$Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
         $data_insert['nombres'] = (string)$Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->PersonName->GivenName;
@@ -18,12 +18,12 @@ if (!function_exists('FormarArregloInsert_ModuloPagoReservas')) {
         $tlfn_second = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->ContactPerson->Telephone[1];
         $data_get_tlfn1 = explode('D1', $tlfn_first)[1];
         $num_tlfn1 = explode('P1', $data_get_tlfn1);
-        $data_insert['ddi_telefono'] = (string)'+'.$num_tlfn1[0];
+        $data_insert['ddi_telefono'] = (string)'+' . $num_tlfn1[0];
         $data_insert['pre_telefono'] = (string)substr($num_tlfn1[1], 0, 2);
         $data_insert['num_telefono'] = (string)substr($num_tlfn1[1], 2);
         $data_get_tlfn2 = explode('D2', $tlfn_second)[1];
         $num_tlfn2 = explode('P2', $data_get_tlfn2);
-        $data_insert['ddi_celular'] = (string)'+'.$num_tlfn2[0];
+        $data_insert['ddi_celular'] = (string)'+' . $num_tlfn2[0];
         $data_insert['pre_celular'] = (string)substr($num_tlfn2[1], 0, 2);
         $data_insert['num_celular'] = (string)substr($num_tlfn2[1], 2);
         $data_insert['nacionalidad'] = (empty($num_tlfn1)) ? (int)$CI->Pais_model->GetIdPais($num_tlfn2[0]) : (int)$CI->Pais_model->GetIdPais($num_tlfn1[0]);
@@ -77,8 +77,23 @@ if (!function_exists('FormarArregloInsert_ModuloPagoReservas')) {
         $data_insert['pe'] = $taxes_array['PE'];
         $data_insert['ruc'] = (isset($Itinerary->TravelItinerary->Remarks)) ? (string)$Itinerary->TravelItinerary->Remarks->Remark : "NULL";
         $data_insert['ip'] = ip2long($_SERVER['REMOTE_ADDR']);
-        
-       
+
+
         return $data_insert;
+    }
+}
+if (!function_exists('GetClase')) {
+    function GetClase($arg)
+    {
+        $clase = [];
+        $tipo_viaje = $arg['tipo_viaje'];
+        $data_ida = explode('|',$arg['grupo_ida']);
+        $clase['ida'] = $data_ida[1];
+        if($tipo_viaje === 'R') 
+        {
+            $data_retorno= explode('|',$arg['grupo_retorno']);
+            $clase['retorno'] = $data_retorno[1];
+        }
+        return $clase;
     }
 }

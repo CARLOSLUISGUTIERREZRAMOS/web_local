@@ -22,7 +22,7 @@ class Descuento_model extends CI_Model
             $this->db_web->like('clase', $clases['retorno']);
             $cadena_forma_querysetruta .= ','.$destino.$origen;
         }
-        $this->db_web->where_in("ruta",$cadena_forma_querysetruta); //Forma=>LIMPCL
+        $this->db_web->like("ruta",$cadena_forma_querysetruta); //Forma=>LIMPCL
         $this->db_web->where("estado",'Y');
         $res = $this->db_web->get()->row();
         

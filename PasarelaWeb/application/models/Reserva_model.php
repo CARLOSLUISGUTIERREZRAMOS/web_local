@@ -16,7 +16,7 @@ class Reserva_model extends CI_Model {
 
     public function RegistrarReserva($data) {
         $res_insert = $this->db_web->insert('reserva', $data);
-        //return $this->db_web->last_query();
+  /*       return $this->db_web->last_query(); */
         return $this->db_web->insert_id();
     }
 

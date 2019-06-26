@@ -34,7 +34,7 @@
                                                     <td><?= $Itinerario->Air->Reservation->attributes()->FlightNumber ?> <?= (strlen($Itinerario->Air->Reservation->attributes()->FlightNumber) == 4) ? ' | Operado por Peruavian' : '' ?></td>
                                                 </tr>
                                             <?php }
-                                            ?>
+                                        ?>
                                             <tr>
                                                 <td>
 
@@ -128,23 +128,30 @@
                                     </div>
                                     <hr>
                                 </div>
-                                
-                                 <div class="col-sm-12 col-md-5">
-                                      <?php
-                                        $digitos_tfn_contacto = (int) strlen($Pasajeros->Customer->ContactPerson->Telephone[0]);
+
+                                <div class="col-sm-12 col-md-5">
+                                    <?php
+
+                                    if (substr($Pasajeros->Customer->ContactPerson->Telephone[0], 0, 3) === 'LIM') {
+
+                                        $tlfn_contacto = substr($Pasajeros->Customer->ContactPerson->Telephone[0], 4);
+                                    } else {
+                                        $digitos_tfn_contacto = (int)strlen($Pasajeros->Customer->ContactPerson->Telephone[0]);
 
                                         if ($digitos_tfn_contacto === 10) {
                                             $tlfn_contacto =  explode('P2', $Pasajeros->Customer->ContactPerson->Telephone[1])[1];
                                         } else {
                                             $tlfn_contacto = explode('P1', $Pasajeros->Customer->ContactPerson->Telephone[0])[1];
                                         }
-                                        ?>
+                                    }
+
+                                    ?>
                                     <div class="form-group">
                                         <label for="num-loc">Número de contacto:</label>
                                         <input type="text" class="form-control" aria-describedby="num-loc" id="num-loc" name="num_tlfn" value="<?= $tlfn_contacto ?>" disabled>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>

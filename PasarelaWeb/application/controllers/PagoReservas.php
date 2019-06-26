@@ -74,8 +74,8 @@ class PagoReservas extends CI_Controller
             $kiu = new Controller_kiu();
             $args = array('CodReserva' => $codigo_reserva);
             $Itinerary = $kiu->TravelItineraryReadRQ($args, $err)[3]; //CAPTURADO COMO OBJ
-            $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML
-            /*   echo "<pre>";
+            /* $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML */
+        /*     echo "<pre>";
             var_dump($Itinerary_xml);
             echo "</pre>"; */
 
@@ -84,11 +84,14 @@ class PagoReservas extends CI_Controller
                 case 1: //Pendiente de emisión
                     //********************* REGISTRANDO UNA VENTA OBTENIDA DE CALL CENTER *******************
                     $res_array_insert = FormarArregloInsert_ModuloPagoReservas($Itinerary);
+                    /* var_dump($res_array_insert);die; */
                     //Antes de registrar validamos que la reserva o pnr no se encuentre registrado en la DB StarPeru 
                     $pnr = (string)$Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
                     $cantidad_registros = $this->Reserva_model->VerificarExisteReserva(array('pnr' => $pnr));
+                    
                     if ($cantidad_registros === 0) {
                         $insert_id_reserva = $this->Reserva_model->RegistrarReserva($res_array_insert);
+                   
                     } else {
                         $insert_id_reserva = $this->Reserva_model->BuscarIdReservaPorPnr($pnr);
                     }
@@ -112,7 +115,7 @@ class PagoReservas extends CI_Controller
                     //********************* .REGISTRANDO UNA VENTA OBTENIDA DE CALL CENTER *******************
 
                     //************ BLOQUE QUE RENDERIZA LA VISTA MOSTRANDO EL ITINERARIO DEL O LOS PASAJEROS *********
-
+                    
                     $data['Pasajeros'] = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo;
                     $data['Itinerarios'] = $Itinerary->TravelItinerary->ItineraryInfo->ReservationItems->Item;
                     $data['TravelItinerary'] = $Itinerary->TravelItinerary;

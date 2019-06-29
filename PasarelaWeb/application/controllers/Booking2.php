@@ -98,10 +98,10 @@ class Booking2 extends CI_Controller
                 
                 if(!is_null($obj_descuento)){
                     $data_cod_desc= $obj_descuento->metodos_pago;
-                    echo $data_cod_desc;
+                    /* echo $data_cod_desc; */
                     $this->load->helper('bloqueshtml');
                     $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
-                     var_dump($data['html_desc']); 
+                    /*  var_dump($data['html_desc']);  */
                     $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
                 }
                 // **************.LOGICA APLICAR CODIGO DESCUENTO **************

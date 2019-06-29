@@ -16,7 +16,7 @@ class TicketStarPeru extends CI_Controller {
 
         $ticket = $_POST['number_ticket'];
         $kiu = new Controller_kiu();
-        $res_ticket = $kiu->TravelItineraryReadRQ(array('IdTicket' => $ticket), $err);
+        $res_ticket = $kiu->TravelItineraryReadRQ(array('IdTicket' => $ticket), $err)[0];
 
 
         if (isset($res_ticket['Error'])) {

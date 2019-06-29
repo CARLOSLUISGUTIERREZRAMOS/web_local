@@ -1,79 +1,111 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Booking2 extends CI_Controller {
+class Booking2 extends CI_Controller
+{
 
     protected $precio_subtotal;
     protected $precio_total;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->load->library('form_validation');
-        $this->load->helper("security");
-        $this->load->helper("itinerario");
-        $this->load->helper('tiempos');
+        $this->load->helper(array('security','itinerario','tiempos','validaciones','reserva'));
         $this->load->library('kiu/Controller_kiu');
-        $this->load->helper("validaciones_helper");
         $this->load->model('Pais_model');
+        $this->load->model('Descuento_model');
         $this->template->add_js('https://cdn.viajala.com/tracking/conversion.js');
     }
 
-    private function ValidarPostInput() {
+    private function ValidarPostInput()
+    {
         $this->form_validation->set_rules('grupo_ida', 'El vuelo de ida debe ser seleccionado', 'required|trim|xss_clean');
-//        $this->form_validation->set_rules('grupo_retorno', 'El vuelo de retorno debe ser seleccionado', 'required|trim|xss_clean');
+        //        $this->form_validation->set_rules('grupo_retorno', 'El vuelo de retorno debe ser seleccionado', 'required|trim|xss_clean');
         $this->form_validation->set_rules('cod_origen', 'El Origen no fue seleccionado', 'min_length[3]|max_length[3]|required|xss_clean');
         $this->form_validation->set_rules('cod_destino', 'El Destino no fue seleccionado', 'min_length[3]|max_length[3]|xss_clean');
         $this->form_validation->set_rules('tipo_viaje', 'Tipo de Viaje', 'required|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_adl', 'Adultos', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_chd', 'Niños', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_inf', 'Bebes', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
-//        $this->form_validation->set_rules('fecha_ida', 'Fecha de ida', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
-//        $this->form_validation->set_rules('fecha_retorno', 'Fecha de retorno', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
+        //        $this->form_validation->set_rules('fecha_ida', 'Fecha de ida', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
+        //        $this->form_validation->set_rules('fecha_retorno', 'Fecha de retorno', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
+    }
+//llamado desde pasodos.js
+    public function GetCodigoDescuento()
+    {
+
+        //1 Recibiendo post desde pasodos.js
+        $codigo_descuento_ingresado = $_POST['cod_desc'];
+        //2. Obtenemeos infomacion de nuestra db respecto al codigo descuento.
+        $res_sql_descuento = $this->Descuento_model->GetDataCodigoDescuento($codigo_descuento_ingresado);
+        //3. Validamos que el codigo recibido este registrado y vigente en nuestra db.
+        if (is_null($res_sql_descuento)) {
+            //3.2 Avisamos que el código no está vigente o no es válido
+            echo 'FALSE';
+        } else {
+            //3.2 Enviamos al js la data necesaria para continuar el flujo
+            echo $res_sql_descuento->codigo . '|' . $res_sql_descuento->monto;
+        }
     }
 
-    public function index() {
-        $this->template->add_js('js/web/pasodos.js');
+    public function index()
+    {
+
+        $this->template->add_js('js/web/pasodos.js?1.5.0'); //?1.0.0  -> Para no cachear 
         $this->ValidarPostInput();
         if ($this->form_validation->run() == FALSE) {
             header("Location: https://www.starperu.com");
         } else {
+
             $xss_post = $this->input->post(NULL, TRUE);
-//            print_r($xss_post);die;
             $BoolValCantPax = ValidarCantidadMaxPax($xss_post['cant_adl'], $xss_post['cant_chd'], $xss_post['cant_inf']);
             $res_itinerario = ArmarItinerario($xss_post);
-
             $trama = $this->ArmaTramaWsKiu($res_itinerario, $xss_post['cant_adl'], $xss_post['cant_chd'], $xss_post['cant_inf']);
             $rs_kiu = $this->EnviarTramakiu($trama);
-
-//            echo "<pre>";
-//            var_dump($rs_kiu);
-//            echo "</pre>";die;
+            $rs_kiu = $rs_kiu[3];
             if (isset($rs_kiu->Error)) {
                 $data['codigo_error'] = $rs_kiu->Error->ErrorCode;
                 $data['msg_error'] = $rs_kiu->Error->ErrorMsg;
-
                 $this->load->view('templates/v_error_controller', $data);
             } else {
                 $data = $this->ProcesarXmlKiu($rs_kiu);
-
-                $data['cant_adl'] = (int) $xss_post['cant_adl'];
-                $data['cant_chd'] = (int) $xss_post['cant_chd'];
-                $data['cant_inf'] = (int) $xss_post['cant_inf'];
+                
+                $data['cant_adl'] = (int)$xss_post['cant_adl'];
+                $data['cant_chd'] = (int)$xss_post['cant_chd'];
+                $data['cant_inf'] = (int)$xss_post['cant_inf'];
                 $data['grupo_ida'] = $xss_post['grupo_ida'];
+                
                 $data['datetime_departure'] = explode('|', $data['grupo_ida'])[3];
                 $data['tipo_viaje'] = $xss_post['tipo_viaje'];
-                $data['cod_origen'] = $xss_post['cod_origen'];
+                $data['cod_origen'] = $xss_post['cod_origen'];  
                 $data['cod_destino'] = $xss_post['cod_destino'];
                 $data['geoip_pais'] = $xss_post['geoip_pais'];
                 $data['geoip_ciudad'] = $xss_post['geoip_ciudad'];
                 $data['grupo_retorno'] = '';
-                if ($xss_post['tipo_viaje'] === 'R'):
+                if ($xss_post['tipo_viaje'] === 'R') :
                     $data['grupo_retorno'] = $xss_post['grupo_retorno'];
                 endif;
+
                 $data['paises'] = $this->Pais_model->GetDataPais('id,nombre_pais');
                 $data['cod_ddi_paises'] = $this->Pais_model->GetDataPais('codigo_pais,ddi');
+                // ************* LOGICA APLICAR CODIGO DESCUENTO ***************
+
+                $clases_validas = GetClase($xss_post);
+                $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
+                
+                if(!is_null($obj_descuento)){
+                    $data_cod_desc= $obj_descuento->metodos_pago;
+                    /* echo $data_cod_desc; */
+                    $this->load->helper('bloqueshtml');
+                    $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
+                    /*  var_dump($data['html_desc']);  */
+                    $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
+                }
+                // **************.LOGICA APLICAR CODIGO DESCUENTO **************
+
                 $this->template->load('v_pasodos', $data);
                 $this->load->view('politicas_negocio/terminos_condiciones');
                 $this->load->view('politicas_negocio/termino_condiciones_transporte');
@@ -81,7 +113,20 @@ class Booking2 extends CI_Controller {
         }
     }
 
-    private function ProcesarXmlKiu($rs_kiu) {
+    private function OperarDescuento($rs_kiu, $obj_descuento)
+    {
+        $eq_total = (double)$rs_kiu->PricedItineraries->PricedItinerary->AirItineraryPricingInfo->ItinTotalFare->BaseFare->attributes()->Amount;
+        $hw_total = (double)$rs_kiu->PricedItineraries->PricedItinerary->AirItineraryPricingInfo->ItinTotalFare->Taxes->Tax[0]->attributes()->Amount;
+        $pe_total = (double)$rs_kiu->PricedItineraries->PricedItinerary->AirItineraryPricingInfo->ItinTotalFare->Taxes->Tax[1]->attributes()->Amount;
+        $descuento_aplicado = $eq_total * ($obj_descuento->monto / 100);
+        $eq_recalculado = $eq_total - $descuento_aplicado;
+        $pe_recalculado = $eq_recalculado * 0.18;
+        $monto_pagar_con_desc = $eq_recalculado + $pe_recalculado + $hw_total;
+        return $monto_pagar_con_desc;
+    }
+
+    private function ProcesarXmlKiu($rs_kiu)
+    {
         /*
          * Esta funcion será la encargada de setiar las variables
          * mas importantes en este paso
@@ -89,40 +134,44 @@ class Booking2 extends CI_Controller {
         foreach ($rs_kiu->PricedItineraries as $key => $value) {
             $Itinerario = $value->PricedItinerary->AirItinerary;
             $NodosPricingInfo = $value->PricedItinerary->AirItineraryPricingInfo;
-            $this->setPrecio_total((double) $NodosPricingInfo->ItinTotalFare->TotalFare->attributes()->Amount);
-            $this->setPrecio_subtotal((double) $NodosPricingInfo->ItinTotalFare->BaseFare->attributes()->Amount);
+            $this->setPrecio_total((double)$NodosPricingInfo->ItinTotalFare->TotalFare->attributes()->Amount);
+            $this->setPrecio_subtotal((double)$NodosPricingInfo->ItinTotalFare->BaseFare->attributes()->Amount);
             $data['v_desglose_itinerario'] = $this->ArmarDesgloseItinerario($Itinerario);
-//            $ResMetPrecTotal = $this->ObtenerPrecioTotal($NodosPricingInfo);
+            //            $ResMetPrecTotal = $this->ObtenerPrecioTotal($NodosPricingInfo);
             $data['v_desglose_precios'] = $this->ArmarDelglosePrecios($NodosPricingInfo);
         }
         return $data;
     }
 
-    private function EnviarTramakiu($trama) {
+    private function EnviarTramakiu($trama)
+    {
         $kiu = new Controller_kiu();
         $array_price = $kiu->AirPriceRQ($trama, $err);
-        $ResKiuXML = $array_price[3];
-//        $ResKiuXML = $array_price;
+        $ResKiuXML = $array_price;
+        //        $ResKiuXML = $array_price;
         return $ResKiuXML;
     }
 
-    private function ArmarDesgloseItinerario($Itinerario) {
+    private function ArmarDesgloseItinerario($Itinerario)
+    {
 
         $data['Itinerario'] = $Itinerario->OriginDestinationOptions;
-//        $bloque_desglose_itinerario = $this->load->view('bloques_pasodos/v_desglose_tuvuelo',$data);
+        //        $bloque_desglose_itinerario = $this->load->view('bloques_pasodos/v_desglose_tuvuelo',$data);
         $data['PrecioTotal'] = $this->getPrecio_total();
         $bloque_desglose_itinerario = $this->load->view('bloques_pasodos/v_desglose_tuvuelo', $data, TRUE);
         return $bloque_desglose_itinerario;
     }
 
-    private function ArmarDelglosePrecios($Precios) {
-//         $cant = $Precios->PTC_FareBreakdowns->PTC_FareBreakdown;
+    private function ArmarDelglosePrecios($Precios)
+    {
+        //         $cant = $Precios->PTC_FareBreakdowns->PTC_FareBreakdown;
         $data['DesglosePrecios'] = $Precios->PTC_FareBreakdowns->PTC_FareBreakdown;
         $bloque_desglose_fare = $this->load->view('bloques_pasodos/v_desglose_precios', $data, TRUE);
         return $bloque_desglose_fare;
     }
 
-    private function ArmarItinerario($xss_post) {
+    private function ArmarItinerario($xss_post)
+    {
 
         $data_ida = explode('|', $xss_post['grupo_ida']);
         // Indice 1 => Hace referencia a la clase
@@ -139,45 +188,46 @@ class Booking2 extends CI_Controller {
                 $num_vuelo_retorno = $data_retorno[2];
                 $fecha_hora_salida_retorno = $data_retorno[3];
                 $fecha_hora_llegada_retorno = $data_retorno[4];
-                $itinerario = array(array('DepartureDateTime' => "$fecha_hora_salida_ida", 'ArrivalDateTime' => "$fecha_hora_llegada_ida", 'FlightNumber' => "$num_vuelo_ida", 'ResBookDesigCode' => "$clase_ida", 'DepartureAirport' => $xss_post['cod_origen'], 'ArrivalAirport' => $xss_post['cod_destino'], 'MarketingAirline' => "2I"),
-                    array("DepartureDateTime" => "$fecha_hora_salida_retorno", "ArrivalDateTime" => "$fecha_hora_llegada_retorno", "FlightNumber" => "$num_vuelo_retorno", "ResBookDesigCode" => "$clase_retorno", "DepartureAirport" => $xss_post['cod_destino'], "ArrivalAirport" => $xss_post['cod_origen'], "MarketingAirline" => "2I"));
+                $itinerario = array(
+                    array('DepartureDateTime' => "$fecha_hora_salida_ida", 'ArrivalDateTime' => "$fecha_hora_llegada_ida", 'FlightNumber' => "$num_vuelo_ida", 'ResBookDesigCode' => "$clase_ida", 'DepartureAirport' => $xss_post['cod_origen'], 'ArrivalAirport' => $xss_post['cod_destino'], 'MarketingAirline' => "2I"),
+                    array("DepartureDateTime" => "$fecha_hora_salida_retorno", "ArrivalDateTime" => "$fecha_hora_llegada_retorno", "FlightNumber" => "$num_vuelo_retorno", "ResBookDesigCode" => "$clase_retorno", "DepartureAirport" => $xss_post['cod_destino'], "ArrivalAirport" => $xss_post['cod_origen'], "MarketingAirline" => "2I")
+                );
                 break;
             case 'O':
                 $itinerario = array(array('DepartureDateTime' => "$fecha_hora_salida_ida", 'ArrivalDateTime' => "$fecha_hora_llegada_ida", 'FlightNumber' => "$num_vuelo_ida", 'ResBookDesigCode' => "$clase_ida", 'DepartureAirport' => $xss_post['cod_origen'], 'ArrivalAirport' => $xss_post['cod_destino'], 'MarketingAirline' => "2I"));
                 break;
-            default : echo "MOSTRAR MENSAJE DE ADVERTENCIA";
+            default:
+                echo "MOSTRAR MENSAJE DE ADVERTENCIA";
         }
 
         return $itinerario;
     }
 
-    private function ArmaTramaWsKiu($itinerario, $adl, $chd, $inf) {
+    private function ArmaTramaWsKiu($itinerario, $adl, $chd, $inf)
+    {
         $trama = array(
-            'City' => 'LIM'
-            , 'Country' => 'PE'
-            , 'Currency' => 'USD'
-            , 'FlightSegment' => $itinerario
-            , 'PassengerQuantityADT' => $adl
-            , 'PassengerQuantityCNN' => $chd
-            , 'PassengerQuantityINF' => $inf
+            'City' => 'LIM', 'Country' => 'PE', 'Currency' => 'USD', 'FlightSegment' => $itinerario, 'PassengerQuantityADT' => $adl, 'PassengerQuantityCNN' => $chd, 'PassengerQuantityINF' => $inf
         );
         return $trama;
     }
 
-    function setPrecio_total($precio_total) {
+    function setPrecio_total($precio_total)
+    {
         $this->precio_total = $precio_total;
     }
 
-    function getPrecio_total() {
+    function getPrecio_total()
+    {
         return $this->precio_total;
     }
 
-    function getPrecio_subtotal() {
+    function getPrecio_subtotal()
+    {
         return $this->precio_subtotal;
     }
 
-    function setPrecio_subtotal($precio_subtotal) {
+    function setPrecio_subtotal($precio_subtotal)
+    {
         $this->precio_subtotal = $precio_subtotal;
     }
-
 }

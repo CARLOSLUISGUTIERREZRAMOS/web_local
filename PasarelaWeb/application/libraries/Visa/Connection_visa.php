@@ -32,7 +32,7 @@ class Connection_visa {
     protected $host = 'apitestenv.vnforapps.com';
     protected $codigo_comercio = 115015006;
     protected $Credentials;
-    protected $libreria_checkout = "http://127.0.0.1/LOCAL_WEB/PasarelaWeb/js/visa/checkout.js";
+    protected $libreria_checkout = "js/visa/checkout.js";
 
     public function __construct() {
         $this->setCredentials();
@@ -43,7 +43,7 @@ class Connection_visa {
     }
     
     public function GetLibreriaJSVisa(){
-        return $this->libreria_checkout;
+        return base_url().$this->libreria_checkout;
     }
 
     

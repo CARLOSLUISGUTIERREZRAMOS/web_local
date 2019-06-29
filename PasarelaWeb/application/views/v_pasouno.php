@@ -90,10 +90,45 @@ echo form_open('Booking1', $attributes)
 <input type="hidden" name="cant_ninos" value="<?= $cant_ninos ?>">
 <input type="hidden" name="cant_infantes" value="<?= $cant_infantes ?>">
 <input type="hidden" id="position" name="position" value="<?= (isset($valueset_position)) ? $valueset_position : '' ?>">
+
 <!--<input type="hidden" id="top" name="top" value="">-->
 <?php
 echo form_close();
 ?>
+<script>
+<?php if ($tipo_viaje === 'R') { ?>
+    precio_total = document.getElementById("precio_total").value;
+        var viajala_conversion_params = {
+            event: 'redirect',
+            supplier: 'starperu',
+            origin: '<?= $data_ida['origen'] ?>',
+            destination: '<?=  $data_ida['destino'] ?>',
+            passengers: <?= (int) $cant_ninos + (int) $cant_adultos + (int) $cant_infantes ?>,
+            outwardDate: '<?= (new DateTime(str_replace('/','-',$date_from)))->format('Y-m-d') ?>',
+            inwardDate: '<?= (new DateTime(str_replace('/','-',$date_to)))->format('Y-m-d') ?>',
+            /* outwardFlightNumbers: '2I<?= explode('|', $grupo_ida)[2] ?>', */
+            /* inwardFlightNumbers: "2I<?= explode('|', $grupo_ida)[2] ?>,2I<?= explode('|', $grupo_retorno)[2] ?>", */
+            /* price: precio_total, */
+            // currency: 'USD'
+        };
+    <?php } else {
+    ?>
+        var viajala_conversion_params = {
+            event: 'redirect',
+            supplier: 'starperu',
+            origin: '<?= $cod_origen ?>',
+            destination: '<?= $cod_destino ?>',
+            passengers: <?= (int) $cant_adl + (int) $cant_chd + (int) $cant_inf ?>,
+            outwardDate: '<?= explode(' ', explode('|', $grupo_ida)[3])[0] ?>',
+            outwardFlightNumbers: '2I<?= explode('|', $grupo_ida)[2] ?>',
+            price: '<?= round($PrecioTotal, 0) ?>',
+            currency: 'USD'
+        };
+    <?php
+}
+?>
+
+</script>
 <!-- FIN  LOGICA PARA EL CAMBIO DE FECHAS-->
 <!-- Google Code for Cotizaciones Conversion Page -->
 <!--<script type="text/javascript">

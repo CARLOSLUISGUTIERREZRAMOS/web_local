@@ -27,6 +27,7 @@ class Booking1 extends CI_Controller {
         $this->load->model('Ruta_model');
         $this->load->model('Ciudad_model');
         $this->load->model('Farebase_model');
+        $this->template->add_js('https://cdn.viajala.com/tracking/conversion.js');
     }
 
     private function ValidarPostInput() {
@@ -38,6 +39,7 @@ class Booking1 extends CI_Controller {
         $this->form_validation->set_rules('cant_ninos', 'Niños', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_infantes', 'Bebes', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('tipo_viaje', 'Tipo de Viaje', 'required|trim|min_length[1]|max_length[1]|xss_clean');
+        
     }
 
     function index() {

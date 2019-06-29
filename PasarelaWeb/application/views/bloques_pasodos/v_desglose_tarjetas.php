@@ -4,7 +4,9 @@
         <div class="select">
             <select id="select_cards" name="cc_code">
                 <option value="TC_V">Visa</option>
+                <option value="TC_M">Mastercard</option>
                 <option value="TC_D">Diners Club</option>
+                <option value="TC_A">American Express</option>
                 <?php
                 $RES = CantidadDeHorasPayPal($datetime_departure);
 //                var_dump($mostrar_paypal);die;
@@ -35,4 +37,5 @@
         </div>
     </div>
     <label id="pagoefectivo"></label>
+    <?=$html_desc?>
 </div>

@@ -3,25 +3,28 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Model_kiu {
+class Model_kiu
+{
 
     protected $EchoToken = 1;
     protected $TimeStamp;
     protected $Sine = 'LIM002IWW';
     protected $Device = 'LIM002IX01';
     protected $Target = 'Testing';
-//    protected $Target = 'Production';
+    //    protected $Target = 'Production';
     protected $SequenceNmbr = 1;
     private $ObjConnectionkiu;
 
-    function __construct() {
+    function __construct()
+    {
         $this->CI = &get_instance();
         $this->CI->load->library('kiu/Connection_kiu');
 
         $this->ObjConnectionkiu = new Connection_kiu();
     }
 
-    public function Model_AirAvailRQ($args) {
+    public function Model_AirAvailRQ($args)
+    {
         $default = array("Direct" => "", "Fecha_salida" => "", "Fecha_retorno" => "", "Source" => "", "Dest" => "", "TipoVuelo" => "", "Cabin" => "", "QuantityADT" => "", "QuantityCNN" => "", "QuantityINF" => "");
         extract(array_merge($default, $args));
         $request = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -65,12 +68,15 @@ class Model_kiu {
         $array[] = htmlspecialchars($response, ENT_QUOTES);
         $array[] = new SimpleXMLElement($response);
         return $array;
-//        return simplexml_load_string($response);
+        //        return simplexml_load_string($response);
     }
 
-    public function Model_AirBookRQ($args) {
-        $default = array('City' => '', 'Country' => '', 'Currency' => '', 'FlightSegment' => array()
-            , 'Passengers' => array(), 'Telefono' => '', 'CodigoAreaTel' => '', 'Celular' => '', 'CodigoAreaCel' => '', 'Remark' => '', 'TiempoExpiracionReserva' => '');
+    public function Model_AirBookRQ($args)
+    {
+
+        $default = array(
+            'City' => '', 'TicketDesignatorCode' => '', 'Country' => '', 'Currency' => '', 'FlightSegment' => array(), 'Passengers' => array(), 'Telefono' => '', 'CodigoAreaTel' => '', 'Celular' => '', 'CodigoAreaCel' => '', 'Remark' => '', 'TiempoExpiracionReserva' => ''
+        );
         extract(array_merge($default, $args));
         $request = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
             <KIU_AirBookRQ EchoToken=\"$this->EchoToken\" TimeStamp=\"$this->TimeStamp\" Target=\"$this->Target\" Version=\"3.0\" SequenceNmbr=\"$this->SequenceNmbr\" PrimaryLangID=\"en-us\">
@@ -79,7 +85,7 @@ class Model_kiu {
 			<RequestorID Type=\"5\"/>
 			<BookingChannel Type=\"1\"/>
 		</Source>
-            </POS>
+            </POS> 
             <AirItinerary>
 		<OriginDestinationOptions>
                         <OriginDestinationOption>";
@@ -90,7 +96,6 @@ class Model_kiu {
             $flight = $item["FlightNumber"];
             $class = $item["ResBookDesigCode"];
             $source = $item["DepartureAirport"];
-            ;
             $dest = $item["ArrivalAirport"];
             $airline = $item["MarketingAirline"];
 
@@ -142,9 +147,18 @@ class Model_kiu {
         }
         $request .= "</Remarks></SpecialReqDetails>";
         $request .= "</TravelerInfo>
-	<Ticketing TicketTimeLimit=\"$TiempoExpiracionReserva\" />
-	
-</KIU_AirBookRQ>";
+    <Ticketing TicketTimeLimit=\"$TiempoExpiracionReserva\" />";
+
+        if(isset($TicketDesignatorCode) && !empty($TicketDesignatorCode)){
+            $request .= "<PriceInfo>
+                            <FareInfos>
+                                <FareInfo>
+                                <DiscountPricing TicketDesignatorCode=\"$TicketDesignatorCode\" />
+                                </FareInfo>
+                            </FareInfos>
+                        </PriceInfo>";
+        }
+        $request .= "</KIU_AirBookRQ>";
 
         $this->ObjConnectionkiu->Connection();
         $response = $this->ObjConnectionkiu->SendMessage($request);
@@ -159,10 +173,11 @@ class Model_kiu {
         return $array;
     }
 
-    public function Model_AirPriceRQ($args) {
-        $default = array('City' => '', 'Country' => '', 'Currency' => '', 'FlightSegment' => array()
-            , 'PassengerQuantityADT' => 0, 'PassengerQuantityCNN' => 0, 'PassengerQuantityINF' => 0
-            , 'GivenName' => '', 'Surname' => '', 'PhoneNumber' => '', 'Email' => '', 'DocID' => '', 'DocType' => '', 'Remark' => '');
+    public function Model_AirPriceRQ($args)
+    {
+        $default = array(
+            'City' => '', 'Country' => '', 'Currency' => '', 'FlightSegment' => array(), 'PassengerQuantityADT' => 0, 'PassengerQuantityCNN' => 0, 'PassengerQuantityINF' => 0, 'GivenName' => '', 'Surname' => '', 'PhoneNumber' => '', 'Email' => '', 'DocID' => '', 'DocType' => '', 'Remark' => ''
+        );
         extract(array_merge($default, $args));
         $request = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
                 <KIU_AirPriceRQ EchoToken=\"$this->EchoToken\" TimeStamp=\"$this->TimeStamp\" Target=\"$this->Target\" Version=\"3.0\" SequenceNmbr=\"$this->SequenceNmbr\" PrimaryLangID=\"en-us\">
@@ -181,8 +196,7 @@ class Model_kiu {
             $adatetime = $item["ArrivalDateTime"];
             $flight = $item["FlightNumber"];
             $class = $item["ResBookDesigCode"];
-            $source = $item["DepartureAirport"];
-            ;
+            $source = $item["DepartureAirport"];;
             $dest = $item["ArrivalAirport"];
             $airline = $item["MarketingAirline"];
             $request .= "<FlightSegment DepartureDateTime=\"$ddatetime\" ArrivalDateTime=\"$adatetime\" FlightNumber=\"$flight\" ResBookDesigCode=\"$class\" >
@@ -203,9 +217,12 @@ class Model_kiu {
         if ($PassengerQuantityINF > 0)
             $request .= "<PassengerTypeQuantity Code=\"INF\" Quantity=\"$PassengerQuantityINF\"/>";
         $request .= "</AirTravelerAvail>
-        </TravelerInfoSummary>
-        </KIU_AirPriceRQ>";
-
+            </TravelerInfoSummary>
+                </KIU_AirPriceRQ>";
+        //Incluir el nodo PriceRequestInformation despues del cierre del nodo AirTravelerAvail
+        /* <PriceRequestInformation>
+                            <DiscountPricing TicketDesignatorCode=\"OH\" />
+                        </PriceRequestInformation> */
         $this->ObjConnectionkiu->Connection();
         $response = $this->ObjConnectionkiu->SendMessage($request);
         if ($this->ObjConnectionkiu->GetErrorCode() != 0)
@@ -218,10 +235,11 @@ class Model_kiu {
         return $array;
     }
 
-    public function Model_AirDemandTicketRQ($args) {
-        $default = array('PaymentType' => '', 'Country' => '', 'Currency' => '', 'TourCode' => '', 'BookingID' => ''
-            , 'CreditCardCode' => '', 'CreditCardNumber' => '', 'CreditSeriesCode' => '', 'CreditExpireDate' => '', 'DebitCardCode' => ''
-            , 'DebitCardNumber' => '', 'DebitSeriesCode' => '', 'InvoiceCode' => '', 'MiscellaneousCode' => '', 'Text' => '', 'VAT' => '');
+    public function Model_AirDemandTicketRQ($args)
+    {
+        $default = array(
+            'PaymentType' => '', 'Country' => '', 'Currency' => '', 'TourCode' => '', 'BookingID' => '', 'CreditCardCode' => '', 'CreditCardNumber' => '', 'CreditSeriesCode' => '', 'CreditExpireDate' => '', 'DebitCardCode' => '', 'DebitCardNumber' => '', 'DebitSeriesCode' => '', 'InvoiceCode' => '', 'MiscellaneousCode' => '', 'Text' => '', 'VAT' => ''
+        );
         extract(array_merge($default, $args));
         $request = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <KIU_AirDemandTicketRQ EchoToken=\"$this->EchoToken\" TimeStamp=\"$this->TimeStamp\" Target=\"$this->Target\" Version=\"3.0\" SequenceNmbr=\"$this->SequenceNmbr\" PrimaryLangID=\"en-us\">
@@ -284,11 +302,12 @@ class Model_kiu {
         $array[] = new SimpleXMLElement($response);
         return $array;
 
-//        return simplexml_load_string($response);
-//return $request;
+        //        return simplexml_load_string($response);
+        //return $request;
     }
 
-    public function Model_TravelItineraryReadRQ($args) {
+    public function Model_TravelItineraryReadRQ($args)
+    {
         $default = array('IdTicket' => '', 'Email' => '', 'CodReserva' => '');
         extract(array_merge($default, $args));
         $request = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -315,7 +334,7 @@ class Model_kiu {
 
         $this->ObjConnectionkiu->Connection();
         $response = $this->ObjConnectionkiu->SendMessage($request);
-//        return $response;
+        //        return $response;
         if ($this->ObjConnectionkiu->GetErrorCode() != 0)
             $response = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Error></Error>";
 
@@ -337,7 +356,8 @@ class Model_kiu {
         }
     }
 
-    public function Model_AirCancelRQ($args) {
+    public function Model_AirCancelRQ($args)
+    {
         $default = array("IdReserva" => "", "IdTicket" => "");
         extract(array_merge($default, $args));
         $request = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
@@ -359,7 +379,8 @@ class Model_kiu {
         return simplexml_load_string($response);
     }
 
-    public function Model_AirFareDisplayRQ($args) {
+    public function Model_AirFareDisplayRQ($args)
+    {
 
         $default = array("today" => "", "cod_origen" => "", "cod_destino" => "");
         extract(array_merge($default, $args));
@@ -390,7 +411,4 @@ class Model_kiu {
         $array[] = htmlspecialchars($response, ENT_QUOTES);
         return $array;
     }
-
 }
-
-?>

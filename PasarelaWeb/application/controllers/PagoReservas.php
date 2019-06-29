@@ -16,6 +16,9 @@ class PagoReservas extends CI_Controller
         $this->load->model('Reserva_model');
         $this->load->model('Pais_model');
         $this->load->helper('tiempos');
+        $this->load->helper('kiu');
+        $this->load->helper('reserva');
+        $this->load->helper('geolocalizacion');
 
         $this->template->add_js('js/web/pago_reservas.js');
         $this->template->add_js('js/web/pasodos.js');
@@ -65,72 +68,62 @@ class PagoReservas extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             header("Location: " . base_url());
         } else {
+        
             $xss_post = $this->input->post(NULL, TRUE);
             $codigo_reserva = $xss_post['codigo_reserva'];
             $kiu = new Controller_kiu();
             $args = array('CodReserva' => $codigo_reserva);
             $Itinerary = $kiu->TravelItineraryReadRQ($args, $err)[3]; //CAPTURADO COMO OBJ
-            $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML
-            
-            echo "<pre>";
-            echo $Itinerary_xml;
-            echo "<pre>";
-            
-            
-            $pnr = $Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
-            $nombres_pax = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->PersonName->GivenName;
-            $apellidos_pax = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->PersonName->Surname;
-            $tlfn_first = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->ContactPerson->Telephone[0];
-            $tlfn_second = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo->Customer->ContactPerson->Telephone[1];
-            $data_get_tlfn1 = explode('D1',$tlfn_first)[1];
-            $num_tlfn1 = explode('P1',$data_get_tlfn1);
-            $ddi_tlfn1 = $num_tlfn1[0];
-            $num_tlfn1 = $num_tlfn1[1];
-            $data_get_tlfn2 = explode('D2',$tlfn_second)[1];
-            $num_tlfn2 = explode('P2',$data_get_tlfn2);
-            $ddi_tlfn2 = $num_tlfn2[0];
-            $num_tlfn2 = $num_tlfn2[1];
-            $cod_nacionalidad_pax = (empty($num_tlfn1)) ? $this->Pais_model->GetIdPais($ddi_tlfn2): $this->Pais_model->GetIdPais($ddi_tlfn1);
-            
-            
+            /* $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML */
+        /*     echo "<pre>";
+            var_dump($Itinerary_xml);
+            echo "</pre>"; */
 
-            echo $cod_nacionalidad_pax;die;
-
-            
-            die;
             $estado_tkt = $Itinerary->TravelItinerary->ItineraryInfo->Ticketing->attributes()->TicketingStatus;
-           
             switch ((int)$estado_tkt) {
                 case 1: //Pendiente de emisión
-                    //Logica para mostrar el itineario
+                    //********************* REGISTRANDO UNA VENTA OBTENIDA DE CALL CENTER *******************
+                    $res_array_insert = FormarArregloInsert_ModuloPagoReservas($Itinerary);
+                    /* var_dump($res_array_insert);die; */
+                    //Antes de registrar validamos que la reserva o pnr no se encuentre registrado en la DB StarPeru 
+                    $pnr = (string)$Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
+                    $cantidad_registros = $this->Reserva_model->VerificarExisteReserva(array('pnr' => $pnr));
+                    
+                    if ($cantidad_registros === 0) {
+                        $insert_id_reserva = $this->Reserva_model->RegistrarReserva($res_array_insert);
+                   
+                    } else {
+                        $insert_id_reserva = $this->Reserva_model->BuscarIdReservaPorPnr($pnr);
+                    }
+
+                    foreach ($Itinerary->TravelItinerary->CustomerInfos->CustomerInfo as $Pasajero) {
+                        $data_reserva_detalle = [];
+                        $tipo_pax = (string)$Pasajero->Customer->attributes()->PassengerTypeCode;
+                        $data_reserva_detalle['tipo_pasajero'] = (string)$Pasajero->Customer->attributes()->PassengerTypeCode;
+                        $data_reserva_detalle['nombres'] = (string)$Pasajero->Customer->PersonName->Surname;
+                        $data_reserva_detalle['apellidos'] = (string)$Pasajero->Customer->PersonName->GivenName;
+                        $data_reserva_detalle['tipo_documento'] = (string)$Pasajero->Customer->Document->attributes()->DocType;
+                        $data_reserva_detalle['num_documento'] = (string)$Pasajero->Customer->Document->attributes()->DocID;
+                        $data_reserva_detalle['pnr'] = (string)$Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
+                        $data_reserva_detalle['nacionalidad'] = $res_array_insert['nacionalidad'];
+                        $data_reserva_detalle['reserva_id'] = $insert_id_reserva;
+                        $res = $this->Reserva_model->RegistrarReservaDetalle($data_reserva_detalle);
+                        //echo $res;
+
+                    }
+
+                    //********************* .REGISTRANDO UNA VENTA OBTENIDA DE CALL CENTER *******************
+
+                    //************ BLOQUE QUE RENDERIZA LA VISTA MOSTRANDO EL ITINERARIO DEL O LOS PASAJEROS *********
                     
                     $data['Pasajeros'] = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo;
                     $data['Itinerarios'] = $Itinerary->TravelItinerary->ItineraryInfo->ReservationItems->Item;
                     $data['TravelItinerary'] = $Itinerary->TravelItinerary;
                     $data['TotalPagar'] = $Itinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountAfterTax;
+                    $data['reserva_id'] = $insert_id_reserva;
                     $this->template->load('v_pago_reservas', $data);
 
-//                if ($TiempoValidoReProcesarReserva) {
-                    if (!is_null($data['res_model_vuelo'])) {
-                        $reserva_id = $data['res_model_vuelo']->id;
-                        $data['paises'] = $this->Pais_model->GetDataPais('id,nombre_pais');
-                        $data['cod_ddi_paises'] = $this->Pais_model->GetDataPais('codigo_pais,ddi');
-                        $campos = 'nombres,apellidos,tipo_documento,num_documento,tipo_pasajero';
-                        $data['res_model_pasajero'] = $this->Reserva_model->ObtenerPasajerosReserva_detalle($reserva_id, $campos);
-                        $this->template->load('v_pago_reservas', $data);
-                    } else {
-//                        echo 2;die;
-                        header("Location: " . base_url());
-                    }
-//                } else {
-////                    echo 3;die;
-//                    header("Location: " . base_url().'html/web/tiempo_limite_reserva.html');
-////                    header("Location: " . base_url());
-//                }
-            } else {
-                // Aqui mostrar un aviso que la reserva ya fue pagada
-//                echo "reserva ya pagada";
-                header("Location: " . base_url().'html/web/reserva_pagada.html');
+
             }
         }
     }

@@ -55,13 +55,13 @@
                                     <div class="col-sm-12 col-md-10">
                                         <div class="form-group">
                                             <label for="e-mail">Correo electrónico:</label>
-                                            <input type="text" class="form-control vacios" aria-describedby="e-mail" id="email" name="email">
+                                            <input type="text" class="form-control vacios" aria-describedby="e-mail" id="email" name="email" value="carlos5t@hotmail.com">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-10">
                                         <div class="form-group">
                                             <label for="e-mail2">Repetir correo electrónico:</label>
-                                            <input type="text" class="form-control vacios " aria-describedby="e-mail2" id="email2" name="email_rep">
+                                            <input type="text" class="form-control vacios " aria-describedby="e-mail2" id="email2" name="email_rep" value="carlos5t@hotmail.com">
                                         </div>
                                         <hr>
                                     </div>
@@ -83,13 +83,13 @@
                                     <div class="col-sm-12 col-md-2">
                                         <div class="form-group">
                                             <label for="region">Región:</label>
-                                            <input type="text" class="form-control" aria-describedby="region" id="region" name="region_tlfn">
+                                            <input type="text" class="form-control" aria-describedby="region" id="region" name="region_tlfn" value="01">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-5">
                                         <div class="form-group">
                                             <label for="num-loc">Número local (fijo):</label>
-                                            <input type="text" class="form-control" aria-describedby="num-loc" id="num-loc" name="num_tlfn">
+                                            <input type="text" class="form-control" aria-describedby="num-loc" id="num-loc" name="num_tlfn" value="989149229">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-3">
@@ -190,10 +190,13 @@
             <input type="hidden" name="cod_destino" value="<?= $cod_destino ?>">
             <input type="hidden" name="geoip_pais" value="<?= $geoip_pais ?>">
             <input type="hidden" name="geoip_ciudad" value="<?= $geoip_ciudad ?>">
+            <input type="hidden" id="TotalAplicaDesc" value="<?= $TotalAplicaDesc?>">
+            
         </div>  
         <?= form_close() ?>
     </div>
 </main>
+
 <script>
     var viajala_conversion_params = {
         supplier: 'starperu',
@@ -234,7 +237,7 @@
 }
 ?>
 
-</script>
+
 <!--<script>
 !function (f, b, e, v, n, t, s)
 {

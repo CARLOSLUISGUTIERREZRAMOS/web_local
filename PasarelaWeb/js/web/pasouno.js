@@ -1,4 +1,4 @@
-$(function () {
+    $(function () {
 
     var TarifaIda = 0;
     var TarifaRetorno = 0;
@@ -29,6 +29,7 @@ $(function () {
         TarifaIda = $('input:radio[name=grupo_ida]:checked').val();
         PrecioTotal += parseFloat(TarifaIda) + parseFloat(TarifaRetorno);
         $("#precio_total").html(PrecioTotal.toFixed(2));
+        
     });
     $("input[name=grupo_retorno]").click(function () {
         PrecioTotal = 0;

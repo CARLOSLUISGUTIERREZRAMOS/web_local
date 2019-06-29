@@ -92,7 +92,7 @@ encuentre disponible al momento de hacer el cambio y un cargo por reemisión OW 
         </div>
         <p>Si usted o uno de sus acompañantes requiere de un Servicio Especial, por favor comuníquelo a nuestro Call Center (01) 705 9000.</p>
         <hr>
-        <h1 class="text-right"><b ><?= $PrecioTotal ?><small>$</small></b></h1>
+        <h1 class="text-right precio_total"><b ><?= $PrecioTotal ?><small>$</small></b></h1>
         <h5 class="text-right">Precio Total</h5>
 
         <button type="submit" id="validacion_v" class="btn btn-primary btn-lg">Continuar</button>

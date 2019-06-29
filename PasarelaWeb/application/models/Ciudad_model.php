@@ -17,8 +17,9 @@ class Ciudad_model extends CI_Model {
         
     }
     
-    public function GetNombreCiudad(){
-        
+    public function GetTuua($cod_ciudad){
+        $query = $this->db_web->get_where('ciudad', array('codigo' => $cod_ciudad), 1);
+        return $query->row()->tuua;
     }
 
 }

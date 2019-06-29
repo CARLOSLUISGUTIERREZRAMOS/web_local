@@ -123,13 +123,7 @@ class PagoReservas extends CI_Controller
                     $data['reserva_id'] = $insert_id_reserva;
                     $this->template->load('v_pago_reservas', $data);
 
-                    break;
-                case 3: //Ticket emitido
-                    header("Location: " . base_url() . 'html/web/reserva_pagada.html');
-                    break;
-                case 5: //Ticket Cancelado
-                    header("Location: " . base_url() . 'html/web/tiempo_limite_reserva.html');
-                    break;
+
             }
         }
     }

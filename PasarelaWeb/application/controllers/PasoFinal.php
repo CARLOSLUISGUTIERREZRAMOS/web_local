@@ -95,7 +95,7 @@ class PasoFinal extends CI_Controller
                 var_dump($ResWsKiuItinerary[2]);
                 echo "</pre>"; */
 
-                $ObjResObjectItinerary = $ResWsKiuItinerary[3];
+                $ObjResObjectItinerary = new SimpleXMLElement($ResWsKiuItinerary);
                 $res_tarifa_tax = $this->ObtenerTarifasTax($ObjResObjectItinerary, $xss_post['cod_origen'], $xss_post['cod_destino']);
                 $DatetTimeLimitReserva = new DateTime();
                 $DatetTimeLimitReserva->modify('+3 hours');
@@ -620,6 +620,8 @@ class PasoFinal extends CI_Controller
         $data_reprocesa['numdoc_adl_1'] = $res_datareserva->num_documento;
 
         $this->Reserva_model->ActualizarMetodoPagoTransaccion($cc_code, $reserva_id);
+
         $this->PosicionarMetodoDePago($data_reprocesa, $res_datareserva->total_pagar, $res_datareserva->pnr, $reserva_id);
     }
+
 }

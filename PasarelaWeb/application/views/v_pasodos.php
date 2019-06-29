@@ -197,6 +197,47 @@
     </div>
 </main>
 
+<script>
+    var viajala_conversion_params = {
+        supplier: 'starperu',
+        origin: '<?= $cod_origen ?>',
+        destination: '<?= $cod_destino ?>',
+        grossBooking: '<?= round($PrecioTotal, 0) ?>',
+        currency: 'USD'
+    };
+
+<?php if ($tipo_viaje === 'R') { ?>
+        var viajala_conversion_params = {
+            event: 'redirect',
+            supplier: 'starperu',
+            origin: '<?= $cod_origen ?>',
+            destination: '<?= $cod_destino ?>',
+            passengers: <?= (int) $cant_adl + (int) $cant_chd + (int) $cant_inf ?>,
+            outwardDate: '<?= explode(' ', explode('|', $grupo_ida)[3])[0] ?>',
+            inwardDate: '<?= explode(' ', explode('|', $grupo_retorno)[3])[0] ?>',
+            outwardFlightNumbers: '2I<?= explode('|', $grupo_ida)[2] ?>',
+            inwardFlightNumbers: "2I<?= explode('|', $grupo_ida)[2] ?>,2I<?= explode('|', $grupo_retorno)[2] ?>",
+            price: '<?= round($PrecioTotal, 0) ?>',
+            currency: 'USD'
+        };
+    <?php } else {
+    ?>
+        var viajala_conversion_params = {
+            event: 'redirect',
+            supplier: 'starperu',
+            origin: '<?= $cod_origen ?>',
+            destination: '<?= $cod_destino ?>',
+            passengers: <?= (int) $cant_adl + (int) $cant_chd + (int) $cant_inf ?>,
+            outwardDate: '<?= explode(' ', explode('|', $grupo_ida)[3])[0] ?>',
+            outwardFlightNumbers: '2I<?= explode('|', $grupo_ida)[2] ?>',
+            price: '<?= round($PrecioTotal, 0) ?>',
+            currency: 'USD'
+        };
+    <?php
+}
+?>
+
+
 <!--<script>
 !function (f, b, e, v, n, t, s)
 {

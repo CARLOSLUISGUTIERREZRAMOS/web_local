@@ -1,14 +1,15 @@
 .DS_Store
 
 application/cache/*
+application/config/config.php
+application/config/database.php
 !application/cache/index.html
 
 application/logs/*
-application/config/*
 !application/logs/index.html
-
+logs/*
 !application/*/.htaccess
-
+.htaccess
 composer.lock
 
 user_guide_src/build/*
@@ -28,5 +29,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+*.htaccess
 /tests/tests/
 /tests/results/

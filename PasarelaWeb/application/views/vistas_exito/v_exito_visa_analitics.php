@@ -12,7 +12,6 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-757467471"></script>
-        <script src="https://cdn.viajala.com/tracking/conversion.js"></script>
 
         <script>
 
@@ -28,45 +27,45 @@
 
         </script>
 
-        <!-- Event snippet for Compras web conversion page -->
-        <script>
-            gtag('event', 'conversion', {
-                'send_to': 'AW-757467471/_CM6CKLG_JYBEM-SmOkC',
-                'transaction_id': ''
-            });
-        </script>
+    <!-- Event snippet for Compras web conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-757467471/_CM6CKLG_JYBEM-SmOkC',
+            'transaction_id': ''
+        });
+    </script>
 
-        <!-- Facebook Pixel Code -->
-        <script>
-            !function (f, b, e, v, n, t, s)
-            {
-                if (f.fbq)
-                    return;
-                n = f.fbq = function () {
-                    n.callMethod ?
-                            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                };
-                if (!f._fbq)
-                    f._fbq = n;
-                n.push = n;
-                n.loaded = !0;
-                n.version = '2.0';
-                n.queue = [];
-                t = b.createElement(e);
-                t.async = !0;
-                t.src = v;
-                s = b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t, s)
-            }(window, document, 'script',
-                    'https://connect.facebook.net/en_US/fbevents.js');
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s)
+        {
+            if (f.fbq)
+                return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq)
+                f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
 
-            fbq('init', '1828446367243161');
-            fbq('track', 'PageView');
+        fbq('init', '1828446367243161');
+        fbq('track', 'PageView');
 
-            fbq('track', 'Purchase', {value: 41.00, currency: 'USD'});
+        fbq('track', 'Purchase', {value: 41.00, currency: 'USD'});
 
-        </script>
-        <noscript>
+    </script>
+    <noscript>
     <img height="1" width="1" 
          src="https://www.facebook.com/tr?id=1828446367243161&ev=PageView
          &noscript=1"/>
@@ -338,14 +337,6 @@
 
             <!-- End Facebook Pixel Code -->
             <!-- Analytics -->
-            <script>
-                var viajala_conversion_params = {
-                    supplier: 'starperu',
-                    origin: '<?= $data_reserva->origen ?>',
-                    destination: '<?= $data_reserva->destino ?>',
-                    grossBooking: '<?= round($data_reserva->total_pagar, 0) ?>',
-                    currency: 'USD'
-                };
-            </script>
+
             </html>
             <?php $this->load->view('templates/v_error') ?>

@@ -199,6 +199,7 @@ class Booking2 extends CI_Controller
             default:
                 echo "MOSTRAR MENSAJE DE ADVERTENCIA";
         }
+
         return $itinerario;
     }
 

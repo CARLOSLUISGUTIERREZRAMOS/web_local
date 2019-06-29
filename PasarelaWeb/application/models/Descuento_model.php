@@ -13,6 +13,7 @@ class Descuento_model extends CI_Model
         $this->db_web->select("monto,codigo,metodos_pago,ruta,clase");
         $this->db_web->from('descuento');
         $this->db_web->where("CURDATE() BETWEEN fecha_inicio AND fecha_fin",false,false);
+        $this->db_web->where("estado_web",'Y');
         
         $cadena_forma_querysetruta = '';
         

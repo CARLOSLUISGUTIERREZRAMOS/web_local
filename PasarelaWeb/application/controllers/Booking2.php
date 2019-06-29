@@ -33,7 +33,7 @@ class Booking2 extends CI_Controller
         //        $this->form_validation->set_rules('fecha_ida', 'Fecha de ida', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
         //        $this->form_validation->set_rules('fecha_retorno', 'Fecha de retorno', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
     }
-
+//llamado desde pasodos.js
     public function GetCodigoDescuento()
     {
 
@@ -98,9 +98,10 @@ class Booking2 extends CI_Controller
                 
                 if(!is_null($obj_descuento)){
                     $data_cod_desc= $obj_descuento->metodos_pago;
+                    echo $data_cod_desc;
                     $this->load->helper('bloqueshtml');
                     $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
-                    /* var_dump($html_desc); */
+                     var_dump($data['html_desc']); 
                     $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
                 }
                 // **************.LOGICA APLICAR CODIGO DESCUENTO **************

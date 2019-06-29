@@ -66,12 +66,12 @@ class PasoFinal extends CI_Controller
             $TramaAirbook = $this->GenerarTramaKiu_MetodoAirBookKiu($matriz_itinerario, $matriz_pax, $xss_post, $TimeLimitTicket);
             $data_procesar = $this->EnviarTramakiuAirBook($TramaAirbook);
 
-            echo "<pre>";
+          /*   echo "<pre>";
             var_dump($data_procesar[1]);
             echo "</pre>";
             echo "<pre>";
             var_dump($data_procesar[2]);
-            echo "</pre>";
+            echo "</pre>"; */
             
             $ResAirBookKiu = $data_procesar[3];
 
@@ -91,9 +91,9 @@ class PasoFinal extends CI_Controller
                 $this->session->set_userdata('pnr', $pnr);
                 $TramaItinerary = $this->GenerarTramaKiu_MetodoItineraryKiu($pnr);
                 $ResWsKiuItinerary = $this->EnviarTramakiuAirItinerary($TramaItinerary);
-                echo "<pre>";
+              /*   echo "<pre>";
                 var_dump($ResWsKiuItinerary[2]);
-                echo "</pre>";
+                echo "</pre>"; */
 
                 $ObjResObjectItinerary = $ResWsKiuItinerary[3];
                 $res_tarifa_tax = $this->ObtenerTarifasTax($ObjResObjectItinerary, $xss_post['cod_origen'], $xss_post['cod_destino']);

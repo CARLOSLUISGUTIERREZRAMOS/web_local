@@ -106,10 +106,10 @@ echo form_close();
             passengers: <?= (int) $cant_ninos + (int) $cant_adultos + (int) $cant_infantes ?>,
             outwardDate: '<?= (new DateTime(str_replace('/','-',$date_from)))->format('Y-m-d') ?>',
             inwardDate: '<?= (new DateTime(str_replace('/','-',$date_to)))->format('Y-m-d') ?>',
-            outwardFlightNumbers: '2I<?= explode('|', $grupo_ida)[2] ?>',
-            inwardFlightNumbers: "2I<?= explode('|', $grupo_ida)[2] ?>,2I<?= explode('|', $grupo_retorno)[2] ?>",
-            price: precio_total,
-            currency: 'USD'
+            /* outwardFlightNumbers: '2I<?= explode('|', $grupo_ida)[2] ?>', */
+            /* inwardFlightNumbers: "2I<?= explode('|', $grupo_ida)[2] ?>,2I<?= explode('|', $grupo_retorno)[2] ?>", */
+            /* price: precio_total, */
+            // currency: 'USD'
         };
     <?php } else {
     ?>

@@ -6,7 +6,6 @@ class CallAPIVisa extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        echo 2;die;
         $this->load->library('Visa/Connection_visa');
 //        $rutaFile = FCPATH . "json\\visa_denegada.json";
 //        $rutaFile = FCPATH . "json\\visa.json";

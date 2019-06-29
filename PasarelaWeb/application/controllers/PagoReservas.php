@@ -9,6 +9,8 @@ class PagoReservas extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+
+        echo 2;die;
         $this->load->library('form_validation');
         $this->load->model('Reserva_model');
         $this->load->model('Pais_model');
@@ -55,6 +57,7 @@ class PagoReservas extends CI_Controller {
     }
 
     public function Index() {
+        echo 2;die;
         $this->ValidarFormulario();
         if ($this->form_validation->run() == FALSE) {
             header("Location: " . base_url());

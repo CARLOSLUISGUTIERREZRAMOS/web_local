@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Booking2 extends CI_Controller
 {
-
+    protected $dispositivo_movil = TRUE;
     protected $precio_subtotal;
     protected $precio_total;
 
@@ -75,7 +75,7 @@ class Booking2 extends CI_Controller
                 $data = FormarArrayVistaBooking2($xss_post,$data);
                 $data['paises'] = $this->Pais_model->GetDataPais('id,nombre_pais');
                 $data['cod_ddi_paises'] = $this->Pais_model->GetDataPais('codigo_pais,ddi');
-                
+
                 // ************* LOGICA APLICAR CODIGO DESCUENTO ***************
 
                 $clases_validas = GetClase($xss_post);
@@ -84,6 +84,14 @@ class Booking2 extends CI_Controller
                 $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
                 $aerolinea_valida_cod_desc = ValidarAerolineaDescuento($xss_post['tipo_viaje'],$num_vuelos,$obj_descuento->aerolinea);
                 
+                // if($this->dispositivo_movil && $this->ProcesaLogicaMovil()){
+                if($this->dispositivo_movil){
+                    //Validamos si existe algo que hacer con la entrada movil.
+                    if($this->ProcesaLogicaMovil() != FALSE){
+                            
+                    }
+                }
+
                 if(!is_null($obj_descuento) && $aerolinea_valida_cod_desc){
                     $data_cod_desc= $obj_descuento->metodos_pago;
                     /* echo $data_cod_desc; */
@@ -98,6 +106,17 @@ class Booking2 extends CI_Controller
                 $this->load->view('politicas_negocio/terminos_condiciones');
                 $this->load->view('politicas_negocio/termino_condiciones_transporte');
             }
+        }
+    }
+
+    private function ProcesaLogicaMovil(){
+        $data_discount_movil = $this->Descuento_model->GetDataDescuentoMovilApp();
+        //1. Validamos que exista data
+        if(!is_null($data_discount_movil)){
+            return $data_discount_movil;
+        }else{
+            //No hay nada que hacer...
+            return FALSE;
         }
     }
 

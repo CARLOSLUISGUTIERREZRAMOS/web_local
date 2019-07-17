@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KIU_AirGetOfferRS EchoToken="1" TimeStamp="2017-09-01T15:21:13+00:00" Target="Testing" Version="3.0" SequenceNmbr="1">
+    <Success/>
+    <AirItineraryInfo DirectionInd="OneWay" AirItineraryRPH="0">
+        <OriginDestinationOptions>
+            <OriginDestinationOption TravelPurpose="0">
+                <FlightSegment FlightNumber="60" DepartureDateTime="2017-09-29T09:00:00" StopQuantity="0" RPH="1">
+                    <DepartureAirport LocationCode="LHR"/>
+                    <ArrivalAirport LocationCode="MAD"/>
+                    <MarketingAirline CompanyShortName="LINEAS AEREAS XX" Code="XX"/>
+                </FlightSegment>
+            </OriginDestinationOption>
+        </OriginDestinationOptions>
+    </AirItineraryInfo>
+    <Traveler>
+        <PassengerTypeQuantity Code="ADT" Quantity="1"/>
+    </Traveler>
+    <PriceStructure TicketingCountryCode="AR" PricingCurrency="GBP" DisplayCurrency="USD" DecimalPlaces="2"/>
+    <PricedOffer>
+        <ServiceFamily FamilyCode="BG" FamilyName="BAGGAGE">
+            <ItemOffer Code="PDBG" PTC="ADT" Description="PRE PAID BAGGAGE" SegmentRPH="1" Carrier="XX" BookMode="SSR">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>32.30</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+            <ItemOffer Code="PBGF" PTC="ADT" Description="1ST ADDITIONAL BAG" SegmentRPH="1" Carrier="XX" BookMode="SSR">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>38.76</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+            <ItemOffer Code="PBGS" PTC="ADT" Description="2ND ADDITIONAL BAG" SegmentRPH="1" Carrier="XX" BookMode="SSR">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>45.22</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+            <ItemOffer Code="PBGT" PTC="ADT" Description="THIRD ADDITIONAL BAGGAGE" SegmentRPH="1" Carrier="XX" BookMode="SSR">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>51.68</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+        </ServiceFamily>
+        <ServiceFamily FamilyCode="LG" FamilyName="LOUNGE">
+            <ItemOffer Code="PDLG" PTC="ADT" Description="LOUNGE ACCESS" SegmentRPH="1" Carrier="XX" BookMode="SSR">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>64.61</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+        </ServiceFamily>
+        <ServiceFamily FamilyCode="SA" FamilyName="PRE RESERVED SEAT">
+            <ItemOffer Code="STPD" PTC="ADT" Description="BASIC SEAT" SegmentRPH="1" Carrier="XX" BookMode="SEA">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>12.92</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+            <ItemOffer Code="STPR" PTC="ADT" Description="PREMIUM SEAT" SegmentRPH="1" Carrier="XX" BookMode="SEA">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>25.84</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+            <ItemOffer Code="STXL" PTC="ADT" Description="EXTRA LEGROOOM SEAT" SegmentRPH="1" Carrier="XX" BookMode="SEA">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>38.76</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+            <ItemOffer Code="STEX" PTC="ADT" Description="EXIT ROW SEAT" SegmentRPH="1" Carrier="XX" BookMode="SEA">
+                <ItemPriced CurrencyCode="USD" DecimalPlaces="2">
+                    <PriceOffer>45.22</PriceOffer>
+                </ItemPriced>
+            </ItemOffer>
+        </ServiceFamily>
+    </PricedOffer>
+</KIU_AirGetOfferRS>

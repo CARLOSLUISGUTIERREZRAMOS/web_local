@@ -32,7 +32,6 @@ class ApiVisaNet extends CI_Controller {
             $tokenFormulario = $xss_post_redirect['transactionToken'];
             $sess_token_seguridad_visa = $this->session->token_seguridad_visa;
             $sess_id_reserva = $this->session->id_reserva;
-
             $campos = 'id,num_documento,tipo_documento,total_pagar,id,pnr,ruc,fecha_registro,nombres,apellidos,email,origen,destino';
             $data_reserva = $this->Reserva_model->BuscarReservaPorId($sess_id_reserva, $campos);
             $body = $this->visa->GenerarBody_AutorizacionTransaccion($data_reserva->num_documento, $data_reserva->tipo_documento, $data_reserva->total_pagar, $data_reserva->id, $tokenFormulario);

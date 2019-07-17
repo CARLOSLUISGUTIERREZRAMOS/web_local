@@ -122,3 +122,61 @@ if (!function_exists('GetClase')) {
         return $clase;
     }
 }
+if (!function_exists('GetNumeroVuelo')) {
+    function GetNumeroVuelo($arg)
+    {
+        $num_vuelo = [];
+        $tipo_viaje = $arg['tipo_viaje'];
+        $data_ida = explode('|', $arg['grupo_ida']);
+        $num_vuelo['ida'] = $data_ida[2];
+        if ($tipo_viaje === 'R') {
+            $data_retorno = explode('|', $arg['grupo_retorno']);
+            $num_vuelo['retorno'] = $data_retorno[2];
+        }
+        return $num_vuelo;
+    }
+}
+
+
+if (!function_exists('ValidarDescuento')) {
+    function ValidarDescuento($cod_origen,$cod_destino,$tipo_viaje,$rutas_set)
+    {
+                $valido = FALSE;
+                $rutas_validas = explode(',',$rutas_set);
+                $ruta_ida = $cod_origen.$cod_destino; // concatenamos las ruta para realizar la comnparacion
+                $res_ida = in_array($ruta_ida,$rutas_validas);
+                $valido = ($res_ida) ? TRUE : FALSE;
+                if($tipo_viaje === 'R')
+                {
+                    $ruta_retorno = $cod_destino.$cod_origen;
+                    $res_retorno = in_array($ruta_retorno,$rutas_validas);
+                    $valido = ($res_retorno) ? TRUE : FALSE;
+                }
+                return $valido;
+    }
+}
+if (!function_exists('ValidarAerolineaDescuento')) {
+    function ValidarAerolineaDescuento($tipo_viaje,$num_flight,$objAerolinea)
+    {
+        $obj_aerolinea_val_array = explode(',',$objAerolinea);
+        if($tipo_viaje === 'O'){
+            $compania_ida = (strlen($num_flight['ida']) === 3) ? 'P9' : '2I';
+            $valido_ida = in_array($compania_ida,$obj_aerolinea_val_array);
+            return $valido_ida;
+            
+        }else if($tipo_viaje === 'R'){
+            $compania_ida = (strlen($num_flight['ida']) === 3) ? 'P9' : '2I';
+            $compania_retorno = (strlen($num_flight['retorno']) === 3) ? 'P9' : '2I';
+            $valido_ida = in_array($compania_ida,$obj_aerolinea_val_array);
+            $valido_retorno = in_array($compania_retorno,$obj_aerolinea_val_array);
+            if($valido_ida && $valido_retorno){
+                return TRUE;
+            }else{
+                return FALSE;
+            }
+
+        }else{
+            return FALSE;
+        }
+    }
+}

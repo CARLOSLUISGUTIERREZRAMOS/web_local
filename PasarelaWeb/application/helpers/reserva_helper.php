@@ -180,3 +180,24 @@ if (!function_exists('ValidarAerolineaDescuento')) {
         }
     }
 }
+if (!function_exists('FormarArrayVistaBooking2')) {
+    function FormarArrayVistaBooking2($xss_post,$data)
+    {
+        $data['cant_adl'] = (int)$xss_post['cant_adl'];
+        $data['cant_chd'] = (int)$xss_post['cant_chd'];
+        $data['cant_inf'] = (int)$xss_post['cant_inf'];
+        $data['grupo_ida'] = $xss_post['grupo_ida'];
+        
+        $data['datetime_departure'] = explode('|', $data['grupo_ida'])[3];
+        $data['tipo_viaje'] = $xss_post['tipo_viaje'];
+        $data['cod_origen'] = $xss_post['cod_origen'];  
+        $data['cod_destino'] = $xss_post['cod_destino'];
+        $data['geoip_pais'] = $xss_post['geoip_pais'];
+        $data['geoip_ciudad'] = $xss_post['geoip_ciudad'];
+        $data['grupo_retorno'] = '';
+        if ($xss_post['tipo_viaje'] === 'R') :
+            $data['grupo_retorno'] = $xss_post['grupo_retorno'];
+        endif;
+        return $data;
+    }
+}

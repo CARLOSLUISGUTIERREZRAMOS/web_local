@@ -603,9 +603,10 @@ class PasoFinal extends CI_Controller
         $xss_post = $this->input->post(NULL, TRUE);
         //        $total_pagar = $xss_post['total_pagar'];
         //        $pnr = $xss_post['pnr'];
-        $reserva_id = $xss_post['reserva_id'];
+        // $reserva_id = $xss_post['reserva_id'];
+        $reserva_id = 1782925;
         $cc_code = $xss_post['cc_code'];
-        $campos = 'num_celular,pnr,total_pagar,fecha_limite,email,nombres,apellidos,nacionalidad,tipo_documento,num_documento';
+        $campos = 'num_celular,pnr,total_pagar,fecha_limite,email,ruc,nombres,apellidos,nacionalidad,tipo_documento,num_documento';
         $res_datareserva = $this->Reserva_model->BuscarReservaPorId($reserva_id, $campos);
         $codigo_pais = $this->Pais_model->GetCodigoPaisPaisPorId($res_datareserva->nacionalidad);
 
@@ -618,7 +619,8 @@ class PasoFinal extends CI_Controller
         $data_reprocesa['ddi_pais_cel'] = $codigo_pais;
         $data_reprocesa['tipo_documento_adl_1'] = $res_datareserva->tipo_documento;
         $data_reprocesa['numdoc_adl_1'] = $res_datareserva->num_documento;
-
+        $data_reprocesa['ruc'] = (empty($res_datareserva->ruc) || $res_datareserva->ruc === "NULL") ? '' : $res_datareserva->ruc;
+        
         $this->Reserva_model->ActualizarMetodoPagoTransaccion($cc_code, $reserva_id);
 
         $this->PosicionarMetodoDePago($data_reprocesa, $res_datareserva->total_pagar, $res_datareserva->pnr, $reserva_id);

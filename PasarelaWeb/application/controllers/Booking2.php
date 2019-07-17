@@ -47,7 +47,7 @@ class Booking2 extends CI_Controller
             echo 'FALSE';
         } else {
             //3.2 Enviamos al js la data necesaria para continuar el flujo
-            echo $res_sql_descuento->codigo . '|' . $res_sql_descuento->monto;
+            echo $res_sql_descuento->codigo . '|' . $res_sql_descuento->monto .'|'. $res_sql_descuento->id;
         }
     }
 
@@ -94,9 +94,12 @@ class Booking2 extends CI_Controller
                 // ************* LOGICA APLICAR CODIGO DESCUENTO ***************
 
                 $clases_validas = GetClase($xss_post);
-                $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
+                $num_vuelos = GetNumeroVuelo($xss_post);
                 
-                if(!is_null($obj_descuento)){
+                $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
+                $aerolinea_valida_cod_desc = ValidarAerolineaDescuento($xss_post['tipo_viaje'],$num_vuelos,$obj_descuento->aerolinea);
+                
+                if(!is_null($obj_descuento) && $aerolinea_valida_cod_desc){
                     $data_cod_desc= $obj_descuento->metodos_pago;
                     /* echo $data_cod_desc; */
                     $this->load->helper('bloqueshtml');

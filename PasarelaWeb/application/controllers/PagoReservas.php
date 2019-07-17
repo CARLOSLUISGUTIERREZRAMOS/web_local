@@ -75,16 +75,16 @@ class PagoReservas extends CI_Controller
             $args = array('CodReserva' => $codigo_reserva);
             $Itinerary = $kiu->TravelItineraryReadRQ($args, $err)[3]; //CAPTURADO COMO OBJ
             /* $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML */
-        /*     echo "<pre>";
-            var_dump($Itinerary_xml);
-            echo "</pre>"; */
+            echo "<pre>";
+            var_dump($Itinerary);
+            echo "</pre>";
 
             $estado_tkt = $Itinerary->TravelItinerary->ItineraryInfo->Ticketing->attributes()->TicketingStatus;
             switch ((int)$estado_tkt) {
                 case 1: //Pendiente de emisión
                     //********************* REGISTRANDO UNA VENTA OBTENIDA DE CALL CENTER *******************
                     $res_array_insert = FormarArregloInsert_ModuloPagoReservas($Itinerary);
-                    /* var_dump($res_array_insert);die; */
+                    // var_dump($res_array_insert);die;
                     //Antes de registrar validamos que la reserva o pnr no se encuentre registrado en la DB StarPeru 
                     $pnr = (string)$Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
                     $cantidad_registros = $this->Reserva_model->VerificarExisteReserva(array('pnr' => $pnr));
@@ -105,6 +105,7 @@ class PagoReservas extends CI_Controller
                         $data_reserva_detalle['tipo_documento'] = (string)$Pasajero->Customer->Document->attributes()->DocType;
                         $data_reserva_detalle['num_documento'] = (string)$Pasajero->Customer->Document->attributes()->DocID;
                         $data_reserva_detalle['pnr'] = (string)$Itinerary->TravelItinerary->ItineraryRef->attributes()->ID;
+                        
                         $data_reserva_detalle['nacionalidad'] = $res_array_insert['nacionalidad'];
                         $data_reserva_detalle['reserva_id'] = $insert_id_reserva;
                         $res = $this->Reserva_model->RegistrarReservaDetalle($data_reserva_detalle);
@@ -118,6 +119,7 @@ class PagoReservas extends CI_Controller
                     
                     $data['Pasajeros'] = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo;
                     $data['Itinerarios'] = $Itinerary->TravelItinerary->ItineraryInfo->ReservationItems->Item;
+                    $data['ruc'] = (isset($Itinerary->TravelItinerary->Remarks)) ? (string)$Itinerary->TravelItinerary->Remarks->Remark : "";
                     $data['TravelItinerary'] = $Itinerary->TravelItinerary;
                     $data['TotalPagar'] = $Itinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountAfterTax;
                     $data['reserva_id'] = $insert_id_reserva;

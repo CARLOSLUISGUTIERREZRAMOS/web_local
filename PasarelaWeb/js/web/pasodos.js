@@ -77,7 +77,7 @@ $(function () {
             metodo_bool = $.inArray(cc_code, array_card_validas);
             if (metodo_bool >= 0) {
                 $("#bloque_desc").css("display", "block");
-            }
+            }   
         }
     }
 

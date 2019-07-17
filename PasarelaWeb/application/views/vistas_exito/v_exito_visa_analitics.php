@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Las Mejores tarifas aéreas para peruanos y extranjeros. Vuela por el Perú: Cusco, Tarapoto, Iquitos, Pucallpa, Lima; promociones especiales">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Aerolíneas StarPerú</title>
-        <link href="img/star.ico" rel="shortcut icon" />
-        <?= link_tag('css/bootstrap.css'); ?>
-        <?= link_tag('css/font-awesome.css'); ?>
-        <?= link_tag('css/main.css'); ?>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-757467471"></script>
 
-        <script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Las Mejores tarifas aéreas para peruanos y extranjeros. Vuela por el Perú: Cusco, Tarapoto, Iquitos, Pucallpa, Lima; promociones especiales">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Aerolíneas StarPerú</title>
+    <link href="img/star.ico" rel="shortcut icon" />
+    <?= link_tag('css/bootstrap.css'); ?>
+    <?= link_tag('css/font-awesome.css'); ?>
+    <?= link_tag('css/main.css'); ?>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-757467471"></script>
 
-            window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-            gtag('config', 'AW-757467471');
+        gtag('js', new Date());
 
-        </script>
+        gtag('config', 'AW-757467471');
+    </script>
 
     <!-- Event snippet for Compras web conversion page -->
     <script>
@@ -37,13 +37,12 @@
 
     <!-- Facebook Pixel Code -->
     <script>
-        !function (f, b, e, v, n, t, s)
-        {
+        ! function(f, b, e, v, n, t, s) {
             if (f.fbq)
                 return;
-            n = f.fbq = function () {
+            n = f.fbq = function() {
                 n.callMethod ?
-                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq)
                 f._fbq = n;
@@ -57,21 +56,23 @@
             s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
+            'https://connect.facebook.net/en_US/fbevents.js');
 
         fbq('init', '1828446367243161');
         fbq('track', 'PageView');
 
-        fbq('track', 'Purchase', {value: 41.00, currency: 'USD'});
-
+        fbq('track', 'Purchase', {
+            value: 41.00,
+            currency: 'USD'
+        });
     </script>
     <noscript>
-    <img height="1" width="1" 
-         src="https://www.facebook.com/tr?id=1828446367243161&ev=PageView
-         &noscript=1"/>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=1828446367243161&ev=PageView
+         &noscript=1" />
     </noscript>
     <!-- End Facebook Pixel Code -->
 </head>
+
 <body class="internas nohero">
     <div class="interfaz">
         <header class="cabecera">
@@ -284,59 +285,69 @@
                         </div>
                     </div>
 
-                </div>  
                 </div>
+    </div>
 
 
-            </main>    
-            <footer class="pie">
-                <div class="container-fluid">
-                    <div class="row no-gutters">
-                        <div class="col-sm-12 col-md-5 menu-inf">
-                            <div class="row no-gutters justify-content-end">
-                                <div class="col-sm-12 col-md-11">
-                                    <img src="<?= base_url() ?>img/Logotipo.png" alt="">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="libro-de-reclamaciones.html">Libro de reclamaciones</a></li>
-                                        <li class="list-inline-item"><a href="<?= base_url() ?>Main/la_empresa">La Empresa</a></li>
-                                        <li class="list-inline-item"><a href="<?= base_url() ?>Main/contacto">Contacto</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-7 redes">
-                            <div class="row no-gutters align-items-end">
-                                <div class="col-sm-12 col-md-9">
-                                    <p>CALL CENTER (511) 705-9000 <br>
-                                        Atención diaria – 08:00 a 20:00Hrs.</p>
-                                </div>
-                                <div class="col-sm-12 col-md-3">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item facebook">
-                                            <a href="https://www.facebook.com/aerolineas.starperu?fref=ts" class="nav-link">
-                                                facebook
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item twitter">
-                                            <a href="https://twitter.com/starperu_" class="nav-link">
-                                                twitter
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row no-gutters">
-                        <div class="col-12 text-center disclaimer">
-                            <p><small>2018 Star up S.A - <a href="<?= base_url() ?>Main/contrato_de_transporte">Contrato de transporte</a> - <a href="<?= base_url() ?>Main/condiciones_de_venta">Condiciones de venta</a> - <a href="<?= base_url() ?>Main/condiciones_clases_tarifarias">Condiciones de clases tarifarias</a> - <a href="<?= base_url() ?>Main/endosos_y_postergaciones">Endosos y postergaciones</a> - <a href="<?= base_url() ?>Main/preguntas_frecuentes">FAQ</a> - <a href="<?= base_url() ?>Main/privacidad">Privacidad</a><!-- - <a href="prensa-e-imagen.html">Prensa e imagen</a>--> - <a href="<?= base_url() ?>Main/flota">Flota</a> - <a href="<?= base_url() ?>Main/mapa_del_sitio">Mapa del sitio</a></small></p>
+    </main>
+    <footer class="pie">
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col-sm-12 col-md-5 menu-inf">
+                    <div class="row no-gutters justify-content-end">
+                        <div class="col-sm-12 col-md-11">
+                            <img src="<?= base_url() ?>img/Logotipo.png" alt="">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a href="libro-de-reclamaciones.html">Libro de reclamaciones</a></li>
+                                <li class="list-inline-item"><a href="<?= base_url() ?>Main/la_empresa">La Empresa</a></li>
+                                <li class="list-inline-item"><a href="<?= base_url() ?>Main/contacto">Contacto</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </footer>
+                <div class="col-sm-12 col-md-7 redes">
+                    <div class="row no-gutters align-items-end">
+                        <div class="col-sm-12 col-md-9">
+                            <p>CALL CENTER (511) 705-9000 <br>
+                                Atención diaria – 08:00 a 20:00Hrs.</p>
+                        </div>
+                        <div class="col-sm-12 col-md-3">
+                            <ul class="list-inline">
+                                <li class="list-inline-item facebook">
+                                    <a href="https://www.facebook.com/aerolineas.starperu?fref=ts" class="nav-link">
+                                        facebook
+                                    </a>
+                                </li>
+                                <li class="list-inline-item twitter">
+                                    <a href="https://twitter.com/starperu_" class="nav-link">
+                                        twitter
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-12 text-center disclaimer">
+                    <p><small>2018 Star up S.A - <a href="<?= base_url() ?>Main/contrato_de_transporte">Contrato de transporte</a> - <a href="<?= base_url() ?>Main/condiciones_de_venta">Condiciones de venta</a> - <a href="<?= base_url() ?>Main/condiciones_clases_tarifarias">Condiciones de clases tarifarias</a> - <a href="<?= base_url() ?>Main/endosos_y_postergaciones">Endosos y postergaciones</a> - <a href="<?= base_url() ?>Main/preguntas_frecuentes">FAQ</a> - <a href="<?= base_url() ?>Main/privacidad">Privacidad</a><!-- - <a href="prensa-e-imagen.html">Prensa e imagen</a>--> - <a href="<?= base_url() ?>Main/flota">Flota</a> - <a href="<?= base_url() ?>Main/mapa_del_sitio">Mapa del sitio</a></small></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-            <!-- End Facebook Pixel Code -->
-            <!-- Analytics -->
+    <!-- End Facebook Pixel Code -->
+    <!-- Analytics -->
+    <script>
+        var viajala_conversion_params = {
+            supplier: 'starperu',
+            origin: '<?= $data_reserva->origen ?>',
+            destination: '<?= $data_reserva->destino ?>',
+            grossBooking: '<?= round($data_reserva->total_pagar, 0) ?>',
+            currency: 'USD'
+        };
+    </script>
+    <script src="https://cdn.viajala.com/tracking/conversion.js"></script>
 
-            </html>
-            <?php $this->load->view('templates/v_error') ?>
+</html>
+<?php $this->load->view('templates/v_error') ?>

@@ -16,7 +16,7 @@ if (!function_exists('ArmarTramaTipoCredito_DemandTicket')) {
             'TourCode' => "",
             'BookingID' => trim($pnr),
             'InvoiceCode' => "ACME",
-            'VAT' => $ruc
+            'VAT' => ($ruc == 'NULL') ? '': $ruc
         );
         return $trama;
     }

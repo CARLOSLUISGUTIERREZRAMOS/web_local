@@ -167,6 +167,10 @@
                                         <label for="num-loc">Número de contacto:</label>
                                         <input type="text" class="form-control" aria-describedby="num-loc" id="num-loc" name="num_tlfn" value="<?= $tlfn_contacto ?>" disabled>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="num-loc">RUC:</label>
+                                        <input type="text" class="form-control" aria-describedby="num-loc" id="num-loc" name="num_tlfn" value="<?=$ruc?>" disabled>
+                                    </div>
                                 </div>
 
 

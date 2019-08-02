@@ -11,3 +11,14 @@ if (!function_exists('ArmarBloqueCodigoDescuento')) {
         
     }
 }
+
+if (!function_exists('ArmarBloqueInfoReservaConCodDesc')) {
+
+    function ArmarBloqueInfoReservaConCodDesc()
+    {
+        $CI = &get_instance();
+        $html_codigo_descuento = $CI->load->view('codigo_descuento/v_info_pnr_con_desc');
+        return $html_codigo_descuento;
+        
+    }
+}

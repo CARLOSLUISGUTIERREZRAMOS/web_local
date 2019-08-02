@@ -13,7 +13,7 @@ class Booking2 extends CI_Controller
         parent::__construct();
 
         $this->load->library('form_validation');
-        $this->load->helper(array('security','itinerario','tiempos','validaciones','reserva'));
+        $this->load->helper(array('security','itinerario','tiempos','validaciones','reserva','bloqueshtml'));
         $this->load->library('kiu/Controller_kiu');
         $this->load->model('Pais_model');
         $this->load->model('Descuento_model');
@@ -59,7 +59,6 @@ class Booking2 extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             header("Location: https://www.starperu.com");
         } else {
-
             $xss_post = $this->input->post(NULL, TRUE);
             $BoolValCantPax = ValidarCantidadMaxPax($xss_post['cant_adl'], $xss_post['cant_chd'], $xss_post['cant_inf']);
             $res_itinerario = ArmarItinerario($xss_post);
@@ -83,22 +82,25 @@ class Booking2 extends CI_Controller
                 
                 $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
                 $aerolinea_valida_cod_desc = ValidarAerolineaDescuento($xss_post['tipo_viaje'],$num_vuelos,$obj_descuento->aerolinea);
-                
+
                 // if($this->dispositivo_movil && $this->ProcesaLogicaMovil()){
-                if($this->dispositivo_movil){
+               /*  if($this->dispositivo_movil){
                     //Validamos si existe algo que hacer con la entrada movil.
-                    if($this->ProcesaLogicaMovil() != FALSE){
-                            
+                    $res_info_movil = $this->ProcesaLogicaMovil();
+                    if($res_info_movil['isset'] != FALSE){
+                        $data = $res_info_movil['data'];
+                        var_dump($data);
                     }
-                }
+                } */
 
                 if(!is_null($obj_descuento) && $aerolinea_valida_cod_desc){
-                    $data_cod_desc= $obj_descuento->metodos_pago;
-                    /* echo $data_cod_desc; */
-                    $this->load->helper('bloqueshtml');
-                    $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
-                    /*  var_dump($data['html_desc']);  */
-                    $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
+
+                    $ruta_valida = ValidarDescuento($data['cod_origen'],$data['cod_destino'],$data['tipo_viaje'],$obj_descuento->ruta);
+                    
+                    if($ruta_valida){
+                        $data['html_desc'] = ArmarBloqueCodigoDescuento($obj_descuento->metodos_pago);
+                        $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu, $obj_descuento);
+                    }
                 }
                 // **************.LOGICA APLICAR CODIGO DESCUENTO **************
 
@@ -109,16 +111,7 @@ class Booking2 extends CI_Controller
         }
     }
 
-    private function ProcesaLogicaMovil(){
-        $data_discount_movil = $this->Descuento_model->GetDataDescuentoMovilApp();
-        //1. Validamos que exista data
-        if(!is_null($data_discount_movil)){
-            return $data_discount_movil;
-        }else{
-            //No hay nada que hacer...
-            return FALSE;
-        }
-    }
+ 
 
     private function OperarDescuento($rs_kiu, $obj_descuento)
     {

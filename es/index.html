@@ -1,226 +1,291 @@
-
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Aerolíneas Star Perú| Más simple que una lowcost.</title>
-        <meta name="description" content="Vuela ya por el Perú: Cusco, Iquitos, Tarapoto, Lima, Pucallpa, Cajamarca, Chiclayo etc. Única tarifa para peruanos y extranjeros.">
-        <meta name="keywords" content="vuelos peru, pasajes peru, línea aérea peruana, aerolínea peruana, aerolinea peru, Cajamarca, vuelos Cajamarca, pasajes Cajamarca, Lima Cajamarca, viaje a Cajamarca. ida y vuelta">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/font-awesome.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/dhtmlxcalendar.css"/>
-    </head>
-    <body class="inicio reservas-on" onload="doOnLoad(), cargarPagina();">
-        <div class="interfaz">
-            <header class="cabecera">
-                <div class="container-fluid">
-                    <div class="row no-gutters fondo">
-                        <div class="col">
-                            <div class="container">
-                                <div class="row no-gutters">
-                                    <div class="col-12">
-                                        <div class="row no-gutters">
-                                            <div class="col-sm-12 col-md-4 logotipo">
-                                                <h1><img src="img/Logotipo.png" alt=""></h1>
-                                            </div>
-                                            <div class="col-sm-12 col-md-8">
-                                                <nav class="navbar navbar-expand sec-nav">
-                                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-                                                        <span class="navbar-toggler-icon"></span>
-                                                    </button>
-                                                    <div class="collapse navbar-collapse" id="navbarsExample02">
-                                                        <ul class="navbar-nav ml-auto">
-                                                            <li class="nav-item telefono">
-                                                                <!--<strong>CALL CENTER (511) 705-9000</strong>-->
-                                                                <strong>CALL CENTER (511) 705-9000</strong>
-                                                            </li>
-                                                            <li class="nav-item idiomas">
-                                                                <div class="dropdown">
-                                                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        ES
-                                                                    </button>
-                                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                        <a class="dropdown-item" href="#">ES</a>
-                                                                        <a class="dropdown-item" href="#">ENG</a>
-                                                                    </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Aerolíneas Star Perú| Más simple que una lowcost.</title>
+    <meta name="description"
+        content="Vuela ya por el Perú: Cusco, Iquitos, Tarapoto, Lima, Pucallpa, Cajamarca, Chiclayo etc. Única tarifa para peruanos y extranjeros.">
+    <meta name="keywords"
+        content="vuelos peru, pasajes peru, línea aérea peruana, aerolínea peruana, aerolinea peru, Cajamarca, vuelos Cajamarca, pasajes Cajamarca, Lima Cajamarca, viaje a Cajamarca. ida y vuelta">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/dispositivo.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/dhtmlxcalendar.css" />
+    <style>
+     
+    </style>
+</head>
+
+<body class="inicio reservas-on" onload="doOnLoad(), cargarPagina();">
+    <div class="interfaz">
+        <header class="cabecera">
+            <div class="container-fluid">
+                <div class="row no-gutters fondo">
+                    <div class="col">
+                        <div class="container">
+                            <div class="row no-gutters">
+                                <div class="col-12">
+                                    <div class="row no-gutters">
+                                        <div class="col-sm-12 col-md-4 logotipo">
+                                            <h1><img src="img/Logotipo.png" alt=""></h1>
+                                        </div>
+                                        <div class="col-sm-12 col-md-8">
+                                            <nav class="navbar navbar-expand sec-nav">
+                                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                                    data-target="#navbarsExample02" aria-controls="navbarsExample02"
+                                                    aria-expanded="false" aria-label="Toggle navigation">
+                                                    <span class="navbar-toggler-icon"></span>
+                                                </button>
+                                                <div class="collapse navbar-collapse" id="navbarsExample02">
+                                                    <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item telefono">
+                                                            <!--<strong>CALL CENTER (511) 705-9000</strong>-->
+                                                            <strong>CALL CENTER (511) 705-9000</strong>
+                                                        </li>
+                                                        <li class="nav-item idiomas">
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-secondary dropdown-toggle"
+                                                                    type="button" id="dropdownMenuButton"
+                                                                    data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false">
+                                                                    ES
+                                                                </button>
+                                                                <div class="dropdown-menu"
+                                                                    aria-labelledby="dropdownMenuButton">
+                                                                    <a class="dropdown-item" href="#">ES</a>
+                                                                    <a class="dropdown-item" href="#">ENG</a>
                                                                 </div>
-                                                            </li>
-                                                            <li class="nav-item facebook">
-                                                                <a href="https://www.facebook.com/aerolineas.starperu?fref=ts">facebook</a>
-                                                            </li>
-                                                            <li class="nav-item blog">
-                                                                <a href="http://blog.starperu.com/es/" class="nav-link">
-                                                                    <img src="img/icon-blog.png" class="off" alt="">
-                                                                    <img src="img/icon-blog-on.png" class="on" alt="">
-                                                                    <span>Blog</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </nav>
-                                            </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="nav-item facebook">
+                                                            <a
+                                                                href="https://www.facebook.com/aerolineas.starperu?fref=ts">facebook</a>
+                                                        </li>
+                                                        <li class="nav-item blog">
+                                                            <a href="http://blog.starperu.com/es/" class="nav-link">
+                                                                <img src="img/icon-blog.png" class="off" alt="">
+                                                                <img src="img/icon-blog-on.png" class="on" alt="">
+                                                                <span>Blog</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </nav>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <!--                            <div class="carousel-item active">
-                                                            <a href="http://www.starperu.com/es/t_condiciones.html" target="_blank"><img class="d-block w-100" src="images/thumbnail_Mega Ofertas Desde 24.jpg" alt="First slide"></a>
-                                                        </div>-->
-                            <!--                            <div class="carousel-item active">
-                                                            <a href="http://www.starperu.com/es/tc.html" target="_blank"><img class="d-block w-100" src="images/web.jpg" alt="First slide"></a>
-                                                        </div>-->
-                            <div class="carousel-item active">
-                                <!--<a href="https://www.dinersclub.pe/venta_establecimientos/starperu" target="_blank"><img class="d-block w-100" src="imagenes/CIX 48 RT web.jpg" alt="First slide"></a>-->
-                                <a href="https://www.starperu.com/es/registro.php" target="_blank"><img class="d-block w-100" src="images/Suscribete.jpg" alt="First slide"></a>
-                                <!--<a href="https://www.starperu.com/es/promociones.html" target="_blank"><img class="d-block w-100" src="images/thumbnail_banner-1 (1).png" alt="First slide"></a>-->
-                            </div>
-                            <!--<div class="carousel-item">
-                                <a href="https://www.starperu.com/es/registro.php" target="_blank"><img class="d-block w-100" src="images/Suscribete.jpg" alt="First slide"></a>
-                            </div>-->
-                            <div class="carousel-item">
-                                <a><img class="d-block w-100" src="images/DINERS CLUB.jpg" alt="First slide"></a>
-                                <!--<a><img class="d-block w-100" src="" alt="First slide"></a>-->
-                            </div>
-                            <div class="carousel-item">
-                                <a><img class="d-block w-100" src="images/AMEX Web1.jpg" alt="Second slide"></a>
-                            </div><!--
-                            <div class="carousel-item">
-                                <a><img class="d-block w-100" src="images/TPP desde 48.jpg" alt="Second slide"></a>
-                            </div>-->                            
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="images/Nueva ruta CIX.jpg" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="images/Nueva ruta CJA.jpg" alt="Third slide">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container reserva">
-                    <div class="form-reserva">
-                        <div class="container-fluid">
-                            <div class="row no-gutters">
-                                <div class="col-12">
-                                    <div class="row no-gutters form-menu">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <!--                            <div class="carousel-item active">
+                                                            <a href="http://www.starperu.com/es/t_condiciones.html" target="_blank"><img class="d-block w-100" src="images/thumbnail_Mega Ofertas Desde 24.jpg" alt="First slide"></a>
+                                                        </div>-->
+                        <!--                            <div class="carousel-item active">
+                                                            <a href="http://www.starperu.com/es/tc.html" target="_blank"><img class="d-block w-100" src="images/web.jpg" alt="First slide"></a>
+                                                        </div>-->
+                        <div class="carousel-item active">
+                            <!--<a href="https://www.dinersclub.pe/venta_establecimientos/starperu" target="_blank"><img class="d-block w-100" src="imagenes/CIX 48 RT web.jpg" alt="First slide"></a>-->
+                            <a href="https://www.starperu.com/es/registro.php" target="_blank"><img
+                                    class="d-block w-100" src="images/Suscribete.jpg" alt="First slide"></a>
+                            <!--<a href="https://www.starperu.com/es/promociones.html" target="_blank"><img class="d-block w-100" src="images/thumbnail_banner-1 (1).png" alt="First slide"></a>-->
+                        </div>
+                        <!--<div class="carousel-item">
+                                <a href="https://www.starperu.com/es/registro.php" target="_blank"><img class="d-block w-100" src="images/Suscribete.jpg" alt="First slide"></a>
+                            </div>-->
+                        <div class="carousel-item">
+                            <a><img class="d-block w-100" src="images/DINERS CLUB.jpg" alt="First slide"></a>
+                            <!--<a><img class="d-block w-100" src="" alt="First slide"></a>-->
+                        </div>
+                        <div class="carousel-item">
+                            <a><img class="d-block w-100" src="images/AMEX Web1.jpg" alt="Second slide"></a>
+                        </div>
+                        <!--
+                            <div class="carousel-item">
+                                <a><img class="d-block w-100" src="images/TPP desde 48.jpg" alt="Second slide"></a>
+                            </div>-->
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="images/Nueva ruta CIX.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="images/Nueva ruta CJA.jpg" alt="Third slide">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container reserva">
+                <div class="form-reserva">
+                    <div class="container-fluid">
+                        <div class="row no-gutters">
+                            <div class="col-12">
+                                <div class="row no-gutters form-menu">
 
-                                        <div class="nav nav-pills">
-                                            <a class="nav-item nav-link active" id="nav-reserva-tab" data-toggle="tab" href="#nav-reserva" role="tab" aria-controls="nav-reserva" aria-selected="true">Reserva de vuelos</a>
-                                            <a class="nav-item nav-link" id="nav-checkin-tab" data-toggle="tab" href="#nav-checkin" role="tab" aria-controls="nav-checkin" aria-selected="false">Check-in</a>
-                                            <a class="nav-item nav-link" id="nav-reservas-tab" data-toggle="tab" href="#nav-reservas" role="tab" aria-controls="nav-reservas" aria-selected="false">Pago de reservas</a>
-                                            <a class="nav-item nav-link" id="nav-ticket-tab" data-toggle="tab" href="#nav-ticket" role="tab" aria-controls="nav-ticket" aria-selected="false">E-ticket</a>
-                                        </div>
+                                    <div class="nav nav-pills">
+                                        <a class="nav-item nav-link active" id="nav-reserva-tab" data-toggle="tab"
+                                            href="#nav-reserva" role="tab" aria-controls="nav-reserva"
+                                            aria-selected="true">Reserva de vuelos</a>
+                                        <a class="nav-item nav-link" id="nav-checkin-tab" data-toggle="tab"
+                                            href="#nav-checkin" role="tab" aria-controls="nav-checkin"
+                                            aria-selected="false">Check-in</a>
+                                        <a class="nav-item nav-link" id="nav-reservas-tab" data-toggle="tab"
+                                            href="#nav-reservas" role="tab" aria-controls="nav-reservas"
+                                            aria-selected="false">Pago de reservas</a>
+                                        <a class="nav-item nav-link" id="nav-ticket-tab" data-toggle="tab"
+                                            href="#nav-ticket" role="tab" aria-controls="nav-ticket"
+                                            aria-selected="false">E-ticket</a>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-12">
+                            <div class="col-12">
 
-                                    <!--<form id="frm_paso1" action="https://sslzone.starperu.com/booking1.php" onsubmit="return ValidaPasajes();" method="post">-->
+                                <!--<form id="frm_paso1" action="https://sslzone.starperu.com/booking1.php" onsubmit="return ValidaPasajes();" method="post">-->
 
-                                    <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-content" id="nav-tabContent">
 
-                                        <div class="tab-pane fade show active" id="nav-reserva" role="tabpanel" aria-labelledby="nav-reserva-tab">
-                                            <div class="row no-gutters">
-                                                <div class="col-12 form-cuerpo">
-                                                    
-                                                    <form id="frm_paso1" action="http://127.0.0.1/LOCAL_WEB/PasarelaWeb/Booking1" method="post">
-                                                        <div class="row no-gutters form-header">
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <h2>Quiero viajar...</h2>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <div class="row">
-                                                                    <div class="col-12 text-right">
-                                                                        <div class="custom-control custom-radio custom-control-inline">
-                                                                            <input type="radio" id="customRadioInline2" name="tipo_viaje" value="R" class="custom-control-input" onclick="show2();" checked="checked">
-                                                                            <label class="custom-control-label" for="customRadioInline2">ida y vuelta</label>
-                                                                        </div>
-                                                                        <div class="custom-control custom-radio custom-control-inline">
-                                                                            <input type="radio" id="customRadioInline1" name="tipo_viaje" value="O" class="custom-control-input" onclick="show1();">
-                                                                            <label class="custom-control-label" for="customRadioInline1">Solo ida</label>
-                                                                            <input type='hidden' name='codigoorigen' id='codigoorigen'>
-                                                                            <input type='hidden' name='codigodestino' id='codigodestino'>
-                                                                        </div>
+                                    <div class="tab-pane fade show active" id="nav-reserva" role="tabpanel"
+                                        aria-labelledby="nav-reserva-tab">
+                                        <div class="row no-gutters">
+                                            <div class="col-12 form-cuerpo">
+
+                                                <form id="frm_paso1"
+                                                    action="http://127.0.0.1/LOCAL_WEB/PasarelaWeb/Booking1"
+                                                    method="post">
+                                                    <div class="row no-gutters form-header">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <h2>Quiero viajar...</h2>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="row">
+                                                                <div class="col-12 text-right">
+                                                                    <div
+                                                                        class="custom-control custom-radio custom-control-inline">
+                                                                        <input type="radio" id="customRadioInline2"
+                                                                            name="tipo_viaje" value="R"
+                                                                            class="custom-control-input"
+                                                                            onclick="show2();" checked="checked">
+                                                                        <label class="custom-control-label"
+                                                                            for="customRadioInline2">ida y
+                                                                            vuelta</label>
+                                                                    </div>
+                                                                    <div
+                                                                        class="custom-control custom-radio custom-control-inline">
+                                                                        <input type="radio" id="customRadioInline1"
+                                                                            name="tipo_viaje" value="O"
+                                                                            class="custom-control-input"
+                                                                            onclick="show1();">
+                                                                        <label class="custom-control-label"
+                                                                            for="customRadioInline1">Solo ida</label>
+                                                                        <input type='hidden' name='codigoorigen'
+                                                                            id='codigoorigen'>
+                                                                        <input type='hidden' name='codigodestino'
+                                                                            id='codigodestino'>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row form-body">
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <label for="desde">Desde:</label>
-                                                                <div class="select">
-                                                                    <select name="origen" id="desde">
+                                                    </div>
+                                                    <div class="row form-body">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="desde">Desde:</label>
+                                                            <div class="select">
+                                                                <select name="origen" id="desde">
 
-                                                                    </select>
-                                                                    <div class="select__arrow"></div>
-                                                                </div>
+                                                                </select>
+                                                                <div class="select__arrow"></div>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <label for="hasta">Hacia:</label>
-                                                                <div class="select">
-                                                                    <select name="destino" id="hasta" onChange="asignaDestino();">
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <label for="hasta">Hacia:</label>
+                                                            <div class="select">
+                                                                <select name="destino" id="hasta"
+                                                                    onChange="asignaDestino();">
 
-                                                                    </select>
-                                                                    <div class="select__arrow"></div>
-                                                                </div>
+                                                                </select>
+                                                                <div class="select__arrow"></div>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="from">Salida:</label>
-                                                                    <input type="text" class="form-control" aria-describedby="fecha" placeholder="selecciona" readonly="true" id="from" name="date_from">
-                                                                </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="from">Salida:</label>
+                                                                <input type="text" class="form-control"
+                                                                    aria-describedby="fecha" placeholder="selecciona"
+                                                                    readonly="true" id="from" name="date_from">
                                                             </div>
-                                                            <div class="col-sm-12 col-md-6 twoway" id="twoway">
-                                                                <div class="form-group">
-                                                                    <label for="to">Retorno:</label>
-                                                                    <input type="text" class="form-control" aria-describedby="fecha2" placeholder="selecciona"  readonly="true" id="to" name="date_to">
-                                                                </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 twoway" id="twoway">
+                                                            <div class="form-group">
+                                                                <label for="to">Retorno:</label>
+                                                                <input type="text" class="form-control"
+                                                                    aria-describedby="fecha2" placeholder="selecciona"
+                                                                    readonly="true" id="to" name="date_to">
                                                             </div>
-                                                            <div class="col-sm-12 col-md-6 oneway" id="oneway" style="display: none;">
-                                                                &nbsp;
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-3">
-                                                                &nbsp;
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-3">
-                                                                <div class="form-group">
-                                                                    <label for="adultos">Adultos (+12 años)</label>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6 oneway" id="oneway"
+                                                            style="display: none;">
+                                                            &nbsp;
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-3">
+                                                            &nbsp;
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-3">
+                                                            <div class="form-group">
+                                                                <label for="adultos">Adultos (+12 años)</label>
 
-                                                                    <div class="input-group mb-3">
+                                                                <div class="input-group mb-3">
 
-                                                                        <div class="input-group-prepend" id="button-addon3">
-                                                                            <button class="btn btn-outline-secondary mod SumAdl" type="button">-</button>
-                                                                        </div>
-                                                                        <input type="text" id="tld3" name="cant_adultos" class="form-control" placeholder="" aria-label="adultos" aria-describedby="button-addon3" value="1" data-container="body" data-toggle="popover" data-placement="top" data-content="No debes exceder los 9 pasajeros" data-trigger="focus">
-                                                                        <!--<input type="text" id="tld3" name="tld3" class="form-control adl_input" placeholder="" aria-label="adultos" aria-describedby="button-addon3" value="1">-->
-                                                                        <div class="input-group-append" id="button-addon4">
-                                                                            <button class="btn btn-outline-secondary mod SumAdl" id="botonmasadl" name='adl' type="button">+</button>
-                                                                        </div>
+                                                                    <div class="input-group-prepend" id="button-addon3">
+                                                                        <button
+                                                                            class="btn btn-outline-secondary mod SumAdl"
+                                                                            type="button">-</button>
+                                                                    </div>
+                                                                    <input type="text" id="tld3" name="cant_adultos"
+                                                                        class="form-control" placeholder=""
+                                                                        aria-label="adultos"
+                                                                        aria-describedby="button-addon3" value="1"
+                                                                        data-container="body" data-toggle="popover"
+                                                                        data-placement="top"
+                                                                        data-content="No debes exceder los 9 pasajeros"
+                                                                        data-trigger="focus">
+                                                                    <!--<input type="text" id="tld3" name="tld3" class="form-control adl_input" placeholder="" aria-label="adultos" aria-describedby="button-addon3" value="1">-->
+                                                                    <div class="input-group-append" id="button-addon4">
+                                                                        <button
+                                                                            class="btn btn-outline-secondary mod SumAdl"
+                                                                            id="botonmasadl" name='adl'
+                                                                            type="button">+</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-3">
-                                                                <div class="form-group">
-                                                                    <label for="ninos">Niños (-12 años)</label>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-3">
+                                                            <div class="form-group">
+                                                                <label for="ninos">Niños (-12 años)</label>
 
 
-                                                                    <div class="input-group mb-3">
-                                                                        <div class="input-group-prepend" id="button-addon3">
-                                                                            <button class="btn btn-outline-secondary mod SumAdl" type="button">-</button>
-                                                                        </div>
-                                                                        <input type="text" id="tld1" name="cant_ninos" class="form-control" placeholder="" aria-label="niños" aria-describedby="button-addon3" value="0">
-                                                                        <div class="input-group-append" id="button-addon4">
-                                                                            <button class="btn btn-outline-secondary mod SumAdl" type="button" >+</button>
-                                                                        </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend" id="button-addon3">
+                                                                        <button
+                                                                            class="btn btn-outline-secondary mod SumAdl"
+                                                                            type="button">-</button>
                                                                     </div>
-                                                                    <!--                                                                    <div class="input-group mb-3">
+                                                                    <input type="text" id="tld1" name="cant_ninos"
+                                                                        class="form-control" placeholder=""
+                                                                        aria-label="niños"
+                                                                        aria-describedby="button-addon3" value="0">
+                                                                    <div class="input-group-append" id="button-addon4">
+                                                                        <button
+                                                                            class="btn btn-outline-secondary mod SumAdl"
+                                                                            type="button">+</button>
+                                                                    </div>
+                                                                </div>
+                                                                <!--                                                                    <div class="input-group mb-3">
                                                                                                                                             <div class="input-group-prepend" id="button-addon3">
                                                                                                                                                 <button class="btn btn-outline-secondary mod" type="button">-</button>
                                                                                                                                             </div>
@@ -229,12 +294,12 @@
                                                                                                                                                 <button class="btn btn-outline-secondary mod" id="botonmasni" name="nino" type="button">+</button>
                                                                                                                                             </div>
                                                                                                                                         </div>-->
-                                                                </div>
                                                             </div>
-                                                            <div class="col-sm-12 col-md-3">
-                                                                <div class="form-group">
-                                                                    <label for="bebes">Bebés (-2 años)</label>
-                                                                    <!--                                                                    <div class="input-group mb-3">
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-3">
+                                                            <div class="form-group">
+                                                                <label for="bebes">Bebés (-2 años)</label>
+                                                                <!--                                                                    <div class="input-group mb-3">
                                                                                                                                             <div class="input-group-prepend" id="button-addon3">
                                                                                                                                                 <button class="btn btn-outline-secondary mod" type="button">-</button>
                                                                                                                                             </div>
@@ -244,74 +309,94 @@
                                                                                                                                             </div>
                                                                                                                                         </div>-->
 
-                                                                    <div class="input-group mb-3">
-                                                                        <div class="input-group-prepend" id="button-addon3">
-                                                                            <button class="btn btn-outline-secondary mod SumAdl" type="button">-</button>
-                                                                        </div>
-                                                                        <input type="text" id="tld2" name="cant_infantes" class="form-control" placeholder="" aria-label="bebes" aria-describedby="button-addon3" value="0">
-                                                                        <div class="input-group-append" id="button-addon4">
-                                                                            <button class="btn btn-outline-secondary mod SumAdl" type="button">+</button>
-                                                                        </div>
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend" id="button-addon3">
+                                                                        <button
+                                                                            class="btn btn-outline-secondary mod SumAdl"
+                                                                            type="button">-</button>
+                                                                    </div>
+                                                                    <input type="text" id="tld2" name="cant_infantes"
+                                                                        class="form-control" placeholder=""
+                                                                        aria-label="bebes"
+                                                                        aria-describedby="button-addon3" value="0">
+                                                                    <div class="input-group-append" id="button-addon4">
+                                                                        <button
+                                                                            class="btn btn-outline-secondary mod SumAdl"
+                                                                            type="button">+</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-                                                            <div class="col-sm-12 col-md-3">
-
-                                                            </div>
-                                                            <div class="col-12 text-right">
-                                                                <!--<button class="btn btn-primary btn-lg" type="submit" name="REXUXA" value="1">Buscar vuelos</button>-->
-                                                                <input class="btn btn-primary btn-lg btn_submit" type="submit" name="botoncillo2" value="Buscar Vuelos"/>
-                                                            </div>
                                                         </div>
 
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                        <div class="col-sm-12 col-md-3">
 
-                                        <div class="tab-pane fade" id="nav-checkin" role="tabpanel" aria-labelledby="nav-checkin-tab">
-                                            <div class="row no-gutters">
-                                                <div class="col-12 form-cuerpo">
-                                                    <div class="row no-gutters form-header">
-                                                        <div class="col-sm-12 col-md-5">
-                                                            <h2>Check-in</h2>
                                                         </div>
-                                                      
+                                                        <div class="col-12 text-right">
+                                                            <!--<button class="btn btn-primary btn-lg" type="submit" name="REXUXA" value="1">Buscar vuelos</button>-->
+                                                            <input class="btn btn-primary btn-lg btn_submit"
+                                                                type="submit" name="botoncillo2"
+                                                                value="Buscar Vuelos" />
+                                                        </div>
                                                     </div>
-                                                    <div class="row form-body">
-                                                        <div>
-                                                            <p><small>*No aplica para vuelos operados por Peruvian.</small></p>
-                                                            <p><small>*Aplica desde 48 horas ó 3 horas antes del vuelo.</small></p>
-                                                            <p><small>*No aplica para reservas con pasajeros menores no acompañados, infantes o algún servicio especial adjunto, el asiento debe ser asignado en el aeropuerto 2 horas antes de su vuelo.</small></p>
-                                                            
-                                                            <p><small>*Una vez asignado un asiento via el web check-in, éste no podrá ser modificado.</small></p>
-                                                             <p><small>*web check in no acepta grupos ni boletos con descuernto</small></p>
-                                                          <br>
-                                                          
-                                                          <a class="btn btn-primary" target="_blank" href="https://wc2-2i.kiusys.net/">Ir a Check in</a>
-                                                        
-                                                          <br>
-                                                         
-                                                          
-                                                          
-                                                          <p><small>Condiciones Información para realizar su check-in por web. Si usted ya está chequeado y desea anularlo, use la <a href="">Anulación de check-in</a></small></p>
-                                                        </div>
-                                                     
-                                                           
-                                                        </div>
-                                                        
-                                                   
-                                                </div>
+
+                                                </form>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <!--<div class="tab-pane fade" id="nav-checkin" role="tabpanel" aria-labelledby="nav-checkin-tab">-->
+                                    <div class="tab-pane fade" id="nav-checkin" role="tabpanel"
+                                        aria-labelledby="nav-checkin-tab">
+                                        <div class="row no-gutters">
+                                            <div class="col-12 form-cuerpo">
+                                                <div class="row no-gutters form-header">
+                                                    <div class="col-sm-12 col-md-5">
+                                                        <h2>Check-in</h2>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row form-body">
+                                                    <div>
+                                                        <p><small>*No aplica para vuelos operados por Peruvian.</small>
+                                                        </p>
+                                                        <p><small>*Aplica desde 48 horas ó 3 horas antes del
+                                                                vuelo.</small></p>
+                                                        <p><small>*No aplica para reservas con pasajeros menores no
+                                                                acompañados, infantes o algún servicio especial adjunto,
+                                                                el asiento debe ser asignado en el aeropuerto 2 horas
+                                                                antes de su vuelo.</small></p>
+
+                                                        <p><small>*Una vez asignado un asiento via el web check-in, éste
+                                                                no podrá ser modificado.</small></p>
+                                                        <p><small>*web check in no acepta grupos ni boletos con
+                                                                descuernto</small></p>
+                                                        <br>
+
+                                                        <a class="btn btn-primary" target="_blank"
+                                                            href="https://wc2-2i.kiusys.net/">Ir a Check in</a>
+
+                                                        <br>
 
 
-                                        <!--<div class="row no-gutters">-->
-                                        <!--<div class="col-12 form-cuerpo">-->
-                                        <!--                                                    <div class="row no-gutters form-header">
+
+                                                        <p><small>Condiciones Información para realizar su check-in por
+                                                                web. Si usted ya está chequeado y desea anularlo, use la
+                                                                <a href="">Anulación de check-in</a></small></p>
+                                                    </div>
+
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--<div class="tab-pane fade" id="nav-checkin" role="tabpanel" aria-labelledby="nav-checkin-tab">-->
+
+
+                                    <!--<div class="row no-gutters">-->
+                                    <!--<div class="col-12 form-cuerpo">-->
+                                    <!--                                                    <div class="row no-gutters form-header">
                                                                                                 <div class="col-sm-12 col-md-5">
                                                                                                     <h2>Check-in</h2>
                                                                                                 </div>
@@ -365,463 +450,519 @@
                                         
                                         
                                                                                         </div>-->
-                                        <!--</div>-->
+                                    <!--</div>-->
 
-                                        <!--</div>-->
-                                        <div class="tab-pane fade" id="nav-reservas" role="tabpanel" aria-labelledby="nav-reservas-tab">
+                                    <!--</div>-->
+                                    <div class="tab-pane fade" id="nav-reservas" role="tabpanel"
+                                        aria-labelledby="nav-reservas-tab">
 
-                                            <div class="row no-gutters">
-                                                <div class="col-12 form-cuerpo">
-                                                    <form action="http://127.0.0.1/web_local/PasarelaWeb/PagoReservas" method="post">   
-                                                        <input type="hidden" name="lang" id="lang" value="SP" />
-                                                        <div class="row no-gutters form-header">
-                                                            <div class="col-sm-12">
-                                                                <h2>Pago de Reservas</h2>
+                                        <div class="row no-gutters">
+                                            <div class="col-12 form-cuerpo">
+                                                <form action="http://127.0.0.1/LOCAL_WEB/PasarelaWeb/PagoReservas"
+                                                    method="post">
+                                                    <input type="hidden" name="lang" id="lang" value="SP" />
+                                                    <div class="row no-gutters form-header">
+                                                        <div class="col-sm-12">
+                                                            <h2>Pago de Reservas</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-body">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="codigo_reserva">Código de reserva:</label>
+                                                                <input name="codigo_reserva" id="codigo_reserva"
+                                                                    type="text" class="form-control"
+                                                                    aria-describedby="fecha" placeholder="Ingrese">
                                                             </div>
                                                         </div>
-                                                        <div class="row form-body">
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="codigo_reserva">Código de reserva:</label>
-                                                                    <input name="codigo_reserva" id="codigo_reserva" type="text" class="form-control" aria-describedby="fecha" placeholder="Ingrese">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="apellido">Apellido:</label>
-                                                                    <input name="apellido" id="apellido" type="text" class="form-control" aria-describedby="fecha" placeholder="Ingrese" onKeyPress="mayusculas(this);" onKeyDown="mayusculas(this);" onKeyUp="mayusculas(this);"  maxlength="60" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <!--<button class="btn btn-primary" type="submit">Buscar</button>-->
-                                                                <input class="btn btn-primary" name="botoncillo" type="submit" value="buscar" />
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="apellido">Apellido:</label>
+                                                                <input name="apellido" id="apellido" type="text"
+                                                                    class="form-control" aria-describedby="fecha"
+                                                                    placeholder="Ingrese" onKeyPress="mayusculas(this);"
+                                                                    onKeyDown="mayusculas(this);"
+                                                                    onKeyUp="mayusculas(this);" maxlength="60" required>
                                                             </div>
                                                         </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane fade" id="nav-ticket" role="tabpanel" aria-labelledby="nav-ticket-tab">
-                                            <div class="row no-gutters">
-                                                <div class="col-12 form-cuerpo">
-                                                    <form action="http://127.0.0.1/LOCAL_WEB/PasarelaWeb/E_Ticket" method="post">
-                                                        <input type='hidden' name='lang' id='lang' value="SP">  
-                                                        <div class="row no-gutters form-header">
-                                                            <div class="col-sm-12">
-                                                                <h2>E-Ticket</h2>
-                                                            </div>
+                                                        <div class="col-12">
+                                                            <!--<button class="btn btn-primary" type="submit">Buscar</button>-->
+                                                            <input class="btn btn-primary" name="botoncillo"
+                                                                type="submit" value="buscar" />
                                                         </div>
-                                                        <div class="row form-body">
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="cod_reserva">Código de reserva:</label>
-                                                                    <input type="text" class="form-control" aria-describedby="fecha" placeholder="selecciona" id="codigo_reserva" name="codigo_reserva" maxlength="6" minlength="6" onKeyPress="mayusculas(this);" onKeyDown="mayusculas(this);" onKeyUp="mayusculas(this);">
-                                                                    
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-12 col-md-6">
-                                                                <div class="form-group">
-                                                                    <label for="apellido">Apellido:</label>
-                                                                    <input name="apellido" id="apellido" type="text" class="form-control" aria-describedby="fecha" placeholder="Ingrese" onKeyPress="mayusculas(this);" onKeyDown="mayusculas(this);" onKeyUp="mayusculas(this);">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-12">
-                                                                <!--<button class="btn btn-primary" type="submit">Buscar</button>-->
-                                                                <input class="btn btn-primary" name="botoncillo" type="submit" value="buscar" />
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="tab-pane fade" id="nav-ticket" role="tabpanel"
+                                        aria-labelledby="nav-ticket-tab">
+                                        <div class="row no-gutters">
+                                            <div class="col-12 form-cuerpo">
+                                                <form action="http://127.0.0.1/LOCAL_WEB/PasarelaWeb/E_Ticket"
+                                                    method="post">
+                                                    <input type='hidden' name='lang' id='lang' value="SP">
+                                                    <div class="row no-gutters form-header">
+                                                        <div class="col-sm-12">
+                                                            <h2>E-Ticket</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-body">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="cod_reserva">Código de reserva:</label>
+                                                                <input type="text" class="form-control"
+                                                                    aria-describedby="fecha" placeholder="selecciona"
+                                                                    id="codigo_reserva" name="codigo_reserva"
+                                                                    maxlength="6" minlength="6"
+                                                                    onKeyPress="mayusculas(this);"
+                                                                    onKeyDown="mayusculas(this);"
+                                                                    onKeyUp="mayusculas(this);">
 
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="apellido">Apellido:</label>
+                                                                <input name="apellido" id="apellido" type="text"
+                                                                    class="form-control" aria-describedby="fecha"
+                                                                    placeholder="Ingrese" onKeyPress="mayusculas(this);"
+                                                                    onKeyDown="mayusculas(this);"
+                                                                    onKeyUp="mayusculas(this);">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <!--<button class="btn btn-primary" type="submit">Buscar</button>-->
+                                                            <input class="btn btn-primary" name="botoncillo"
+                                                                type="submit" value="buscar" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
-                    </div>    
+                    </div>
                 </div>
-            </header>
-            <main class="contenidos">
-                <div class="container">
-                    <div class="row justify-content-end">
-                        <div class="col-sm-12 col-md-11 col-lg-8">
-                            <ul class="nav justify-content-end body-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="destinos.html">Destinos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="promociones.html">Promociones</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="servicios-especiales.html">Servicios especiales</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Volar en StarPerú
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="servicio-al-cliente.html">Servicios al cliente</a>
-                                        <a class="dropdown-item" href="servicios-especiales.html">Servicios especiales</a>
-                                        <a class="dropdown-item" href="viajes-grupales.html">Viajes grupales</a>
-                                        <a class="dropdown-item" href="oficinas.html">Oficinas</a>
-                                        <a class="dropdown-item" href="sobre-mi-equipaje.html">Sobre mi equipaje</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="http://blog.starperu.com/es/">Blog</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> 
+            </div>
+        </header>
+        <main class="contenidos">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-sm-12 col-md-11 col-lg-8">
+                        <ul class="nav justify-content-end body-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="destinos.html">Destinos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="promociones.html">Promociones</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="servicios-especiales.html">Servicios especiales</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Volar en StarPerú
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="servicio-al-cliente.html">Servicios al cliente</a>
+                                    <a class="dropdown-item" href="servicios-especiales.html">Servicios especiales</a>
+                                    <a class="dropdown-item" href="viajes-grupales.html">Viajes grupales</a>
+                                    <a class="dropdown-item" href="oficinas.html">Oficinas</a>
+                                    <a class="dropdown-item" href="sobre-mi-equipaje.html">Sobre mi equipaje</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://blog.starperu.com/es/">Blog</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="container-fluid">   
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="container">
-                                <div class="row no-gutters modulo-home--1">
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3">
-                                        <h3 class="card-title">Iquitos</h3>
-                                        <div class="card">
-                                            <img class="card-img-top" src="images/img-destinosp-iquitos.jpg" alt="Card image cap">
-                                            <div class="card-body text-center">
-                                                <p class="card-text">
-                                                    <span class="linea">Desde</span>
-                                                    <span class="linea monto">
-                                                        <span class="moneda">US$</span>
-                                                        <span class="precio">24</span>
-                                                        <span class="centimo">.00</span>
-                                                    </span>
-                                                    <span class="linea">Por tramo</span>
-                                                </p>
-                                                <a href="iquitos.html" class="btn btn-primary">ver detalle</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3">
-                                        <h3 class="card-title">Cusco</h3>
-                                        <div class="card">
-                                            <img class="card-img-top" src="images/img-destinosp-cusco.jpg" alt="Card image cap">
-                                            <div class="card-body text-center">
-                                                <p class="card-text">
-                                                    <span class="linea">Desde</span>
-                                                    <span class="linea monto">
-                                                        <span class="moneda">US$</span>
-                                                        <span class="precio">108</span>
-                                                        <span class="centimo">.00</span>
-                                                    </span>
-                                                    <span class="linea">ida y vuelta</span>
-                                                </p>
-                                                <a href="cusco.html" class="btn btn-primary">ver detalle</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3">
-                                        <h3 class="card-title">Cajamarca</h3>
-                                        <div class="card">
-                                            <img class="card-img-top" src="images/img-destinosp-cajamarca.jpg" alt="Card image cap">
-                                            <div class="card-body text-center">
-                                                <p class="card-text">
-                                                    <span class="linea">Desde</span>
-                                                    <span class="linea monto">
-                                                        <span class="moneda">US$</span>
-                                                        <span class="precio">9</span>
-                                                        <span class="centimo">.00</span>
-                                                    </span>
-                                                    <span class="linea">Por tramo</span>
-                                                </p>
-                                                <a href="cajamarca.html" class="btn btn-primary">ver detalle</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3">
-                                        <h3 class="card-title">Chiclayo</h3>
-                                        <div class="card">
-                                            <img class="card-img-top" src="images/img-destinosp-chiclayo.jpg" alt="Card image cap">
-                                            <div class="card-body text-center">
-                                                <p class="card-text">
-                                                    <span class="linea">Desde</span>
-                                                    <span class="linea monto">
-                                                        <span class="moneda">US$</span>
-                                                        <span class="precio">9</span>
-                                                        <span class="centimo">.00</span>
-                                                    </span>
-                                                    <span class="linea">Por tramo</span>
-                                                </p>
-                                                <a href="chiclayo.html" class="btn btn-primary">ver detalle</a>
-                                            </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="btn-web">
+                        <!-- <a href="https://api.whatsapp.com/send?phone=51944570043" target="_blank"> -->
+                            <img class="card-img-top" src="img/chat.png"
+                        <!-- </a> -->
+                    </div>
+                    <!--     <div style="position:absolute; top:85%; right:0;bottom: 0px;  box-sizing: inherit;">
+                                    <img class="card-img-top" src="images/img-destinosp-iquitos.jpg" alt="Card image cap">
+                                    </div> -->
+                    <div class="col-sm-12">
+                        <div class="container">
+                            <div class="row no-gutters modulo-home--1">
+                                <div class="colu col-sm-12 col-md-6 col-lg-3">
+                                    <h3 class="card-title">Iquitos</h3>
+                                    <div class="card">
+                                        <img class="card-img-top" src="images/img-destinosp-iquitos.jpg"
+                                            alt="Card image cap">
+                                        <div class="card-body text-center">
+                                            <p class="card-text">
+                                                <span class="linea">Desde</span>
+                                                <span class="linea monto">
+                                                    <span class="moneda">US$</span>
+                                                    <span class="precio">24</span>
+                                                    <span class="centimo">.00</span>
+                                                </span>
+                                                <span class="linea">Por tramo</span>
+                                            </p>
+                                            <a href="iquitos.html" class="btn btn-primary">ver detalle</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div id="carousel-banner" class="carousel slide" data-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <!--                                                <div class="carousel-item active">
+                                <div class="colu col-sm-12 col-md-6 col-lg-3">
+                                    <h3 class="card-title">Cusco</h3>
+                                    <div class="card">
+                                        <img class="card-img-top" src="images/img-destinosp-cusco.jpg"
+                                            alt="Card image cap">
+                                        <div class="card-body text-center">
+                                            <p class="card-text">
+                                                <span class="linea">Desde</span>
+                                                <span class="linea monto">
+                                                    <span class="moneda">US$</span>
+                                                    <span class="precio">108</span>
+                                                    <span class="centimo">.00</span>
+                                                </span>
+                                                <span class="linea">ida y vuelta</span>
+                                            </p>
+                                            <a href="cusco.html" class="btn btn-primary">ver detalle</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu col-sm-12 col-md-6 col-lg-3">
+                                    <h3 class="card-title">Cajamarca</h3>
+                                    <div class="card">
+                                        <img class="card-img-top" src="images/img-destinosp-cajamarca.jpg"
+                                            alt="Card image cap">
+                                        <div class="card-body text-center">
+                                            <p class="card-text">
+                                                <span class="linea">Desde</span>
+                                                <span class="linea monto">
+                                                    <span class="moneda">US$</span>
+                                                    <span class="precio">9</span>
+                                                    <span class="centimo">.00</span>
+                                                </span>
+                                                <span class="linea">Por tramo</span>
+                                            </p>
+                                            <a href="cajamarca.html" class="btn btn-primary">ver detalle</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu col-sm-12 col-md-6 col-lg-3">
+                                    <h3 class="card-title">Chiclayo</h3>
+                                    <div class="card">
+                                        <img class="card-img-top" src="images/img-destinosp-chiclayo.jpg"
+                                            alt="Card image cap">
+                                        <div class="card-body text-center">
+                                            <p class="card-text">
+                                                <span class="linea">Desde</span>
+                                                <span class="linea monto">
+                                                    <span class="moneda">US$</span>
+                                                    <span class="precio">9</span>
+                                                    <span class="centimo">.00</span>
+                                                </span>
+                                                <span class="linea">Por tramo</span>
+                                            </p>
+                                            <a href="chiclayo.html" class="btn btn-primary">ver detalle</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div id="carousel-banner" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <!--                                                <div class="carousel-item active">
                                                                                                     <a href="http://www.starperu.com/es/promociones.html" target="_blank"><img class="d-block w-100" src="images/banner_sp.png" alt="First slide"></a>
                                                                                                 </div>-->
-                                                <div class="carousel-item active">
-                                                    <img class="d-block w-100" src="images/banner-nueva-web.png" alt="Second slide">
-                                                </div>
-                                                <!--<div class="carousel-item">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" src="images/banner-nueva-web.png"
+                                                    alt="Second slide">
+                                            </div>
+                                            <!--<div class="carousel-item">
                                                     <img class="d-block w-100" src="images/img-banner-ventaweb.jpg" alt="Second slide">
                                                 </div>-->
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="images/img-banner-cambio.jpg" alt="Third slide">
-                                                </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="images/img-banner-cambio.jpg"
+                                                    alt="Third slide">
                                             </div>
-                                            <a class="carousel-control-prev" href="#carousel-banner" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#carousel-banner" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                            <ol class="carousel-indicators">
-                                                <li data-target="#carousel-banner" data-slide-to="0" class="active"></li>
-                                                <li data-target="#carousel-banner" data-slide-to="1"></li>
-                                                <li data-target="#carousel-banner" data-slide-to="2"></li>
-                                            </ol>
                                         </div>
+                                        <a class="carousel-control-prev" href="#carousel-banner" role="button"
+                                            data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel-banner" role="button"
+                                            data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#carousel-banner" data-slide-to="0" class="active"></li>
+                                            <li data-target="#carousel-banner" data-slide-to="1"></li>
+                                            <li data-target="#carousel-banner" data-slide-to="2"></li>
+                                        </ol>
                                     </div>
                                 </div>
-                                <div class="row modulo-home--2">
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                        <img src="img/ico-cargo.png" alt="">
-                                        <h3>
-                                            <a href="starperu-cargo.html">Starperú <span>cargo</span></a>
-                                        </h3>
-                                    </div>
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                        <img src="img/ico-flota.png" alt="">
-                                        <h3>
-                                            <a href="flota.html">Nuestra <span>flota</span></a>
-                                        </h3>
-                                    </div>
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                        <img src="img/ico-equipaje.png" alt="">
-                                        <h3>
-                                            <a href="sobre-mi-equipaje.html">Sobre mi <span>equipaje</span></a>
-                                        </h3>
-                                    </div>
-                                    <div class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
-                                        <img src="img/ico-oficinas.png" alt="">
-                                        <h3>
-                                            <a href="oficinas.html">Starperú <span>oficinas</span></a>
-                                        </h3>
-                                    </div>
+                            </div>
+                            <div class="row modulo-home--2">
+                                <div
+                                    class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                                    <img src="img/ico-cargo.png" alt="">
+                                    <h3>
+                                        <a href="starperu-cargo.html">Starperú <span>cargo</span></a>
+                                    </h3>
+                                </div>
+                                <div
+                                    class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                                    <img src="img/ico-flota.png" alt="">
+                                    <h3>
+                                        <a href="flota.html">Nuestra <span>flota</span></a>
+                                    </h3>
+                                </div>
+                                <div
+                                    class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                                    <img src="img/ico-equipaje.png" alt="">
+                                    <h3>
+                                        <a href="sobre-mi-equipaje.html">Sobre mi <span>equipaje</span></a>
+                                    </h3>
+                                </div>
+                                <div
+                                    class="colu col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+                                    <img src="img/ico-oficinas.png" alt="">
+                                    <h3>
+                                        <a href="oficinas.html">Starperú <span>oficinas</span></a>
+                                    </h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </main>
-            <footer class="pie">
-                <div class="container-fluid">
-                    <div class="row no-gutters">
-                        <div class="col-sm-12 col-md-5 menu-inf">
-                            <div class="row no-gutters justify-content-end">
-                                <div class="col-sm-12 col-md-11">
-                                    <img src="img/Logotipo.png" alt="">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item"><a href="http://starpanel.starperu.com/cp/libro_reclamacion.php">Libro de reclamaciones</a></li>
-                                        <li class="list-inline-item"><a href="la-empresa.html">La Empresa</a></li>
-                                        <li class="list-inline-item"><a href="contacto.html">Contacto</a></li>
-                                        <li class="list-inline-item"><a href="registro.php">Newsletter</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-7 redes">
-                            <div class="row no-gutters align-items-end">
-                                <div class="col-sm-12 col-md-9">
-                                    <p>CALL CENTER (511) 705-9000 <br>
-                                        Atención diaria – 08:00 a 20:00Hrs.</p>
-                                </div>
-                                <div class="col-sm-12 col-md-3">
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item facebook">
-                                            <a href="https://www.facebook.com/aerolineas.starperu?fref=ts" class="nav-link">
-                                                facebook
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item twitter">
-                                            <a href="https://twitter.com/starperu_" class="nav-link">
-                                                twitter
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+            </div>
+        </main>
+        <footer class="pie">
+            <div class="container-fluid">
+                <div class="row no-gutters">
+                    <div class="col-sm-12 col-md-5 menu-inf">
+                        <div class="row no-gutters justify-content-end">
+                            <div class="col-sm-12 col-md-11">
+                                <img src="img/Logotipo.png" alt="">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a
+                                            href="http://starpanel.starperu.com/cp/libro_reclamacion.php">Libro de
+                                            reclamaciones</a></li>
+                                    <li class="list-inline-item"><a href="la-empresa.html">La Empresa</a></li>
+                                    <li class="list-inline-item"><a href="contacto.html">Contacto</a></li>
+                                    <li class="list-inline-item"><a href="registro.php">Newsletter</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="row no-gutters">
-                        <div class="col-12 text-center disclaimer">
-                            <p><small>2018 Star up S.A - <a href="contrato-de-transporte.html">Contrato de transporte</a> - <a href="condiciones-de-venta.html">Condiciones de venta</a> - <a href="condiciones-clases-tarifarias.html">Condiciones de clases tarifarias</a> - <a href="endosos-y-postergaciones.html">Endosos y postergaciones</a> - <a href="preguntas-frecuentes.html">FAQ</a> - <a href="privacidad.html">Privacidad</a> - <!--<a href="prensa-e-imagen.html">Prensa e imagen</a>-->  <a href="flota.html">Flota</a> - <a href="mapa-del-sitio.html">Mapa del sitio</a></small></p>
+                    <div class="col-sm-12 col-md-7 redes">
+                        <div class="row no-gutters align-items-end">
+                            <div class="col-sm-12 col-md-9">
+                                <p>CALL CENTER (511) 705-9000 <br>
+                                    Atención diaria – 08:00 a 20:00Hrs.</p>
+                            </div>
+                            <div class="col-sm-12 col-md-3">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item facebook">
+                                        <a href="https://www.facebook.com/aerolineas.starperu?fref=ts" class="nav-link">
+                                            facebook
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item twitter">
+                                        <a href="https://twitter.com/starperu_" class="nav-link">
+                                            twitter
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </footer>
-        </div>
-        <script src="js/jquery.min.js" charset="utf-8"></script>
-        <script src="js/popper.min.js" charset="utf-8"></script>
-        <script src="js/bootstrap.min.js" charset="utf-8"></script>
-        <script src="js/dhtmlxcalendar.js"></script>
-        <script src="js/main.js"></script>
-        <script type="text/javascript" src="../lib_test_new/index.js"></script>
-        <script type="text/javascript" src="../lib_test_new/lib_ajax.js"></script>
+                <div class="row no-gutters">
+                    <div class="col-12 text-center disclaimer">
+                        <p><small>2018 Star up S.A - <a href="contrato-de-transporte.html">Contrato de transporte</a> -
+                                <a href="condiciones-de-venta.html">Condiciones de venta</a> - <a
+                                    href="condiciones-clases-tarifarias.html">Condiciones de clases tarifarias</a> - <a
+                                    href="endosos-y-postergaciones.html">Endosos y postergaciones</a> - <a
+                                    href="preguntas-frecuentes.html">FAQ</a> - <a href="privacidad.html">Privacidad</a>
+                                -
+                                <!--<a href="prensa-e-imagen.html">Prensa e imagen</a>--> <a href="flota.html">Flota</a>
+                                - <a href="mapa-del-sitio.html">Mapa del sitio</a></small></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
-        <!-- Analytics -->
-        <script> (function (i, s, o, g, r, a, m) {
-                                                                            i['GoogleAnalyticsObject'] = r;
-                                                                            i[r] = i[r] || function () {
-                                                                                (i[r].q = i[r].q || []).push(arguments)
-                                                                            }, i[r].l = 1 * new Date();
-                                                                            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-                                                                            a.async = 1;
-                                                                            a.src = g;
-                                                                            m.parentNode.insertBefore(a, m)
-                                                                        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-                                                                        ga('create', 'UA-32584975-1', 'auto');
-                                                                        ga('require', 'displayfeatures');
-                                                                        ga('send', 'pageview');</script> 
-
-        <!-- Global site tag (gtag.js) - Google Ads: 757467471 -->
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-757467471"></script>
-
-        <script>
-
-                                                                        window.dataLayer = window.dataLayer || [];
-
-                                                                        function gtag() {
-                                                                            dataLayer.push(arguments);
-                                                                        }
-
-                                                                        gtag('js', new Date());
+    </div>
+    <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-27c1e02e-6956-4a4e-891b-04e960d8f492"></div> -->
+    <script src="js/jquery.min.js" charset="utf-8"></script>
+    <script src="js/popper.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/dhtmlxcalendar.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript" src="../lib_test_new/index.js"></script>
+    <script type="text/javascript" src="../lib_test_new/lib_ajax.js"></script>
 
 
+    <!-- Analytics -->
+    <script> (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-32584975-1', 'auto');
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');</script>
 
-                                                                        gtag('config', 'AW-757467471');
+    <!-- Global site tag (gtag.js) - Google Ads: 757467471 -->
 
-        </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-757467471"></script>
 
+    <script>
 
-        <!-- Facebook Pixel Code -->
-        <script>
-            !function (f, b, e, v, n, t, s)
-            {
-                if (f.fbq)
-                    return;
-                n = f.fbq = function () {
-                    n.callMethod ?
-                            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                };
-                if (!f._fbq)
-                    f._fbq = n;
-                n.push = n;
-                n.loaded = !0;
-                n.version = '2.0';
-                n.queue = [];
-                t = b.createElement(e);
-                t.async = !0;
-                t.src = v;
-                s = b.getElementsByTagName(e)[0];
-                s.parentNode.insertBefore(t, s)
-            }(window, document, 'script',
-                    'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1828446367243161');
-            fbq('track', 'PageView');
-        </script>
-        <noscript><img height="1" width="1" style="display:none"
-                       src="https://www.facebook.com/tr?id=1828446367243161&ev=PageView&noscript=1"
-                       /></noscript>
-        <!-- End Facebook Pixel Code -->
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
 
 
-        <script>
-            var myCalendar;
-//            var tipo_viaje = 'R';
-//            var myCalendar;
-            var today;
 
-            function doOnLoad() {
-                myCalendar = new dhtmlXCalendarObject(["from", "to"]);
-                myCalendar.setDateFormat("%d/%m/%Y")
-                today = myCalendar.getDate(true);
-                myCalendar.hideTime();
-                if (document.getElementById("from") && document.getElementById("to")) {
-                    byId("from").value = today;
-                    byId("to").value = today;
-                }
+        gtag('config', 'AW-757467471');
+
+    </script>
+
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq)
+                return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq)
+                f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1828446367243161');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1828446367243161&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+
+    <script>
+        var myCalendar;
+        //            var tipo_viaje = 'R';
+        //            var myCalendar;
+        var today;
+
+        function doOnLoad() {
+            myCalendar = new dhtmlXCalendarObject(["from", "to"]);
+            myCalendar.setDateFormat("%d/%m/%Y")
+            today = myCalendar.getDate(true);
+            myCalendar.hideTime();
+            if (document.getElementById("from") && document.getElementById("to")) {
+                byId("from").value = today;
+                byId("to").value = today;
             }
-            var setSens = function (id, k) {
-                // update range
-                if (k == "min") {
-                    myCalendar.setSensitiveRange(byId(id).value, null);
-                } else {
-                    myCalendar.setSensitiveRange(null, byId(id).value);
-                }
+        }
+        var setSens = function (id, k) {
+            // update range
+            if (k == "min") {
+                myCalendar.setSensitiveRange(byId(id).value, null);
+            } else {
+                myCalendar.setSensitiveRange(null, byId(id).value);
             }
+        }
 
-            var CapturarDiaTo = function () {
-                myCalendar.attachEvent("onClick", function (d) {
-                    byId("to").value = myCalendar.getFormatedDate(null, d);
-                });
-            }
-
-            var ShowCalendarTo = function () {
-                myCalendar.attachEvent("onClick", function () {
-                    setSens('from', 'min');
-                    if (!byId('customRadioInline1').checked) {
-                        myCalendar.show('to');
-                        myCalendar.attachEvent("onClick", function () {
-                            myCalendar.hide();
-                        });
-                    }
-                });
-            }
-
-            $('#from').click(function () {
-                setFrom();
-                ShowCalendarTo();
-                CapturarDiaTo();
+        var CapturarDiaTo = function () {
+            myCalendar.attachEvent("onClick", function (d) {
+                byId("to").value = myCalendar.getFormatedDate(null, d);
             });
-            $('#to').click(function () {
+        }
+
+        var ShowCalendarTo = function () {
+            myCalendar.attachEvent("onClick", function () {
                 setSens('from', 'min');
+                if (!byId('customRadioInline1').checked) {
+                    myCalendar.show('to');
+                    myCalendar.attachEvent("onClick", function () {
+                        myCalendar.hide();
+                    });
+                }
             });
-            $('#customRadioInline1').click(function () {
-                show1();
-            });
-            $('#customRadioInline2').click(function () {
-                show2();
-            });
+        }
 
-            var byId = function (id) {
-                return document.getElementById(id);
-            }
+        $('#from').click(function () {
+            setFrom();
+            ShowCalendarTo();
+            CapturarDiaTo();
+        });
+        $('#to').click(function () {
+            setSens('from', 'min');
+        });
+        $('#customRadioInline1').click(function () {
+            show1();
+        });
+        $('#customRadioInline2').click(function () {
+            show2();
+        });
 
-            var setFrom = function () {
-                myCalendar.setSensitiveRange(today, null);
-            }
+        var byId = function (id) {
+            return document.getElementById(id);
+        }
+
+        var setFrom = function () {
+            myCalendar.setSensitiveRange(today, null);
+        }
 
 
-            function show1() {
-                document.getElementById('twoway').style.display = 'none';
-                document.getElementById('oneway').style.display = 'block';
-            }
-            function show2() {
-                document.getElementById('oneway').style.display = 'none';
-                document.getElementById('twoway').style.display = 'block';
-            }
-        </script>
+        function show1() {
+            document.getElementById('twoway').style.display = 'none';
+            document.getElementById('oneway').style.display = 'block';
+        }
+        function show2() {
+            document.getElementById('oneway').style.display = 'none';
+            document.getElementById('twoway').style.display = 'block';
+        }
+    </script>
 
 
-    </body>
+</body>
 
 </html>
-<div class="modal fade" id="v_modal_error" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="">
+<div class="modal fade" id="v_modal_error" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true" data-backdrop="">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -837,7 +978,3 @@
         </div>
     </div>
 </div>
-
-
-
-

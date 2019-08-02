@@ -49,8 +49,6 @@ class Booking1 extends CI_Controller {
         $from = fecha_iso_8601($_POST['date_from']);
         $to = fecha_iso_8601($_POST['date_to']);
 
-
-
         $fecha_entrada = strtotime(fecha_iso_8601($from));
         $fecha_date_to = strtotime(fecha_iso_8601($to));
 //            echo $fecha_date_to;die;
@@ -66,7 +64,6 @@ class Booking1 extends CI_Controller {
         }
 
 
-
         $this->session->unset_userdata('pnr');
         $this->session->unset_userdata('apellidos');
 
@@ -77,11 +74,7 @@ class Booking1 extends CI_Controller {
             $xss_post = $this->input->post(NULL, TRUE);
             (ValidarCantidadMaxPax($xss_post['cant_adultos'], $xss_post['cant_ninos'], $xss_post['cant_infantes'])) ? '' : header("Location: https://www.starperu.com");
             $XMLObject = $this->ObtenerDisponibilidadesDeVuelo_WSKiu($xss_post['date_from'], $xss_post['date_to'], $xss_post['origen'], $xss_post['destino'], $xss_post['tipo_viaje'], $xss_post['cant_adultos'], $xss_post['cant_ninos'], $xss_post['cant_infantes'])[3];
-//            echo "<pre>";
-//            var_dump($XMLObject);
-//            echo "</pre>";
-//            
-//            die;
+            $this->session->set_userdata('APP_MOVIL', (isset($_POST['id_app_movil'])) ? TRUE : FALSE);
             $data = $this->ArmandoInformacionFiltrosDeVista($XMLObject, $xss_post);
 //            var_dump($data);
             $this->template->load('v_pasouno', $data);

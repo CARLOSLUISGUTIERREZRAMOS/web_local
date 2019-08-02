@@ -16,21 +16,9 @@ class PasoFinal extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
-        $this->load->library('kiu/Controller_kiu');
-        $this->load->library('session');
-        $this->load->library('form_validation');
-        $this->load->helper("security");
-        $this->load->helper("tiempos");
-        $this->load->helper("telefonos");
-        $this->load->helper("itinerario");
-        $this->load->helper("visa");
-        $this->load->helper("kiu");
-        $this->load->helper("caracteres_espec");
-        $this->load->library('Detector/Mobile_Detect');
-        $this->load->helper('logsystemweb');
-        $this->load->model('Reserva_model');
-        $this->load->model('Pais_model');
+        $this->load->library(array('kiu/Controller_kiu', 'session', 'form_validation', 'Detector/Mobile_Detect'));
+        $this->load->helper(array("security", "tiempos", "telefonos", "itinerario", "visa", 'kiu', 'caracteres_espec', 'logsystemweb', 'metodospago','reserva'));
+        $this->load->model(array('Reserva_model', 'Descuento_model', 'Pais_model'));
     }
 
     private function ValidarPostInput()
@@ -43,18 +31,12 @@ class PasoFinal extends CI_Controller
 
     public function index()
     {
-
         $this->ValidarPostInput();
         if ($this->form_validation->run() == FALSE) {
             header("Location: " . base_url() . "html/web/error_seguridad_sistema.html");
         } else {
 
             $session_pnr = $this->session->has_userdata('pnr');
-            /*  if (isset($session_pnr) && $session_pnr === true) {
-                header("Location: " . base_url() . 'PagoReservas/Sugerir/');
-                die;
-            } */
-            //            echo  $_POST['tipo_documento_adl_1'];die;
             $detect = new Mobile_Detect();
             $xss_post = $this->input->post(NULL, TRUE);
             $xss_post['dispositivo'] = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer ');
@@ -64,34 +46,32 @@ class PasoFinal extends CI_Controller
             $matriz_pax = $this->RPH($xss_post);
             $TimeLimitTicket = $this->CalcularTiempoLimiteTicket($FechaHoraSalida);
             $TramaAirbook = $this->GenerarTramaKiu_MetodoAirBookKiu($matriz_itinerario, $matriz_pax, $xss_post, $TimeLimitTicket);
-            $data_procesar = $this->EnviarTramakiuAirBook($TramaAirbook);
-
-          /*   echo "<pre>";
-            var_dump($data_procesar[1]);
-            echo "</pre>";
-            echo "<pre>";
-            var_dump($data_procesar[2]);
-            echo "</pre>"; */
             
+            $data_procesar = $this->EnviarTramakiuAirBook($TramaAirbook);
             $ResAirBookKiu = $data_procesar[3];
+        /*     echo "<pre>";
+            var_dump($data_procesar);
+            echo "<pre>";die; */
 
             if (isset($ResAirBookKiu->Error->ErrorCode)) {
-                if ((string)$ResAirBookKiu->Error->ErrorCode === '22040') {
-                    //                    echo 2;
+                if ((string) $ResAirBookKiu->Error->ErrorCode === '22040') {
                     header("Location: " . base_url() . "html/web/error_en_cotizacion.html");
                 }
-                if ((string)$ResAirBookKiu->Error->ErrorCode === '11031') {
+                if ((string) $ResAirBookKiu->Error->ErrorCode === '22030') {
+                    header("Location: " . base_url() . "html/web/error_en_codigo_descuento.html");
+                }
+                if ((string) $ResAirBookKiu->Error->ErrorCode === '11031') {
                     header("Location: " . base_url() . "html/web/error_en_documento.html");
                 }
-                if ((string)$ResAirBookKiu->Error->ErrorCode === '10022') {
+                if ((string) $ResAirBookKiu->Error->ErrorCode === '10022') {
                     header("Location: " . base_url() . "html/web/nombres_pax_identicos.html");
                 }
             } else {
-                $pnr = (string)$ResAirBookKiu->BookingReferenceID->attributes()->ID; // ID == CODIGO DE RESERVA o PNR
+                $pnr = (string) $ResAirBookKiu->BookingReferenceID->attributes()->ID; // ID == CODIGO DE RESERVA o PNR
                 $this->session->set_userdata('pnr', $pnr);
                 $TramaItinerary = $this->GenerarTramaKiu_MetodoItineraryKiu($pnr);
                 $ResWsKiuItinerary = $this->EnviarTramakiuAirItinerary($TramaItinerary);
-              /*   echo "<pre>";
+                /*   echo "<pre>";
                 var_dump($ResWsKiuItinerary[2]);
                 echo "</pre>"; */
 
@@ -100,12 +80,9 @@ class PasoFinal extends CI_Controller
                 $DatetTimeLimitReserva = new DateTime();
                 $DatetTimeLimitReserva->modify('+3 hours');
                 $fecha_limite = $DatetTimeLimitReserva->format('Y-m-d H:i:s');
-
-
                 $xss_post['fecha_limite'] = date('c', strtotime($fecha_limite));
 
                 $reserva_id = $this->GuardarReserva($xss_post, $pnr, $res_tarifa_tax, $codigo_compartido, $fecha_limite);
-
                 $this->fecha_hora_reserva = (new DateTime())->format('d/m/Y H:i:s');
                 $res = $this->GuardarReservaDetalle($reserva_id, $pnr, $matriz_pax);
 
@@ -200,11 +177,6 @@ class PasoFinal extends CI_Controller
         $Mensaje = ArmarDataCreateExpressToken($apikey, $RequestDateTime, $CurrencyCode, $Amount, $MerchantSalesID, $Language, $TrackingCode, $ExpirationTime, $TransactionOkURL, $TransactionErrorURL, $ExpirationTime, $xss_post, $SignatureHash);
 
         //ACTUALIZANDO COMO UN NUEVO PROCESO DE VENTA
-
-
-
-
-
 
         $array_respuesta = $this->Safetypay->CreateExpressToken($Mensaje);
         $respuesta = ArmarDataRespuestaLogSafetypay($reserva_id, $array_respuesta);
@@ -314,15 +286,15 @@ class PasoFinal extends CI_Controller
         $EXONERADO = $this->Ruta_model->VerificarRutaExonerada($origen, $destino);
 
         $DATA = array();
-        $DATA['EQ'] = (double)$ObjRSKiuItinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountBeforeTax;
-        $DATA['TOTAL'] = (double)$ObjRSKiuItinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountAfterTax;
+        $DATA['EQ'] = (float) $ObjRSKiuItinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountBeforeTax;
+        $DATA['TOTAL'] = (float) $ObjRSKiuItinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountAfterTax;
         foreach ($ObjRSKiuItinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Taxes->Tax as $Taxes) {
             switch ($Taxes->attributes()->TaxCode) {
                 case 'HW'; //TUUA
-                    $DATA['HW'] = (double)$Taxes->attributes()->Amount;
+                    $DATA['HW'] = (float) $Taxes->attributes()->Amount;
                     break;
                 case 'PE'; //IGV
-                    $DATA['PE'] = (double)$Taxes->attributes()->Amount;
+                    $DATA['PE'] = (float) $Taxes->attributes()->Amount;
                     break;
                 default:
             }
@@ -336,74 +308,45 @@ class PasoFinal extends CI_Controller
         return $JSON_TARIFAS_TAXES;
     }
 
+    private function ProcesarLogicaMovil($cc_code)
+    {
+        $data = [];
+        $data['isset'] = FALSE;
+        $cc_code_standar = GetCodeStandard($cc_code);
+        /* $cc_code_standar = 'VI'; */
+        $data_discount_movil = $this->Descuento_model->GetDataDescuentoMovilApp($cc_code_standar);
+        //1. Validamos que exista data
+        if (!is_null($data_discount_movil)) {
+            $data['isset'] = TRUE;
+            $data['data'] = $data_discount_movil;
+        }
+        return json_decode(json_encode($data));
+    }
+
     protected function GuardarReserva($xss_post, $pnr, $res_tarifa_tax, $codigo_compartido, $fecha_limite)
     {
-
+        $id_descuento = NULL;
+        $transaccion_movil = ($this->session->APP_MOVIL) ? TRUE : FALSE;
+        /* if ($transaccion_movil) {
+            //Verificamos si existe algo que hacer con la entrada de un dispositivo movil
+            $rs_app_movil = $this->ProcesarLogicaMovil($xss_post['cc_code']);
+            if ($rs_app_movil->isset && $rs_app_movil->data->cantidad_restante > 0) {
+                $id_descuento = $rs_app_movil->data->id;
+                $new_quantity_coupons = $rs_app_movil->data->cantidad_restante - 1;
+                $this->Descuento_model->RestarCuponesFree($id_descuento,$new_quantity_coupons);
+            }
+        } else  */
+        
+        if (!empty($xss_post['id_descuento']) && isset($xss_post['id_descuento'])) {
+            $id_descuento = $xss_post['id_descuento'];
+        }
         $JsonDataVuelo = $this->ObtenerDataVuelos($xss_post['grupo_ida'], $xss_post['grupo_retorno']);
 
-        if (empty($xss_post['num_tlfn'])) {
-            $xss_post['num_telefono'] = "NULL";
-            $xss_post['ddi_pais_tlfn'] = "NULL";
-            $xss_post['region_tlfn'] = "NULL";
-        }
-        if (empty($xss_post['num_cel'])) {
-            $xss_post['num_celular'] = "NULL";
-            $xss_post['ddi_pais_cel'] = "NULL";
-            $xss_post['region_cel'] = "NULL";
-        }
-        if (empty($xss_post['num_cel'])) {
-            $xss_post['num_celular'] = "NULL";
-            $xss_post['ddi_pais_cel'] = "NULL";
-            $xss_post['region_cel'] = "NULL";
-        }
-
-        $data_reserva_insert = array(
-            'nombres' => $xss_post['nombres_adl_1'],
-            'apellidos' => $xss_post['apellidos_adl_1'],
-            'nacionalidad' => $xss_post['nacionalidad_adl_1'],
-            'tipo_documento' => $xss_post['tipo_documento_adl_1'],
-            'num_documento' => $xss_post['numdoc_adl_1'],
-            'ddi_telefono' => $xss_post['ddi_pais_tlfn'],
-            'pre_telefono' => $xss_post['region_tlfn'],
-            'num_telefono' => $xss_post['num_tlfn'],
-            'ddi_celular' => $xss_post['ddi_pais_cel'],
-            'pre_celular' => $xss_post['region_cel'],
-            'num_celular' => $xss_post['num_cel'],
-            'cc_code' => $xss_post['cc_code'],
-            'email' => $xss_post['email'],
-            'ip' => ip2long($this->input->ip_address()),
-            'geo_pais' => $xss_post['geoip_pais'],
-            'geo_ciudad' => $xss_post['geoip_ciudad'],
-            'ruc' => (empty($xss_post['ruc'])) ? "NULL" : $xss_post['ruc'],
-            'cant_adl' => $xss_post['cant_adl'],
-            'cant_chd' => $xss_post['cant_chd'],
-            'cant_inf' => $xss_post['cant_inf'],
-            'tipo_viaje' => $xss_post['tipo_viaje'],
-            'clase_ida' => $JsonDataVuelo->clase_ida,
-            'clase_retorno' => $JsonDataVuelo->clase_retorno,
-            'num_vuelo_ida' => $JsonDataVuelo->num_vuelo_ida,
-            'cod_compartido_vuelo_ida' => $codigo_compartido['ida'],
-            'dispositivo' => $xss_post['dispositivo'],
-            'num_vuelo_retorno' => $JsonDataVuelo->num_vuelo_retorno,
-            'cod_compartido_vuelo_retorno' => (isset($codigo_compartido['retorno'])) ? $codigo_compartido['ida'] : NULL,
-            'fecha_registro' => (new DateTime())->format('Y-m-d H:i:s'),
-            'fecha_limite' => $fecha_limite,
-            'fechahora_salida_tramo_ida' => $JsonDataVuelo->fechahora_salida_tramo_ida,
-            'fechahora_llegada_tramo_ida' => $JsonDataVuelo->fechahora_llegada_tramo_ida,
-            'fechahora_salida_tramo_retorno' => ($JsonDataVuelo->fechahora_salida_tramo_retorno == 'NULL') ? NULL : $JsonDataVuelo->fechahora_salida_tramo_retorno,
-            'fechahora_llegada_tramo_retorno' => ($JsonDataVuelo->fechahora_llegada_tramo_retorno == 'NULL') ? NULL : $JsonDataVuelo->fechahora_llegada_tramo_retorno,
-            'origen' => $xss_post['cod_origen'],
-            'destino' => $xss_post['cod_destino'],
-            'pnr' => $pnr,
-            'total_pagar' => $res_tarifa_tax->TOTAL_PAGAR,
-            'total' => (isset($_POST['precio_total_sin_descuento']) && !empty($_POST['precio_total_sin_descuento']))?$_POST['precio_total_sin_descuento'] :$res_tarifa_tax->TOTAL_PAGAR,
-            'descuento' => (!empty($xss_post['porcentaje_descuento']) && isset($xss_post['porcentaje_descuento'])) ? $xss_post['porcentaje_descuento'] : "NULL",
-            'eq' => $res_tarifa_tax->EQ,
-            'hw' => $res_tarifa_tax->HW,
-            'pe' => $res_tarifa_tax->PE,
-        );
+      
+        $data_reserva_insert = FormarArregloInsertTblReserva($xss_post,$JsonDataVuelo,$codigo_compartido,$transaccion_movil,$fecha_limite,$res_tarifa_tax,$pnr,$id_descuento,$_POST['precio_total_sin_descuento']);
         $res_insert_model = $this->Reserva_model->RegistrarReserva($data_reserva_insert);
-        //        var_dump($res_insert_model);die;
+     
+        $this->session->unset_userdata('APP_MOVIL');
         return $res_insert_model;
     }
 
@@ -592,7 +535,7 @@ class PasoFinal extends CI_Controller
     {
 
         $trama = array(
-            'TicketDesignatorCode'=>$xss_post['cod_descuento'] ,'City' => 'LIM', 'Country' => 'PE', 'Currency' => 'USD', 'FlightSegment' => $itinerario, 'Passengers' => $matriz_pax, 'Telefono' => $xss_post['num_tlfn'], 'CodigoAreaTel' => 'D1' . ddi_solonumero($xss_post['ddi_pais_tlfn']) . 'P1' . trim($xss_post['region_tlfn']), 'Celular' => $xss_post['num_cel'], 'CodigoAreaCel' => 'D2' . ddi_solonumero($xss_post['ddi_pais_cel']) . 'P2' . trim($xss_post['region_cel']), 'Remark' => $xss_post['ruc'], 'TiempoExpiracionReserva' => $TimeLimitTicket
+            'TicketDesignatorCode' => $xss_post['cod_descuento'], 'City' => 'LIM', 'Country' => 'PE', 'Currency' => 'USD', 'FlightSegment' => $itinerario, 'Passengers' => $matriz_pax, 'Telefono' => $xss_post['num_tlfn'], 'CodigoAreaTel' => 'D1' . ddi_solonumero($xss_post['ddi_pais_tlfn']) . 'P1' . trim($xss_post['region_tlfn']), 'Celular' => $xss_post['num_cel'], 'CodigoAreaCel' => 'D2' . ddi_solonumero($xss_post['ddi_pais_cel']) . 'P2' . trim($xss_post['region_cel']), 'Remark' => $xss_post['ruc'], 'TiempoExpiracionReserva' => $TimeLimitTicket
         );
         return $trama;
     }
@@ -620,10 +563,9 @@ class PasoFinal extends CI_Controller
         $data_reprocesa['tipo_documento_adl_1'] = $res_datareserva->tipo_documento;
         $data_reprocesa['numdoc_adl_1'] = $res_datareserva->num_documento;
         $data_reprocesa['ruc'] = (empty($res_datareserva->ruc) || $res_datareserva->ruc === "NULL") ? '' : $res_datareserva->ruc;
-        
+
         $this->Reserva_model->ActualizarMetodoPagoTransaccion($cc_code, $reserva_id);
 
         $this->PosicionarMetodoDePago($data_reprocesa, $res_datareserva->total_pagar, $res_datareserva->pnr, $reserva_id);
     }
-
 }

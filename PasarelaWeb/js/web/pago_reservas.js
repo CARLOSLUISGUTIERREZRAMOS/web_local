@@ -6,7 +6,11 @@ $(function () {
     })
 
     $('#validacion_v').click(function (event) {
-
+/* 
+        var ValidacionCodigoDescuento = function(){
+            $('')
+        }
+ */
         var bool2 = $('.vacios_radio').toArray().some(function (el) {
             return !($(el).is(':checked'));
         });

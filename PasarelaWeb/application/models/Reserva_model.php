@@ -16,7 +16,7 @@ class Reserva_model extends CI_Model {
 
     public function RegistrarReserva($data) {
         $res_insert = $this->db_web->insert('reserva', $data);
-  /*       return $this->db_web->last_query(); */
+        // return $this->db_web->last_query();
         return $this->db_web->insert_id();
     }
 
@@ -118,6 +118,15 @@ class Reserva_model extends CI_Model {
 
         $res_query = $this->db_web->get()->row();
 //        var_dump($alex);die;
+        return $res_query;
+    }
+
+    public function GetCodigoDescuento($reserva_id){
+        $this->db_web->select('descuento_id');
+        $this->db_web->from('reserva');
+        $this->db_web->where('id', $reserva_id);
+        $this->db_web->limit(1);
+        $res_query = $this->db_web->get()->row()->descuento_id;
         return $res_query;
     }
 

@@ -11,14 +11,9 @@ class PagoReservas extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('form_validation');
-        $this->load->library('kiu/Controller_kiu');
-        $this->load->model('Reserva_model');
-        $this->load->model('Pais_model');
-        $this->load->helper('tiempos');
-        $this->load->helper('kiu');
-        $this->load->helper('reserva');
-        $this->load->helper('geolocalizacion');
+        $this->load->library(array('form_validation','kiu/Controller_kiu'));
+        $this->load->model(array('Reserva_model','Pais_model'));
+        $this->load->helper(array('tiempos','kiu','reserva','geolocalizacion','bloqueshtml'));
 
         $this->template->add_js('js/web/pago_reservas.js');
         $this->template->add_js('js/web/pasodos.js');
@@ -73,12 +68,10 @@ class PagoReservas extends CI_Controller
             $codigo_reserva = $xss_post['codigo_reserva'];
             $kiu = new Controller_kiu();
             $args = array('CodReserva' => $codigo_reserva);
-            $Itinerary = $kiu->TravelItineraryReadRQ($args, $err)[3]; //CAPTURADO COMO OBJ
-            /* $Itinerary_xml = $kiu->TravelItineraryReadRQ($args, $err)[2]; //CAPTURADO COMO XML */
-            echo "<pre>";
-            var_dump($Itinerary);
-            echo "</pre>";
-
+            $ResItineraryKiu = $kiu->TravelItineraryReadRQ($args, $err);
+            $Itinerary = new SimpleXMLElement($ResItineraryKiu); //CAPTURADO COMO OBJ
+            $Itinerary_xml =  htmlspecialchars($ResItineraryKiu, ENT_QUOTES);
+        
             $estado_tkt = $Itinerary->TravelItinerary->ItineraryInfo->Ticketing->attributes()->TicketingStatus;
             switch ((int)$estado_tkt) {
                 case 1: //Pendiente de emisión
@@ -91,11 +84,19 @@ class PagoReservas extends CI_Controller
                     
                     if ($cantidad_registros === 0) {
                         $insert_id_reserva = $this->Reserva_model->RegistrarReserva($res_array_insert);
-                   
+                        
                     } else {
                         $insert_id_reserva = $this->Reserva_model->BuscarIdReservaPorPnr($pnr);
+                        $cod_descuento = $this->Reserva_model->GetCodigoDescuento($insert_id_reserva);
+                        
+                        $isset_coddesc = (is_null($cod_descuento))? FALSE : TRUE;
+                        // if($isset_coddesc)
+                        // {
+                        //     $html = ArmarBloqueInfoReservaConCodDesc();
+                        //     echo $html;
+                        // }
                     }
-
+                    
                     foreach ($Itinerary->TravelItinerary->CustomerInfos->CustomerInfo as $Pasajero) {
                         $data_reserva_detalle = [];
                         $tipo_pax = (string)$Pasajero->Customer->attributes()->PassengerTypeCode;
@@ -112,17 +113,16 @@ class PagoReservas extends CI_Controller
                         //echo $res;
 
                     }
-
                     //********************* .REGISTRANDO UNA VENTA OBTENIDA DE CALL CENTER *******************
 
                     //************ BLOQUE QUE RENDERIZA LA VISTA MOSTRANDO EL ITINERARIO DEL O LOS PASAJEROS *********
-                    
                     $data['Pasajeros'] = $Itinerary->TravelItinerary->CustomerInfos->CustomerInfo;
                     $data['Itinerarios'] = $Itinerary->TravelItinerary->ItineraryInfo->ReservationItems->Item;
                     $data['ruc'] = (isset($Itinerary->TravelItinerary->Remarks)) ? (string)$Itinerary->TravelItinerary->Remarks->Remark : "";
                     $data['TravelItinerary'] = $Itinerary->TravelItinerary;
                     $data['TotalPagar'] = $Itinerary->TravelItinerary->ItineraryInfo->ItineraryPricing->Cost->attributes()->AmountAfterTax;
                     $data['reserva_id'] = $insert_id_reserva;
+                    
                     $this->template->load('v_pago_reservas', $data);
 
 

@@ -6,7 +6,7 @@ $(function () {
           
           $.ajax({
             type: "POST",
-            url: '/LOCAL_WEB/PasarelaWeb/TicketStarPeru/MostrarTicket',
+            url: '/web_local/PasarelaWeb/TicketStarPeru/MostrarTicket',
             data: 'number_ticket=' + number_ticket,
             success: function (data)
             {

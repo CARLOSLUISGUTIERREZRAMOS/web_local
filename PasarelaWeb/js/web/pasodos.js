@@ -104,6 +104,7 @@ $(function () {
                 desc_data = data_obj_descuento.split('|');
                 var codigo_descuento = desc_data[0];
                 var monto = desc_data[1];
+                var id_descuento = desc_data[2];
                 msg = 'Código aplicado!';
                 tipo_res = 'alert alert-success';
                 var precio_total_establecido = $('.precio_total').text();
@@ -112,11 +113,13 @@ $(function () {
                     $('.precio_total').append("<del>" + precio_total_establecido + "</del>");
                     $('.precio_total').after("<h1 class=\"text-right\"><b>$" + total_pagar_con_desc + "</b></h1>");
                     var html_input_desc = "<input type=\"hidden\" name=\"cod_descuento\" id=\"data_descuento\" value=" + codigo_descuento + ">";
+                    var html_input_iddesc = "<input type=\"hidden\" name=\"id_descuento\" id=\"id_descuento\" value=" + id_descuento + ">";
                     var html_input_porcent_desc = "<input type=\"hidden\" name=\"porcentaje_descuento\" id=\"porcentaje_descuento\" value=" + monto + ">";
                     var html_input_precio_sin_desc = "<input type=\"hidden\" name=\"precio_total_sin_descuento\" id=\"precio_total_sin_descuento\" value=" + precio_total_establecido + ">";
                     $('#TotalAplicaDesc').after(html_input_desc);
                     $('#TotalAplicaDesc').after(html_input_porcent_desc);
                     $('#TotalAplicaDesc').after(html_input_precio_sin_desc);
+                    $('#TotalAplicaDesc').after(html_input_iddesc);
                     descuento_aplicado = true;
                 }
             }

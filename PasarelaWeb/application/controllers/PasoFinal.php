@@ -66,12 +66,12 @@ class PasoFinal extends CI_Controller
             $TramaAirbook = $this->GenerarTramaKiu_MetodoAirBookKiu($matriz_itinerario, $matriz_pax, $xss_post, $TimeLimitTicket);
             $data_procesar = $this->EnviarTramakiuAirBook($TramaAirbook);
 
-          /*   echo "<pre>";
-            var_dump($data_procesar[1]);
-            echo "</pre>";
-            echo "<pre>";
-            var_dump($data_procesar[2]);
-            echo "</pre>"; */
+        //   echo "<pre>";
+        //     var_dump($data_procesar[1]);
+        //     echo "</pre>";
+        //     echo "<pre>";
+        //     var_dump($data_procesar[2]);
+        //     echo "</pre>"; die;
             
             $ResAirBookKiu = $data_procesar[3];
 
@@ -397,7 +397,7 @@ class PasoFinal extends CI_Controller
             'pnr' => $pnr,
             'total_pagar' => $res_tarifa_tax->TOTAL_PAGAR,
             'total' => (isset($_POST['precio_total_sin_descuento']) && !empty($_POST['precio_total_sin_descuento']))?$_POST['precio_total_sin_descuento'] :$res_tarifa_tax->TOTAL_PAGAR,
-            'descuento' => (!empty($xss_post['porcentaje_descuento']) && isset($xss_post['porcentaje_descuento'])) ? $xss_post['porcentaje_descuento'] : "NULL",
+            'descuento_id' => (!empty($xss_post['id_descuento']) && isset($xss_post['id_descuento'])) ? $xss_post['id_descuento'] : NULL,
             'eq' => $res_tarifa_tax->EQ,
             'hw' => $res_tarifa_tax->HW,
             'pe' => $res_tarifa_tax->PE,

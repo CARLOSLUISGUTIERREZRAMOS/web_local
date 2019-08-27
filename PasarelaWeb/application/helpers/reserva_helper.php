@@ -122,3 +122,20 @@ if (!function_exists('GetClase')) {
         return $clase;
     }
 }
+if (!function_exists('ValidarDescuento')) {
+    function ValidarDescuento($cod_origen,$cod_destino,$tipo_viaje,$rutas_set)
+    {
+                $valido = FALSE;
+                $rutas_validas = explode(',',$rutas_set);
+                $ruta_ida = $cod_origen.$cod_destino; // concatenamos las ruta para realizar la comnparacion
+                $res_ida = in_array($ruta_ida,$rutas_validas);
+                $valido = ($res_ida) ? TRUE : FALSE;
+                if($tipo_viaje === 'R')
+                {
+                    $ruta_retorno = $cod_destino.$cod_origen;
+                    $res_retorno = in_array($ruta_retorno,$rutas_validas);
+                    $valido = ($res_retorno) ? TRUE : FALSE;
+                }
+                return $valido;
+    }
+}

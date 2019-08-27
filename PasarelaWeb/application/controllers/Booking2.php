@@ -12,25 +12,21 @@ class Booking2 extends CI_Controller
     {
         parent::__construct();
 
-        $this->load->library('form_validation');
-        $this->load->helper(array('security','itinerario','tiempos','validaciones','reserva'));
-        $this->load->library('kiu/Controller_kiu');
-        $this->load->model('Pais_model');
-        $this->load->model('Descuento_model');
+        $this->load->library(array('form_validation','kiu/Controller_kiu'));
+        $this->load->helper(array('security','itinerario','tiempos','validaciones','reserva','bloqueshtml'));
+        $this->load->model(array('Pais_model','Descuento_model'));
         $this->template->add_js('https://cdn.viajala.com/tracking/conversion.js');
     }
 
     private function ValidarPostInput()
     {
         $this->form_validation->set_rules('grupo_ida', 'El vuelo de ida debe ser seleccionado', 'required|trim|xss_clean');
-        //        $this->form_validation->set_rules('grupo_retorno', 'El vuelo de retorno debe ser seleccionado', 'required|trim|xss_clean');
         $this->form_validation->set_rules('cod_origen', 'El Origen no fue seleccionado', 'min_length[3]|max_length[3]|required|xss_clean');
         $this->form_validation->set_rules('cod_destino', 'El Destino no fue seleccionado', 'min_length[3]|max_length[3]|xss_clean');
         $this->form_validation->set_rules('tipo_viaje', 'Tipo de Viaje', 'required|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_adl', 'Adultos', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_chd', 'Niños', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_inf', 'Bebes', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
-        //        $this->form_validation->set_rules('fecha_ida', 'Fecha de ida', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
         //        $this->form_validation->set_rules('fecha_retorno', 'Fecha de retorno', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
     }
 //llamado desde pasodos.js
@@ -47,7 +43,7 @@ class Booking2 extends CI_Controller
             echo 'FALSE';
         } else {
             //3.2 Enviamos al js la data necesaria para continuar el flujo
-            echo $res_sql_descuento->codigo . '|' . $res_sql_descuento->monto;
+            echo $res_sql_descuento->codigo . '|' . $res_sql_descuento->monto .'|'. $res_sql_descuento->id;
         }
     }
 
@@ -59,7 +55,6 @@ class Booking2 extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             header("Location: https://www.starperu.com");
         } else {
-
             $xss_post = $this->input->post(NULL, TRUE);
             $BoolValCantPax = ValidarCantidadMaxPax($xss_post['cant_adl'], $xss_post['cant_chd'], $xss_post['cant_inf']);
             $res_itinerario = ArmarItinerario($xss_post);
@@ -95,14 +90,14 @@ class Booking2 extends CI_Controller
 
                 $clases_validas = GetClase($xss_post);
                 $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
-                
+                // var_dump($obj_descuento);
                 if(!is_null($obj_descuento)){
-                    $data_cod_desc= $obj_descuento->metodos_pago;
-                    /* echo $data_cod_desc; */
-                    $this->load->helper('bloqueshtml');
-                    $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
-                    /*  var_dump($data['html_desc']);  */
-                    $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
+                    $ruta_valida = ValidarDescuento($data['cod_origen'],$data['cod_destino'],$data['tipo_viaje'],$obj_descuento->ruta);
+                    if($ruta_valida){
+                        $data_cod_desc= $obj_descuento->metodos_pago;
+                        $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
+                        $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
+                    }
                 }
                 // **************.LOGICA APLICAR CODIGO DESCUENTO **************
 

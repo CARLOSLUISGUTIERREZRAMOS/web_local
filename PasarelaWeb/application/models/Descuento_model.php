@@ -14,7 +14,8 @@ class Descuento_model extends CI_Model
         $this->db_web->from('descuento');
         $this->db_web->where("CURDATE() BETWEEN fecha_inicio AND fecha_fin",false,false);
         $this->db_web->where("estado_web",'Y');
-        
+        $res = $this->db_web->get()->row();
+        return $res;
         $cadena_forma_querysetruta = '';
         
         $cadena_forma_querysetruta .= $origen.$destino;
@@ -32,7 +33,7 @@ class Descuento_model extends CI_Model
     }
 
     public function GetDataCodigoDescuento($codigo_descuento_ingresado){
-        $this->db_web->select("monto,codigo");
+        $this->db_web->select("monto,id,codigo");
         $this->db_web->from('descuento');
         $this->db_web->where("CURDATE() BETWEEN fecha_inicio AND fecha_fin",false,false);
         $this->db_web->where("codigo",$codigo_descuento_ingresado);

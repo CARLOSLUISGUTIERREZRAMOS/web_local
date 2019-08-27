@@ -12,25 +12,21 @@ class Booking2 extends CI_Controller
     {
         parent::__construct();
 
-        $this->load->library('form_validation');
+        $this->load->library(array('form_validation','kiu/Controller_kiu'));
         $this->load->helper(array('security','itinerario','tiempos','validaciones','reserva','bloqueshtml'));
-        $this->load->library('kiu/Controller_kiu');
-        $this->load->model('Pais_model');
-        $this->load->model('Descuento_model');
+        $this->load->model(array('Pais_model','Descuento_model'));
         $this->template->add_js('https://cdn.viajala.com/tracking/conversion.js');
     }
 
     private function ValidarPostInput()
     {
         $this->form_validation->set_rules('grupo_ida', 'El vuelo de ida debe ser seleccionado', 'required|trim|xss_clean');
-        //        $this->form_validation->set_rules('grupo_retorno', 'El vuelo de retorno debe ser seleccionado', 'required|trim|xss_clean');
         $this->form_validation->set_rules('cod_origen', 'El Origen no fue seleccionado', 'min_length[3]|max_length[3]|required|xss_clean');
         $this->form_validation->set_rules('cod_destino', 'El Destino no fue seleccionado', 'min_length[3]|max_length[3]|xss_clean');
         $this->form_validation->set_rules('tipo_viaje', 'Tipo de Viaje', 'required|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_adl', 'Adultos', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_chd', 'Niños', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
         $this->form_validation->set_rules('cant_inf', 'Bebes', 'required|integer|trim|min_length[1]|max_length[1]|xss_clean');
-        //        $this->form_validation->set_rules('fecha_ida', 'Fecha de ida', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
         //        $this->form_validation->set_rules('fecha_retorno', 'Fecha de retorno', array('regex_match[/^((0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d)$/]', 'min_length[10]', 'max_length[10]', 'required'));
     }
 //llamado desde pasodos.js
@@ -78,28 +74,14 @@ class Booking2 extends CI_Controller
                 // ************* LOGICA APLICAR CODIGO DESCUENTO ***************
 
                 $clases_validas = GetClase($xss_post);
-                $num_vuelos = GetNumeroVuelo($xss_post);
-                
                 $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
-                $aerolinea_valida_cod_desc = ValidarAerolineaDescuento($xss_post['tipo_viaje'],$num_vuelos,$obj_descuento->aerolinea);
-
-                // if($this->dispositivo_movil && $this->ProcesaLogicaMovil()){
-               /*  if($this->dispositivo_movil){
-                    //Validamos si existe algo que hacer con la entrada movil.
-                    $res_info_movil = $this->ProcesaLogicaMovil();
-                    if($res_info_movil['isset'] != FALSE){
-                        $data = $res_info_movil['data'];
-                        var_dump($data);
-                    }
-                } */
-
-                if(!is_null($obj_descuento) && $aerolinea_valida_cod_desc){
-
+                // var_dump($obj_descuento);
+                if(!is_null($obj_descuento)){
                     $ruta_valida = ValidarDescuento($data['cod_origen'],$data['cod_destino'],$data['tipo_viaje'],$obj_descuento->ruta);
-                    
                     if($ruta_valida){
-                        $data['html_desc'] = ArmarBloqueCodigoDescuento($obj_descuento->metodos_pago);
-                        $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu, $obj_descuento);
+                        $data_cod_desc= $obj_descuento->metodos_pago;
+                        $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
+                        $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
                     }
                 }
                 // **************.LOGICA APLICAR CODIGO DESCUENTO **************

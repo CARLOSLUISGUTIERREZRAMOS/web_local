@@ -46,6 +46,14 @@ class PasoFinal extends CI_Controller
             $matriz_pax = $this->RPH($xss_post);
             $TimeLimitTicket = $this->CalcularTiempoLimiteTicket($FechaHoraSalida);
             $TramaAirbook = $this->GenerarTramaKiu_MetodoAirBookKiu($matriz_itinerario, $matriz_pax, $xss_post, $TimeLimitTicket);
+            $data_procesar = $this->EnviarTramakiuAirBook($TramaAirbook);
+
+        //   echo "<pre>";
+        //     var_dump($data_procesar[1]);
+        //     echo "</pre>";
+        //     echo "<pre>";
+        //     var_dump($data_procesar[2]);
+        //     echo "</pre>"; die;
             
             $data_procesar = $this->EnviarTramakiuAirBook($TramaAirbook);
             $ResAirBookKiu = $data_procesar[3];

@@ -132,6 +132,20 @@ if (!function_exists('RestarSumarFecha')) {
     }
 }
 
+if (!function_exists('RestarSumarFechaIso')) {
+    /*
+     * @Fecha_Ymd => Parametro tipo string con formato d/m/y, fecha de salida elegida por el pasajeto
+     * @Dias => Cantidad de dias a aumentar o restar.
+     */
+
+    function RestarSumarFechaIso($Fecha_Ymd, $Dias)
+    {
+        //        return fecha_iso_8601($Fecha_Ymd);
+        $FechaUnixOperado = strtotime("$Dias day", strtotime(fecha_iso_8601($Fecha_Ymd)));
+        return strftime("%Y-%m-%d", $FechaUnixOperado);
+    }
+}
+
 if (!function_exists('SumarRestarHoras')) {
 
     function SumarRestarHoras($operador, $fecha, $hora)

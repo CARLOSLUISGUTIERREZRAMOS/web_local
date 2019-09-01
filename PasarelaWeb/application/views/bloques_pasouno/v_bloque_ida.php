@@ -10,13 +10,13 @@
             <div class="parentdiv">
                 <div class="row no-gutters fechas" id="from">
                     <label id="<?= $tipo_viaje ?>"></label>
-                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '-3'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '-3') ?>"><i class="fa fa-fw fa-calendar"></i>  <small><?= FechaOperaLetras_ES($date_from, '-3') ?></small></a></div>
-                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '-2'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '-2') ?>"><i class="fa fa-fw fa-calendar"></i>  <small><?= FechaOperaLetras_ES($date_from, '-2') ?></small></a></div>
-                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '-1'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '-1') ?>"><i class="fa fa-fw fa-calendar"></i>  <small><?= FechaOperaLetras_ES($date_from, '-1') ?></small></a></div>
+                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '-3'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '-3') ?>"><?= $tarifaMenorDiasAntesTresI?>$<small><?= FechaOperaLetras_ES($date_from, '-3') ?></small></a></div>
+                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '-2'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '-2') ?>"><?= $tarifaMenorDiasAntesDosI?>$<small><?= FechaOperaLetras_ES($date_from, '-2') ?></small></a></div>
+                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '-1'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '-1') ?>"><?= $tarifaMenorDiasAntesUnoI?>$<small><?= FechaOperaLetras_ES($date_from, '-1') ?></small></a></div>
                     <div class="col"><a href="#" class="dias active"><?= $tarifa_menor ?>$ <small><?= FechaLetras_ES($date_from, 'short') ?></small></a></div>
-                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '+1'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '+1') ?>"><i class="fa fa-fw fa-calendar"></i><small><?= FechaOperaLetras_ES($date_from, '+1') ?></small></a></div>
-                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '+2'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '+2') ?>"><i class="fa fa-fw fa-calendar"></i>  <small><?= FechaOperaLetras_ES($date_from, '+2') ?></small></a></div>
-                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '+3'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '+3') ?>"><i class="fa fa-fw fa-calendar"></i> <small><?= FechaOperaLetras_ES($date_from, '+3') ?></small></a></div>
+                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '+2'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '+1') ?>"><?= $tarifaMenorDiasDespuesUnoI?>$  <small><?= FechaOperaLetras_ES($date_from, '+1') ?></small></a></div>
+                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '+1'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '+2') ?>"><?= $tarifaMenorDiasDespuesDosI?>$<small><?= FechaOperaLetras_ES($date_from, '+2') ?></small></a></div>
+                    <div class="col"><a href="#" class="dias dias_calculo <?= ValidarFechaIda(RestarSumarFecha($date_from, '+3'), $date_to, $tipo_viaje) ?>" id="<?= RestarSumarFecha($date_from, '+3') ?>"><?= $tarifaMenorDiasDespuesTresI?>$ <small><?= FechaOperaLetras_ES($date_from, '+3') ?></small></a></div>
                 </div>
             </div>
 
@@ -63,7 +63,7 @@
                                                         ?>
                                                         <td>
                                                             <div class="form-check-nopacks">
-
+                                                                
                                                             </div>
                                                         </td>
                                                         <?php

@@ -31,4 +31,15 @@ class Ruta_model extends CI_Model {
         
     }
 
+    public function GetIdRuta($codOrigen,$codDestino){
+
+        $this->db_web->select('id');
+        $this->db_web->from('ruta');
+        $this->db_web->where('ciudad_origen_codigo', $codOrigen);
+        $this->db_web->where('ciudad_destino_codigo', $codDestino);
+        
+        return $this->db_web->get()->row()->id;
+
+    }
+
 }

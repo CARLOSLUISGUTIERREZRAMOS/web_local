@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 class Controller_kiu {
 
-    protected $Model_kiu;
+    protected $Model_kiu; 
 
     function Controller_kiu() {
         $this->CI = &get_instance();

@@ -5,6 +5,7 @@
             <div class="accordion" id="accordionStar2">
                 <?php
                 if ($tipo_viaje === "O") {
+                    
                     $this->load->view('bloques_pasouno/v_bloque_ida', $data_ida);
                 } else if ($tipo_viaje === "R") {
                     $this->load->view('bloques_pasouno/v_bloque_ida', $data_ida);

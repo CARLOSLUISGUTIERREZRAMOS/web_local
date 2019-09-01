@@ -50,6 +50,8 @@ class Booking2 extends CI_Controller
     public function index()
     {
 
+
+        
         $this->template->add_js('js/web/pasodos.js?1.5.0'); //?1.0.0  -> Para no cachear 
         $this->ValidarPostInput();
         if ($this->form_validation->run() == FALSE) {
@@ -60,6 +62,7 @@ class Booking2 extends CI_Controller
             $res_itinerario = ArmarItinerario($xss_post);
             $trama = $this->ArmaTramaWsKiu($res_itinerario, $xss_post['cant_adl'], $xss_post['cant_chd'], $xss_post['cant_inf']);
             $rs_kiu = $this->EnviarTramakiu($trama);
+            
             $rs_kiu = $rs_kiu[3];
             if (isset($rs_kiu->Error)) {
                 $data['codigo_error'] = $rs_kiu->Error->ErrorCode;
@@ -67,23 +70,25 @@ class Booking2 extends CI_Controller
                 $this->load->view('templates/v_error_controller', $data);
             } else {
                 $data = $this->ProcesarXmlKiu($rs_kiu);
+                
                 $data = FormarArrayVistaBooking2($xss_post,$data);
+                // var_dump($data);die;
                 $data['paises'] = $this->Pais_model->GetDataPais('id,nombre_pais');
                 $data['cod_ddi_paises'] = $this->Pais_model->GetDataPais('codigo_pais,ddi');
 
                 // ************* LOGICA APLICAR CODIGO DESCUENTO ***************
 
-                $clases_validas = GetClase($xss_post);
-                $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
-                // var_dump($obj_descuento);
-                if(!is_null($obj_descuento)){
-                    $ruta_valida = ValidarDescuento($data['cod_origen'],$data['cod_destino'],$data['tipo_viaje'],$obj_descuento->ruta);
-                    if($ruta_valida){
-                        $data_cod_desc= $obj_descuento->metodos_pago;
-                        $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
-                        $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
-                    }
-                }
+                // $clases_validas = GetClase($xss_post);
+                // $obj_descuento = $this->Descuento_model->GetMontoDescuento($xss_post['tipo_viaje'],$xss_post['cod_origen'],$xss_post['cod_destino'],$clases_validas);
+                // // var_dump($obj_descuento);
+                // if(!is_null($obj_descuento)){
+                //     $ruta_valida = ValidarDescuento($data['cod_origen'],$data['cod_destino'],$data['tipo_viaje'],$obj_descuento->ruta);
+                //     if($ruta_valida){
+                //         $data_cod_desc= $obj_descuento->metodos_pago;
+                //         $data['html_desc'] = ArmarBloqueCodigoDescuento($data_cod_desc);
+                //         $data['TotalAplicaDesc'] = $this->OperarDescuento($rs_kiu[3], $obj_descuento);
+                //     }
+                // }
                 // **************.LOGICA APLICAR CODIGO DESCUENTO **************
 
                 $this->template->load('v_pasodos', $data);

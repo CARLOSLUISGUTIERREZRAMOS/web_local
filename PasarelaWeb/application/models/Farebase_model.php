@@ -44,14 +44,14 @@ class Farebase_model extends CI_Model {
         $this->db_web->order_by('total', 'ASC');
         // $this->db_web->get();
         return $this->db_web->get()->row()->total;
-        return $this->db_web->last_query();
+        // return $this->db_web->last_query();
         // $this->db_web->get();
          
 
         
     }
 
-    public function GetTarifas($cod_origen, $cod_destino, $xss_post, $pais, $estadia_dias = NULL, $NumDiaSem = NULL, $tramo) {
+    public function GetTarifas($cod_origen, $cod_destino, $xss_post, $pais, $estadia_dias = NULL, $NumDiaSem = NULL, $tramo,$clases) {
         $date_filtro = ($tramo === 'IDA') ? fecha_iso_8601($xss_post['date_from']) : fecha_iso_8601($xss_post['date_to']);
         $fecha_hoy = (new DateTime())->format('Y-m-d');
         // $this->db_web->select('clase.codigo AS clase,familia.nombre AS familia,tarifa_adt as tarifa');
@@ -65,6 +65,8 @@ class Farebase_model extends CI_Model {
         $this->db_web->join('familia', 'clase.familia_codigo = familia.codigo');
         $this->db_web->where('ruta.ciudad_origen_codigo', $cod_origen);
         $this->db_web->where('ruta.ciudad_destino_codigo', $cod_destino);
+        $this->db_web->where_in('farebase.clase_codigo', $clases);
+        
         if ($xss_post['tipo_viaje'] === 'O') {
             if (($cod_origen === 'LIM' && $cod_destino === 'CUZ') || ($cod_origen === 'CUZ' && $cod_destino === 'LIM')) {
                 $this->db_web->where('farebase.tipo_viaje', $xss_post['tipo_viaje']);
@@ -96,7 +98,7 @@ class Farebase_model extends CI_Model {
         // $this->db_web->group_by('familia');
         // $this->db_web->order_by('tarifa', 'ASC');
         $res_query = $this->db_web->get();
-    //    return $this->db_web->last_query();
+    //    return $this->db_web->last_query();   
         return $res_query;
     }
 

@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Booking1 extends CI_Controller
 {
-
+    
     protected $QueryDB;
     protected $origen;
     protected $destino;
@@ -20,6 +20,7 @@ class Booking1 extends CI_Controller
         parent::__construct(); // you have missed this line.
         $this->load->helper(array("validaciones_helper", "aeropuertos", "ciudades", "security", "tiempos"));
         $this->load->library(array("Geolocalizacion/geolocalizacion", "form_validation", "kiu/Controller_kiu"));
+        // $this->load->library(array("Geolocalizacion/geolocalizacion", "kiu/Controller_kiu"));
         $this->load->model(array("Ruta_model", "Ciudad_model", "Farebase_model"));
         $this->template->add_js('https://cdn.viajala.com/tracking/conversion.js');
         $this->template->add_js('js/web/pasouno.js');
@@ -80,6 +81,11 @@ class Booking1 extends CI_Controller
 
             $tarifaMenor['un_dia_antes']             =   $this->GetTarifasMenoresDias($fecIda, $fecRet, $ciuOrigen, $ciuDestino,
                                                                          $tipoViaje,$cantAdt, $cantChd, $cantInf, '-1');
+            // echo "<pre>";
+            // var_dump($tarifaMenor);
+            // echo "</pre>";
+            // die;                                                                    
+
             $tarifaMenor['dos_dias_antes']           =   $this->GetTarifasMenoresDias($fecIda, $fecRet, $ciuOrigen, $ciuDestino,
                                                                          $tipoViaje,$cantAdt, $cantChd, $cantInf, '-2');
             $tarifaMenor['tres_dias_antes']          =   $this->GetTarifasMenoresDias($fecIda, $fecRet, $ciuOrigen, $ciuDestino,
@@ -121,8 +127,11 @@ class Booking1 extends CI_Controller
                                                                                                     $ciuOrigen, $ciuDestino, 
                                                                                                     $tipoViaje, $cantAdt, 
                                                                                                     $cantChd, $cantInf);
+
+                                                                                                    
             $rsAvailObj                 =               $rsAvailObj[3];
-           
+        
+        //    return $rsAvailObj;
             $i = 0;
             $tarifa_menor = [];
             $clases                     =               [];
@@ -151,6 +160,7 @@ class Booking1 extends CI_Controller
                 }
                 
                 $tarifa_menor["$tramo"] = $this->Farebase_model->GetTarifaMenor($clases["$tramo"], $idRuta, $fecMenosUnDia, $estadia_dias);
+                // $tarifa_menor["$tramo"] = $clases;
                 $i++;
             }
             // return count($rsAvailObj->OriginDestinationInformation);
@@ -325,7 +335,22 @@ class Booking1 extends CI_Controller
         $cantidad_pax = $this->GetCantidadTotalPax($xss_post);
         //        echo $cantidad_pax;die;
         //        
-        //        
+        $clases = [];
+        foreach ($XmlKiu->OriginDestinationOptions as $OriginDestinationOptions) { //BUCLE 2
+            foreach ($OriginDestinationOptions->OriginDestinationOption as $OriginDestinationOption) {
+        foreach ($OriginDestinationOption->FlightSegment as $Flight) {
+            foreach ($Flight->BookingClassAvail as $dataVuelo) {
+                 if((string)$dataVuelo->attributes()->ResBookDesigQuantity !== 'R'){
+                     $data = (string) $dataVuelo->attributes()->ResBookDesigCode;
+                     if (!in_array($data, $clases["$tramo"])) {
+                         $clases["$tramo"][] = $data;
+                     }
+                 }
+            }
+        }}}
+
+        var_dump($clases);die;
+
         //        foreach ($XmlKiu->OriginDestinationInformation as $OriginDestinationInformation) { //BUCLE 1 | PRINCIPAL
         $OriginLocation = $cod_origen;
         $DestinationLocation = $cod_destino;

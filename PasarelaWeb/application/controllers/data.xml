@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><KIU_AirAvailRS EchoToken="1" TimeStamp="2019-09-02T03:13:17+00:00" Target="Testing" Version="3.0" SequenceNmbr="1">
+	<Success/>
+	<OriginDestinationInformation>
+		<DepartureDateTime>2019-09-15</DepartureDateTime>
+		<OriginLocation>LIM</OriginLocation>
+		<DestinationLocation>IQT</DestinationLocation>
+		<OriginDestinationOptions>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-15 06:20:00" ArrivalDateTime="2019-09-15 08:10:00" StopQuantity="0" FlightNumber="120" JourneyDuration="01:50:00">
+					<DepartureAirport LocationCode="LIM"/>
+					<ArrivalAirport LocationCode="IQT"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="S"/>
+					<OperatingCarrier Code="P9" FlightNumber="" CompanyShortName=""/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="R" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="A" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="D" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="B" ResBookDesigQuantity="4" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="E" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="M" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Z" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="2" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-15 07:15:00" ArrivalDateTime="2019-09-15 09:55:00" StopQuantity="1" FlightNumber="3217" JourneyDuration="02:40:00">
+					<DepartureAirport LocationCode="LIM"/>
+					<ArrivalAirport LocationCode="IQT"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="N"/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="I" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="G" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="U" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="O" ResBookDesigQuantity="2" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="R" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="A" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="D" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="B" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="7" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="E" ResBookDesigQuantity="5" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="M" ResBookDesigQuantity="5" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Z" ResBookDesigQuantity="5" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="3" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-15 15:15:00" ArrivalDateTime="2019-09-15 17:25:00" StopQuantity="1" FlightNumber="3115" JourneyDuration="02:10:00">
+					<DepartureAirport LocationCode="LIM"/>
+					<ArrivalAirport LocationCode="IQT"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="N"/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="I" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="U" ResBookDesigQuantity="9" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-15 18:00:00" ArrivalDateTime="2019-09-15 19:45:00" StopQuantity="0" FlightNumber="122" JourneyDuration="01:45:00">
+					<DepartureAirport LocationCode="LIM"/>
+					<ArrivalAirport LocationCode="IQT"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="S"/>
+					<OperatingCarrier Code="P9" FlightNumber="" CompanyShortName=""/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="R" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="A" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="D" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="B" ResBookDesigQuantity="4" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="E" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="M" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Z" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="2" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+		</OriginDestinationOptions>
+	</OriginDestinationInformation>
+	<OriginDestinationInformation>
+		<DepartureDateTime>2019-09-30</DepartureDateTime>
+		<OriginLocation>IQT</OriginLocation>
+		<DestinationLocation>LIM</DestinationLocation>
+		<OriginDestinationOptions>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-30 08:40:00" ArrivalDateTime="2019-09-30 10:30:00" StopQuantity="0" FlightNumber="121" JourneyDuration="01:50:00">
+					<DepartureAirport LocationCode="IQT"/>
+					<ArrivalAirport LocationCode="LIM"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="S"/>
+					<OperatingCarrier Code="P9" FlightNumber="" CompanyShortName=""/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="R" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="A" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="D" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="B" ResBookDesigQuantity="4" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="E" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="M" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Z" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="2" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="P" ResBookDesigQuantity="2" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-30 10:35:00" ArrivalDateTime="2019-09-30 13:15:00" StopQuantity="1" FlightNumber="3218" JourneyDuration="02:40:00">
+					<DepartureAirport LocationCode="IQT"/>
+					<ArrivalAirport LocationCode="LIM"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="N"/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="I" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="G" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="S" ResBookDesigQuantity="4" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="U" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="O" ResBookDesigQuantity="2" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="R" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="A" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="D" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="B" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="7" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="E" ResBookDesigQuantity="5" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="M" ResBookDesigQuantity="5" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Z" ResBookDesigQuantity="5" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="3" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="P" ResBookDesigQuantity="3" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-30 16:55:00" ArrivalDateTime="2019-09-30 20:00:00" StopQuantity="1" FlightNumber="3116" JourneyDuration="03:05:00">
+					<DepartureAirport LocationCode="IQT"/>
+					<ArrivalAirport LocationCode="LIM"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="N"/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="G" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="I" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="R" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="U" ResBookDesigQuantity="R" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+			<OriginDestinationOption>
+				<FlightSegment DepartureDateTime="2019-09-30 20:15:00" ArrivalDateTime="2019-09-30 21:59:00" StopQuantity="0" FlightNumber="123" JourneyDuration="01:44:00">
+					<DepartureAirport LocationCode="IQT"/>
+					<ArrivalAirport LocationCode="LIM"/>
+					<Equipment AirEquipType="737" />
+					<MarketingAirline CompanyShortName="2I"/>
+					<Meal MealCode="S"/>
+					<OperatingCarrier Code="P9" FlightNumber="" CompanyShortName=""/>
+					<MarketingCabin CabinType="Economy" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Y" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="K" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="L" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="N" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="V" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="R" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="A" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="D" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="B" ResBookDesigQuantity="4" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="X" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="W" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Q" ResBookDesigQuantity="9" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="E" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="M" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="Z" ResBookDesigQuantity="1" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="J" ResBookDesigQuantity="2" RPH="1"/>
+					<BookingClassAvail ResBookDesigCode="P" ResBookDesigQuantity="2" RPH="1"/>
+				</FlightSegment>
+			</OriginDestinationOption>
+		</OriginDestinationOptions>
+	</OriginDestinationInformation>
+</KIU_AirAvailRS>

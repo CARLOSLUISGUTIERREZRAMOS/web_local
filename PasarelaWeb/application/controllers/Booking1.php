@@ -127,7 +127,7 @@ class Booking1 extends CI_Controller
                                                                                                     $ciuOrigen, $ciuDestino, 
                                                                                                     $tipoViaje, $cantAdt, 
                                                                                                     $cantChd, $cantInf);
-
+            $cantPax = (int)$cantAdt + (int)$cantChd + (int)$cantInf;
                                                                                                     
             $rsAvailObj                 =               $rsAvailObj[3];
         
@@ -149,7 +149,7 @@ class Booking1 extends CI_Controller
                 foreach ($OriginDestinationInformation->OriginDestinationOptions->OriginDestinationOption as $OriginDestinationOption) {
                     foreach ($OriginDestinationOption as $Flight) {
                         foreach ($Flight->BookingClassAvail as $dataVuelo) {
-                             if((string)$dataVuelo->attributes()->ResBookDesigQuantity !== 'R'){
+                             if((string)$dataVuelo->attributes()->ResBookDesigQuantity !== 'R' && (int)$dataVuelo->attributes()->ResBookDesigQuantity >= $cantPax){
                                  $data = (string) $dataVuelo->attributes()->ResBookDesigCode;
                                  if (!in_array($data, $clases["$tramo"])) {
                                      $clases["$tramo"][] = $data;
@@ -333,44 +333,17 @@ class Booking1 extends CI_Controller
         $data = array();
         $i = 0;  // IDA 
         $cantidad_pax = $this->GetCantidadTotalPax($xss_post);
-        //        echo $cantidad_pax;die;
-        //        
-        $clases = [];
-        foreach ($XmlKiu->OriginDestinationOptions as $OriginDestinationOptions) { //BUCLE 2
-            foreach ($OriginDestinationOptions->OriginDestinationOption as $OriginDestinationOption) {
-        foreach ($OriginDestinationOption->FlightSegment as $Flight) {
-            foreach ($Flight->BookingClassAvail as $dataVuelo) {
-                 if((string)$dataVuelo->attributes()->ResBookDesigQuantity !== 'R'){
-                     $data = (string) $dataVuelo->attributes()->ResBookDesigCode;
-                     if (!in_array($data, $clases["$tramo"])) {
-                         $clases["$tramo"][] = $data;
-                     }
-                 }
-            }
-        }}}
-
-        var_dump($clases);die;
-
-        //        foreach ($XmlKiu->OriginDestinationInformation as $OriginDestinationInformation) { //BUCLE 1 | PRINCIPAL
+        
         $OriginLocation = $cod_origen;
         $DestinationLocation = $cod_destino;
         $res_farebase_model = $this->Farebase_model->GetTarifas($OriginLocation, $DestinationLocation, $xss_post, $pais, $estadia_dias, $NumDiaSem, $tramo);
-        // echo $res_farebase_model;die;
-        //        echo $res_farebase_model;die;
-        //        return $res_farebase_model;
-        //        echo $res_farebase_model;die;
         foreach ($XmlKiu->OriginDestinationOptions as $OriginDestinationOptions) { //BUCLE 2
             foreach ($OriginDestinationOptions->OriginDestinationOption as $OriginDestinationOption) {
                 $hora_salida = (new DateTime($OriginDestinationOption->FlightSegment->attributes()->DepartureDateTime))->format('Y-m-d H:i:s');
-                //                $TiempoCompraValido = CalcularDiferenciaDiaHoraVuelo($hora_salida);
 
                 $format_date_iso = 'Y-m-d H:i:s';
                 $hora_sistema = (new DateTime())->format($format_date_iso);
                 $TiempoCompraValido = diferencia_hora_vuelo_kiu($hora_salida, $hora_sistema);
-
-                //                echo "<pre>";
-                //                var_dump($TiempoCompraValido);
-                //                echo "</pre>";
 
                 if ($TiempoCompraValido > 180) {
                     foreach ($OriginDestinationOption->FlightSegment as $FlightSegment) {
